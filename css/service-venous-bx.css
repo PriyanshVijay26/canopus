@@ -1,0 +1,59 @@
+/* Venous BX Service Page - Image Backgrounds */
+
+/* Feature Card Styling */
+.service-feature-card h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.service-feature-card h3 span {
+    display: block;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.service-image-1 {
+    background:
+        radial-gradient(circle at 72% 40%, rgba(75, 173, 49, 0.95) 0 22%, transparent 24%),
+        radial-gradient(circle at 42% 60%, rgba(103, 195, 75, 0.9) 0 17%, transparent 19%),
+        linear-gradient(160deg, #dad4e3 0%, #c8bfd4 48%, #f5d8ca 100%);
+}
+
+.service-image-2 {
+    background:
+        radial-gradient(circle at 62% 62%, rgba(13, 93, 183, 0.44) 0 20%, transparent 22%),
+        radial-gradient(circle at 48% 56%, rgba(255, 111, 72, 0.5) 0 11%, transparent 13%),
+        linear-gradient(145deg, #e7ecef 0%, #d6dde2 45%, #96a8ba 100%);
+}
+
+.service-image-3 {
+    background:
+        radial-gradient(circle at 44% 62%, rgba(151, 208, 108, 0.45) 0 17%, transparent 19%),
+        radial-gradient(circle at 70% 38%, rgba(171, 188, 218, 0.38) 0 18%, transparent 20%),
+        linear-gradient(145deg, #454a50 0%, #2f343a 46%, #6a6257 100%);
+}
+
+.service-feature-icon-1 {
+    background:
+        linear-gradient(0deg, transparent 76%, #0f4b97 76% 78%, transparent 78%),
+        radial-gradient(circle at 50% 70%, rgba(15, 75, 151, 0.95) 0 8%, transparent 8.5%),
+        linear-gradient(145deg, #f4f7fb, #e6edf8);
+}
+
+.service-feature-icon-2 {
+    background:
+        radial-gradient(circle at 50% 57%, rgba(19, 76, 152, 0.86) 0 11%, transparent 11.5%),
+        radial-gradient(circle at 30% 38%, rgba(19, 76, 152, 0.86) 0 8%, transparent 8.5%),
+        radial-gradient(circle at 70% 38%, rgba(19, 76, 152, 0.86) 0 8%, transparent 8.5%),
+        linear-gradient(145deg, #f4f7fb, #e6edf8);
+}
+
+.service-feature-icon-3 {
+    background:
+        linear-gradient(12deg, transparent 64%, rgba(15, 75, 151, 0.96) 64% 70%, transparent 70%),
+        linear-gradient(90deg, transparent 26%, rgba(15, 75, 151, 0.9) 26% 35%, transparent 35% 42%, rgba(15, 75, 151, 0.9) 42% 52%, transparent 52% 59%, rgba(15, 75, 151, 0.9) 59% 68%, transparent 68%),
+        linear-gradient(145deg, #f4f7fb, #e6edf8);
+}
+

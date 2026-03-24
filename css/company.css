@@ -1,0 +1,157 @@
+/* Company Profile Styles */
+
+.company-page {
+    position: relative;
+    padding-bottom: 80px;
+    background-color: #f8f9fa; /* slightly off-white match the screenshot */
+}
+
+.company-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: url('../images/company-bg-placeholder.png') center top / cover no-repeat;
+    opacity: 0.1; /* Placeholders for now */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.company-content-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.company-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a233a;
+    margin-bottom: 60px;
+    letter-spacing: 0.05em;
+}
+
+/* MAP Area */
+.company-map-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.company-map-placeholder span {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2b3d4f;
+    letter-spacing: 0.05em;
+}
+
+/* Info Table */
+.company-info-table {
+    margin-bottom: 60px;
+    border-top: 1px solid #7f8b99;
+}
+
+.company-dl {
+    width: 100%;
+}
+
+.company-dl-row {
+    display: flex;
+    border-bottom: 1px solid #7f8b99;
+    padding: 18px 0;
+}
+
+.company-dl-row:last-child {
+    border-bottom: 1px solid #7f8b99;
+}
+
+.company-dl-row dt {
+    width: 25%;
+    font-weight: 700;
+    color: #333;
+    font-size: 16px;
+    padding-right: 20px;
+}
+
+.company-dl-row dd {
+    width: 75%;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Branch Offices */
+.office-block {
+    margin-bottom: 30px;
+}
+
+.office-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #7f8b99;
+    padding-bottom: 8px;
+}
+
+.office-address {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.office-address a {
+    color: #555;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+
+
+/* Helpers */
+.sp-slash {
+    display: none;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .company-content-inner {
+        padding: 40px 15px;
+    }
+
+    .company-dl-row {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .company-dl-row dt {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .company-dl-row dd {
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .office-address {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    .sp-slash {
+        display: inline;
+    }
+    
+    .pc-br {
+        display: none;
+    }
+}

@@ -1,0 +1,1448 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    min-height: 700px;
+    background: var(--primary);
+    position: relative;
+    padding-bottom: 0px;
+    /* Removed padding to let image touch next section */
+}
+
+.case-section,
+.feature-section,
+.news-section,
+.column-section {
+    background-color: #F8FAFC !important;
+}
+
+.news-section,
+.column-section {
+    padding-top: var(--dt-section-gap);
+    padding-bottom: var(--dt-section-gap);
+}
+
+.hero-left {
+    position: relative;
+    padding: 64px 52px 40px;
+}
+
+.hero-left::after {
+    display: none;
+    /* Removing the old pseudo-slant in favor of clip-path on image */
+}
+
+.hero-kicker {
+    display: inline-block;
+    color: #95b4f3;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    margin-bottom: 28px;
+    text-shadow: 0 0 10px rgba(149, 180, 243, 0.4);
+}
+
+.hero h1 {
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.35;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.hero-sub {
+    font-size: 30px;
+    color: var(--ink-dim);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.hero-card {
+    position: absolute;
+    left: 52px;
+    bottom: 24px;
+    z-index: 10;
+    width: 720px;
+    /* Reduced width for a more compact look */
+    background: #D6EFF4;
+    /* New requested background color */
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    /* Optimized image-to-content ratio */
+    padding: var(--dt-card-padding);
+    gap: var(--dt-card-padding);
+    box-shadow: 0 40px 80px rgba(0, 52, 138, 0.12);
+}
+
+.card-image {
+    border-radius: 4px;
+    background-image: url('../images/gomikan-thumb.jpeg');
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+    min-height: 130px;
+}
+
+.card-content {
+    color: #1f2f45;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card-icon-gk {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(5deg);
+    /* Slight tilt matches Figma better */
+}
+
+.card-icon-gk img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.card-content h2 {
+    font-size: 38px;
+    margin-bottom: 0;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.card-content .card-sub-text {
+    font-size: 18px;
+    /* Larger as per Figma */
+    margin-bottom: 24px;
+    line-height: 1.6;
+    font-weight: 700;
+    color: #1a2b44;
+}
+
+/* Strict 2-line grouping for desktop */
+.card-sub-text .line:nth-child(1),
+.card-sub-text .line:nth-child(2) {
+    display: inline;
+}
+
+.card-sub-text .line:nth-child(2)::after {
+    content: "\A";
+    white-space: pre;
+}
+
+.card-sub-text .line:nth-child(3),
+.card-sub-text .line:nth-child(4) {
+    display: inline;
+}
+
+.card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFD400;
+    color: #1a2b44;
+    padding: 0 24px;
+    height: 84px;
+    /* Slightly shorter for density */
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: var(--dt-btn-width);
+    /* Reduced width */
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(255, 212, 0, 0.3);
+}
+
+.btn-text-wrap {
+    display: flex;
+    flex-direction: column;
+    /* Back to 2 lines on desktop too */
+    align-items: center;
+    flex: 1;
+    line-height: 1.1;
+}
+
+.btn-note {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.btn-main {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+/* Desktop Watermark Style */
+.btn-watermark {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #2D3A3A;
+    /* Updated color as requested */
+    transform: rotate(12deg);
+    white-space: nowrap;
+    opacity: 0;
+    /* Default hidden */
+}
+
+/* Show watermark when the container is desktop-sized */
+@media (min-width: 901px) {
+    .btn-watermark {
+        opacity: 1;
+    }
+}
+
+.card-btn:hover {
+    background: #ffcc00;
+    transform: translateY(-2px);
+}
+
+.btn-text {
+    flex: 1;
+    font-size: 18px;
+}
+
+.btn-arrow {
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #212121;
+    border-right: 2px solid #212121;
+    transform: rotate(45deg);
+    margin-left: 10px;
+}
+
+.hero-right {
+    position: relative;
+    background-image: url('../images/hero-main.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 700px;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+    margin-left: -12%;
+    width: 112%;
+}
+
+
+.mission {
+    position: relative;
+    padding: 120px 0;
+    text-align: center;
+    background-image: url('../images/mission-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.mission::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 52, 138, 0.88), rgba(0, 20, 60, 0.96));
+    z-index: 1;
+}
+
+.mission-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mission-lead {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.mission h2 {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+.mission-sep {
+    font-size: 32px;
+    font-weight: 300;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+.mission-sub {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.mission-copy {
+    font-size: 19px;
+    line-height: 1.85;
+    margin-bottom: 48px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 500;
+    color: #e6eeff;
+}
+
+.mission-btn {
+    display: inline-block;
+    padding: 12px 42px;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.mission-btn:hover {
+    background: #fff;
+    color: #002868;
+}
+
+.surface {
+    background: #e6e9ef;
+    color: #1f2a3c;
+    padding: 76px 0;
+}
+
+.section-head {
+    position: relative;
+    z-index: 5; /* Ensures the watermark stays on top of the previous section */
+    text-align: center;
+    padding-top: 80px; /* Desktop "Safe Canvas" - watermark floats inside this area */
+    margin-bottom: 42px;
+    margin-top: -30px; /* REDUCED to a safe default to avoid cluttering sections without buttons */
+}
+
+.section-watermark {
+    position: absolute;
+    top: 32px; /* Independent vertical control: Use POSITIVE values to move it DOWN behind the text */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevents text from wrapping/cropping tightly */
+    font-size: clamp(60px, 9vw, 92px);
+    color: rgba(29, 41, 64, 0.15); /* Opacity and color control */
+    letter-spacing: -0.01em;
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.section-head h2 {
+    position: relative;
+    z-index: 2;
+    margin-top: 0; /* Keeps the heading perfectly locked in place while watermark moves */
+    font-size: clamp(32px, 2.2vw, 44px);
+    font-weight: 700;
+}
+
+.works-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.works-section::before {
+    content: "";
+    position: absolute;
+    right: -140px;
+    top: -120px;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    background: #f4f5f8;
+}
+
+.works-section::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: #c8efd8;
+}
+
+.works-list {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 86vw);
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Physical gap between rows */
+    background-color: #D9D9D9;
+    /* This colors the gap! */
+}
+
+.work-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 48px;
+    min-height: 260px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.work-row:last-child {
+    border-bottom: none;
+}
+
+.work-row::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(230, 236, 246, 0.22);
+    /* Adjust this value (0.15) for overlay 'sweet spot' */
+    z-index: 1;
+}
+
+.work-1 {
+    background-image: url('../images/work-bpo.jpeg');
+}
+
+.work-2 {
+    background-image: url('../images/work-cocreate.jpeg');
+}
+
+.work-3 {
+    background-image: url('../images/work-venous.jpeg');
+    background-position: center 5%;
+    /* Shift image slightly down to show face */
+}
+
+.work-row h3 {
+    position: relative;
+    z-index: 2;
+    font-size: 32px;
+    color: #192b44;
+    font-weight: 800;
+    margin: 0;
+}
+
+.work-tag {
+    position: relative;
+    z-index: 2;
+    background: #0940a3;
+    color: #fff;
+    font-size: clamp(14px, 1.2vw, 22px);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 700;
+}
+
+.case-section,
+.feature-section,
+.news-section,
+.column-section {
+    padding-top: 88px;
+}
+
+/* Specific heavy pull-up only for sections that follow a floating button */
+.feature-section .section-head, 
+.news-section .section-head, 
+.column-section .section-head {
+    margin-top: -100px;
+}
+
+.card-grid {
+    width: min(var(--dt-container-max), var(--dt-container-width));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.info-card {
+    background: #fff;
+    border: 2px solid #68A0FF;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(104, 160, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible; /* To allow overlapping chips */
+}
+
+.info-card .thumb {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 6px 6px 0 0; /* Perfect fit: Outer radius (8px) - Border width (2px) = 6px inner radius */
+    overflow: visible; /* Changed from hidden to allow labels to overlap */
+    box-shadow: 0 4px 16px rgba(0, 52, 138, 0.08); /* Shadow on the image */
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+}
+
+/* Blue overlay for Case images */
+.info-card .thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 53, 143, 0); /* Fully transparent by default */
+    border-radius: 6px 6px 0 0; /* Match image radius for a perfect fit */
+    z-index: 5;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.info-card:hover .thumb::after {
+    background: rgba(0, 53, 143, 0.15); /* Subtle 15% brand tint on hover */
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(104, 160, 255, 0.2);
+}
+
+.thumb-case-1 {
+    background-image: url('../images/case-1.jpeg');
+}
+
+.thumb-case-2 {
+    background-image: url('../images/case-2.jpeg');
+}
+
+.thumb-case-3 {
+    background-image: url('../images/case-3.jpeg');
+}
+
+.info-card .thumb .chip {
+    position: absolute;
+    left: 12px; /* Left offset from the edge */
+    bottom: -7px; /* "Sweet Spot": Tweak this to change how much is outside (Decrease to -20px for more outside, Increase to -5px for more inside) */
+    background: #00358F !important;
+    color: #fff !important;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 12px;
+    letter-spacing: 0.05em;
+    margin: 0;
+    z-index: 100 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: 60px;
+    border-radius: 4px; /* Added radius since it's no longer flush with corner */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.case-body {
+    padding: 24px 18px; /* Spaced from the new card border */
+}
+
+.info-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #192b44;
+    margin-bottom: 12px;
+}
+
+.case-sub {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #192b44;
+    margin-bottom: 14px;
+}
+
+.case-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 500;
+}
+
+.btn-wrap {
+    text-align: center;
+    margin-top: 56px;
+}
+
+.info-btn {
+    display: inline-block;
+    padding: 12px 48px;
+    border: 1px solid #00348a;
+    border-radius: 4px;
+    color: #00348a;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.info-btn:hover {
+    background: #00348a;
+    color: #fff;
+}
+
+.section-btn-wrap {
+    text-align: center;
+    margin-top: 34px;
+}
+
+.outline-btn {
+    display: inline-block;
+    border: 1px solid #00348a;
+    color: #192b44;
+    border-radius: 4px;
+    padding: 12px 36px;
+    font-weight: 700;
+    font-size: 15px;
+    background: transparent;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.outline-btn:hover {
+    background: #00348a;
+    color: #fff;
+}
+
+.feature-strip {
+    width: min(1100px, 86vw);
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+}
+
+.feature-image {
+    width: 100%;
+    height: 300px;
+    /* Fixed height for consistency */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f0f4f9;
+    /* Fallback color */
+    position: relative;
+    /* For the overlay */
+}
+
+.feature-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 53, 143, 0.25);
+}
+
+.feature-1 {
+    background-image: url('../images/feature-1.jpeg');
+}
+
+.feature-2 {
+    background-image: url('../images/feature-2.jpeg');
+}
+
+.feature-3 {
+    background-image: url('../images/feature-3.jpeg');
+}
+
+.feature-copy {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 700;
+    margin: 48px auto 0;
+    color: #192b44;
+    max-width: 900px;
+}
+
+.news-listing {
+    width: min(1000px, 90vw);
+    margin: 56px auto 0;
+    border-top: 1px solid #2D3A3A;
+}
+
+.news-row {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-areas:
+        "meta arrow"
+        "title arrow";
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid #2D3A3A;
+    text-decoration: none;
+    transition: background 0.2s;
+    color: inherit;
+}
+
+.news-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.news-meta {
+    grid-area: meta;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.news-date {
+    font-size: 18px;
+    color: #2D3A3A;
+    font-weight: 500;
+}
+
+.news-badge {
+    background: #4ADE80;
+    color: #2D3A3A;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+    text-align: center;
+}
+
+.news-title {
+    grid-area: title;
+    font-size: 28px;
+    color: #2D3A3A;
+    font-weight: 500;
+    /* Less bolder */
+    line-height: 1.3;
+}
+
+.news-arrow {
+    grid-area: arrow;
+    font-size: 48px;
+    color: #2D3A3A;
+    font-weight: 200;
+    text-align: right;
+    transition: transform 0.3s;
+}
+
+.news-row:hover .news-arrow {
+    transform: translateX(10px);
+}
+
+.column-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.column-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    transition: none;
+}
+
+.column-card .thumb {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 8px; /* Image as card */
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 52, 138, 0.08);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+}
+
+/* Blue overlay for Column images */
+.column-card .thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 53, 143, 0.15); /* Restored for prominence */
+    z-index: 5;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.column-card:hover .thumb::after {
+    background: rgba(0, 53, 143, 0.25); /* Restored for prominence */
+}
+
+.column-card:hover .thumb {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 52, 138, 0.1);
+}
+
+.thumb-col-1 {
+    background-image: url('../images/column-1.jpeg');
+}
+
+.thumb-col-2 {
+    background-image: url('../images/column-2.jpeg');
+}
+
+.thumb-col-3 {
+    background-image: url('../images/column-3.jpeg');
+}
+
+.inner-chips {
+    position: absolute;
+    top: 10px; /* Reduced from 80px to align with corner */
+    right: 12px; /* Reduced from 80px to align with corner */
+    display: flex;
+    flex-direction: row; /* Horizontal labels */
+    gap: 6px;
+    z-index: 100 !important; /* Stay on top of overlay */
+    pointer-events: none;
+}
+
+.inner-chips .chip {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    background: #00358F !important;
+    color: #fff !important;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important; /* CRITICAL: Prevent labels from squashing into a sliver */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.column-card-content {
+    padding: 16px 0 24px; /* Simple text below card */
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-meta .banner {
+    background: #CBE2FF;
+    color: #00358F;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.card-meta .date {
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.column-card h3 {
+    font-size: 16px;
+    color: #192b44;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.contact-cta {
+    background: #eceef2;
+    color: #1f2a3c;
+    padding: 76px 0 82px;
+}
+
+.contact-cta .section-head {
+    margin-bottom: 28px;
+}
+
+.contact-panel {
+    width: min(980px, 84vw);
+    margin: 0 auto;
+    background: #cfe4ec;
+    padding: 50px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.contact-meta {
+    color: #334154;
+    font-size: clamp(18px, 1.2vw, 24px);
+    line-height: 1.45;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    height: 68px;
+    border: 1px solid #4f79be;
+    border-radius: 4px;
+    font-size: clamp(20px, 1.25vw, 28px);
+    color: #233550;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.site-footer {
+    background: #063b99;
+    color: #d4e3ff;
+    padding: 48px 0 42px;
+}
+
+.footer-inner {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 38px;
+}
+
+.footer-brand-block {
+    min-width: 270px;
+}
+
+.footer-brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-orb {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 28% 28%, #b691ff 2%, #2d63d7 42%, #1cc3cf 100%);
+    box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.35);
+}
+
+.footer-brand-name {
+    font-size: 52px;
+    letter-spacing: 0.04em;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #76a2ec;
+}
+
+.footer-brand-block p {
+    color: #d3e4ff;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer-links-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.footer-links-grid ul {
+    list-style: none;
+}
+
+.footer-links-grid li {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.footer-links-grid a {
+    color: #e0ebff;
+}
+
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-bottom: 30px;
+    }
+
+    .hero-left::after {
+        display: none;
+    }
+
+    .hero-right {
+        min-height: 420px;
+    }
+
+    .hero-sub {
+        font-size: 24px;
+    }
+
+    .card-content h2 {
+        font-size: 30px;
+    }
+
+    .mission-copy {
+        font-size: 25px;
+    }
+
+    .work-row {
+        min-height: 110px;
+    }
+
+    .thumb {
+        height: 140px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Consolidating and refining mobile responsiveness */
+@media (max-width: 900px) {
+
+    /* Hero Section Refinement */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 0;
+        background: var(--primary);
+    }
+
+    .hero-left {
+        padding: 60px 24px 40px;
+        text-align: left;
+        order: 1;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        line-height: 1.4;
+        margin-bottom: 24px;
+        text-shadow: none;
+    }
+
+    .hero-sub {
+        font-size: 15px;
+        line-height: 1.7;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .hero-right {
+        min-height: 480px;
+        /* Increased to allow space below the card */
+        width: 100%;
+        margin-left: 0;
+        order: 2;
+        /* Triangular slope: goes from lower on left to higher on right */
+        clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+        margin-top: -30px;
+        /* Overlap with blue area to hide gaps */
+    }
+
+    .hero-card {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: calc(100% - (var(--sp-container-px) * 2));
+        max-width: none;
+        margin: -140px auto 48px;
+        /* Pulled up, with bottom margin to show background gap */
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        /* Horizontal 2-column layout */
+        padding: var(--sp-card-padding);
+        background: #DFF2F8;
+        border-radius: 8px;
+        box-shadow: 0 16px 40px rgba(0, 52, 138, 0.12);
+        z-index: 50;
+        order: 3;
+        gap: var(--sp-card-padding);
+    }
+
+    .card-image {
+        display: block;
+        border-radius: 4px;
+        min-height: 140px;
+        height: 100%;
+        background-image: url('../images/gomikan-thumb.jpeg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        /* Center align all text on mobile */
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: center;
+        /* Center logo and h2 */
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .card-icon-gk {
+        width: 44px;
+        height: 44px;
+    }
+
+    .card-content h2 {
+        font-size: 24px;
+        margin-bottom: 4px;
+        letter-spacing: 0;
+        color: #1a2b44;
+        text-align: center;
+        width: 100%;
+    }
+
+    .card-content .card-sub-text {
+        font-size: 11px;
+        /* Slightly smaller to fit 4 lines in horizontal column */
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-weight: 700;
+        color: #1a2b44;
+        text-align: center;
+        width: 100%;
+    }
+
+    .card-sub-text .line {
+        display: block !important;
+        white-space: nowrap;
+    }
+
+    .card-btn {
+        width: var(--sp-btn-width);
+        margin: 0 auto;
+        height: 64px;
+        /* Slightly taller for 2 lines on mobile */
+        background: #FFD400 !important;
+        border-radius: 6px;
+        padding: 0 10px;
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #1a2b44;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 52, 138, 0.1);
+    }
+
+    .btn-note {
+        font-size: 11px;
+        font-weight: 800;
+        margin-bottom: 2px;
+    }
+
+    .btn-main {
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    .btn-watermark {
+        position: absolute;
+        top: -12px;
+        right: 15px;
+        font-size: 14px;
+        font-weight: 800;
+        color: #2D3A3A;
+        /* Updated color for mobile as well */
+        transform: rotate(12deg);
+        white-space: nowrap;
+        opacity: 1;
+        /* Always visible on mobile */
+    }
+
+    .btn-text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        line-height: 1.1;
+    }
+
+    .btn-note {
+        font-size: 11px;
+        font-weight: 800;
+        color: #1a2b44;
+        margin-bottom: 2px;
+    }
+
+    .btn-main {
+        font-size: 18px;
+        font-weight: 900;
+        color: #1a2b44;
+    }
+
+    .btn-arrow {
+        width: 16px;
+        height: 16px;
+        border-width: 2.5px;
+    }
+
+    /* Adjust Mission padding to accommodate floating card overlap */
+    .mission {
+        padding: 120px 20px 80px;
+    }
+
+    /* Mission Section Refinement */
+    .mission {
+        padding: 100px 20px 80px;
+    }
+
+    .mission-lead {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 32px;
+    }
+
+    .mission h2 {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .mission-sep {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .mission-sub {
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+
+    .mission-copy {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    .mission-btn {
+        padding: 10px 32px;
+        font-size: 14px;
+    }
+
+    /* Works Section Refinement */
+    .works-section {
+        padding: 64px 0;
+    }
+
+    .works-list {
+        width: calc(100% - (var(--sp-container-px) * 2));
+        gap: 2px;
+    }
+
+    .work-row {
+        padding: 32px 24px;
+        min-height: 140px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .work-row h3 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .work-tag {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    /* Case Section Refinement */
+    .case-section {
+        padding-top: 80px;
+        padding-bottom: 60px; /* Increased to give breathing room before the next section */
+    }
+
+    .card-grid.case-grid {
+        grid-template-columns: 1fr;
+        width: 78vw;
+        gap: 24px;
+    }
+
+    .info-card {
+        border: 2px solid #68A0FF;
+        border-radius: 8px; /* Match image corners */
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(104, 160, 255, 0.15);
+    }
+
+    .case-body {
+        padding: 24px 18px;
+    }
+
+    .case-body h3 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .case-sub {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .case-desc {
+        font-size: 12px;
+    }
+
+    /* Feature Section Refinement */
+    .feature-section {
+        padding-top: 60px;
+        padding-bottom: 64px;
+    }
+
+    .feature-strip {
+        grid-template-columns: 1fr;
+        width: calc(100% - (var(--sp-container-px) * 2));
+        gap: 0;
+        /* Flush images like on desktop */
+    }
+
+    .feature-image {
+        height: 220px;
+    }
+
+    .feature-copy {
+        font-size: 16px;
+        line-height: 1.65;
+        margin-top: 32px;
+        padding: 0 20px;
+    }
+
+    /* News Section Typography */
+    .news-section {
+        padding-top: 64px;
+        padding-bottom: 48px;
+    }
+
+    .news-listing {
+        width: calc(100% - (var(--sp-container-px) * 2));
+        margin-top: 32px;
+    }
+
+    .news-row {
+        padding: 24px 0;
+        grid-template-columns: 1fr 40px;
+    }
+
+    .news-meta {
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    .news-date {
+        font-size: 14px;
+    }
+
+    .news-badge {
+        font-size: 11px;
+        padding: 2px 10px;
+    }
+
+    .news-title {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .news-arrow {
+        font-size: 32px;
+    }
+
+    /* Column Section Refinement */
+    .column-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .card-grid.column-grid {
+        grid-template-columns: 1fr;
+        width: calc(100% - (var(--sp-container-px) * 2));
+        gap: 20px;
+    }
+
+    .column-card .thumb {
+        height: 180px;
+    }
+
+    .column-card-content {
+        padding: 20px 16px 24px;
+    }
+
+    .column-card h3 {
+        font-size: 17px;
+    }
+
+    /* Spacing adjustments for section headers */
+    .section-head {
+        position: relative;
+        z-index: 5; /* Ensures the watermark stays on top of the previous section */
+        text-align: center;
+        padding-top: 70px; /* INCREASED "Safe Canvas" to prevent button overlap */
+        margin-bottom: 32px;
+        margin-top: 0; /* REMOVED negative margin in mobile to fix overlap */
+    }
+
+    .section-watermark {
+        position: absolute;
+        top: 30px; /* Adjusted downward to sit nicely in the larger safe canvas */
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap; /* Prevents "FEATURE" from wrapping/cropping tightly */
+        font-size: 65px;
+        color: rgba(29, 41, 64, 0.15); /* Fainter/Premium feel like Figma */
+        letter-spacing: -0.01em;
+        line-height: 1;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .section-head h2 {
+        position: relative;
+        z-index: 2;
+        margin-top: 0; /* Keeps the heading perfectly locked in place */
+        font-size: 28px;
+    }
+
+    .section-btn-wrap {
+        margin-top: 24px;
+    }
+}

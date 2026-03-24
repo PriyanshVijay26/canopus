@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | Canopus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body data-breadcrumb="ホーム / お問い合わせ">
+    <div class="site-shell">
+        <div id="global-header"></div>
+
+        <main>
+            <div id="subpage-hero"></div>
+
+            <section class="contact-page">
+                <div class="contact-container">
+                    <h1 class="contact-title">お問合せフォーム</h1>
+
+                    <p class="contact-description">
+                        お問い合わせ、ご相談は下記のフォームよりお問い合わせくださ<br class="sp-br">
+                        い。<br>
+                        後ほど担当者よりご連絡差し上げます。<br>
+                        なお、入力いただきましたお客様の個人情報・相談内容は弊社に<br class="sp-br">
+                        て厳重に取り扱いいたします。
+                    </p>
+
+                    <form action="#" method="post" class="contact-form">
+                        <div class="form-row">
+                            <label class="form-label" for="name">お名前（必須）</label>
+                            <div class="form-input-wrap">
+                                <input type="text" id="name" name="name" placeholder="山田 太郎" required title="お名前を入力してください">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="address">住所（必須）</label>
+                            <div class="form-input-wrap">
+                                <input type="text" id="address" name="address" placeholder="〇〇県～～～" required title="住所を入力してください">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="tel">電話番号（必須）</label>
+                            <div class="form-input-wrap">
+                                <input type="tel" id="tel" name="tel" placeholder="090-1234-5678" required title="電話番号を入力してください">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="company">会社名</label>
+                            <div class="form-input-wrap">
+                                <input type="text" id="company" name="company" placeholder="株式会社 Canopus">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="email">メールアドレス（必須）</label>
+                            <div class="form-input-wrap">
+                                <input type="email" id="email" name="email" placeholder="abc@defg.co.jp" required title="メールアドレスを入力してください">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="content">お問い合わせ内容</label>
+                            <div class="form-input-wrap">
+                                <textarea id="content" name="content"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-agreement">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement"><a href="#">プライバシーポリシー</a>に同意する</label>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="submit-btn">送信する</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+    <script src="js/subpage.js"></script>
+</body>
+</html>

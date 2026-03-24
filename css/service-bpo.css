@@ -1,0 +1,1287 @@
+/* BPO Service Page - New Feature Layout */
+
+.bpo-page-content {
+    position: relative;
+    background: transparent; /* Reveal mask behind */
+    overflow: hidden;
+}
+
+.service-services {
+    position: relative;
+    padding: 100px 0;
+    /* background color removed, inherited from .bpo-page-content */
+}
+
+.service-services-inner {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.bpo-feature-item {
+    /* 
+     * clamp(MIN, PREFERRED, MAX) 
+     * - MIN: Smallest size (mobile)
+     * - PREFERRED: Scale with screen width (vw)
+     * - MAX: Largest size (desktop)
+     */
+    --feature-title-size: clamp(24px, 2.5vw, 30px); 
+    --feature-title-weight: 500; 
+    
+    display: flex;
+    align-items: center;
+    gap: clamp(30px, 6vw, 100px);
+}
+
+.bpo-feature-item--reverse {
+    flex-direction: row-reverse;
+}
+
+.bpo-feature-image {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+/* Image Blue Overlay */
+.bpo-feature-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00358F26; /* User requested color at 15% opacity */
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bpo-feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px #ADADAD; /* User requested shadow color */
+    display: block;
+    position: relative;
+}
+
+.bpo-feature-content {
+    flex: 1;
+}
+
+.bpo-feature-number {
+    font-size: clamp(40px, 4vw, 56px);
+    color: #0040a8;
+    font-weight: 700;
+    line-height: 1;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Cleaner number font */
+}
+
+.bpo-feature-title {
+    font-size: var(--feature-title-size);
+    color: #1f2a3c;
+    font-weight: var(--feature-title-weight);
+    line-height: 1.4;
+    margin-top: 12px;
+    letter-spacing: -0.01em; /* Tighter letter spacing to help fit */
+}
+
+.service-intro,
+.service-services,
+.service-provision,
+.gomikan-functions,
+.service-details,
+.service-process,
+.service-cases {
+    position: relative;
+    z-index: 2; /* Content above watermarks */
+}
+
+/* Watermark Circles */
+.bpo-bg-watermarks {
+    /* 
+     * Circle Sweet Spot Configuration (Figma 1440px baseline) 
+     * Adjust these to move and resize the circles brother!
+     */
+    --c1-size: 54.5vw;  /* Circle 1 Size (Radius) */
+    --c1-top: 7.2vw;   /* Circle 1 Y-coordinate (Top) */
+    --c1-left: 59.4vw;  /* Circle 1 X-coordinate (Left) */
+
+    --c2-size: 26vw;    /* Circle 2 Size (950px eq) */
+    --c2-top: 60vw;     /* Circle 2 Y-coordinate (Near Feature 03) */
+    --c2-left: -8vw;   /* Circle 2 X-coordinate (Left side) */
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Background layer */
+}
+
+.watermark-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: #E3EFFF99; /* Figma exact color */
+}
+
+.circle-1 {
+    width: var(--c1-size);
+    height: var(--c1-size);
+    top: var(--c1-top);
+    left: var(--c1-left);
+}
+
+.circle-2 {
+    width: var(--c2-size);
+    height: var(--c2-size);
+    top: var(--c2-top);
+    left: var(--c2-left);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+    .service-services {
+        padding: 60px 0;
+    }
+
+    .service-services-inner {
+        gap: 50px;
+    }
+
+    .bpo-feature-item,
+    .bpo-feature-item--reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .bpo-feature-image {
+        max-width: 100%;
+    }
+
+    .bpo-feature-number {
+        font-size: 48px;
+    }
+
+    .bpo-feature-title {
+        font-size: 24px;
+    }
+
+    .circle-1, .circle-2, .circle-3 {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+
+/* BPO Page Specific Background Mask (Responsive Figma Coordinate System) */
+.bpo-page {
+    position: relative;
+    overflow: hidden;
+    background-color: #F8FAFC; /* Consistent premium background */
+}
+
+/* 
+ * Tunable Figma Coordinates (Based on 1440px Figma Canvas Width)
+ * Adjust these values in Chrome DevTools to find the exact "sweet spot"
+ */
+.bpo-header-mask {
+    --figma-bg-width: 113vw;      /* 781.11 / 1440 scaled */
+    --figma-bg-height: 76vw;     /* 1802.55 / 1440 scaled */
+    --figma-bg-top: -64vw;       /* -817 / 1440 scaled */
+    --figma-bg-left: -34.8vw;    /* -646 / 1440 scaled */
+    --figma-bg-rotate: -13deg;
+
+    /* Wrapper container to strictly limit where the image shows */
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden; /* Crucial: This crops the rotated image so it doesn't break layout */
+}
+
+/* 
+ * The actual image placed mathematically. 
+ * Because it uses vw, it will scale proportionally on any desktop monitor.
+ */
+.bpo-header-mask::before {
+    content: "";
+    position: absolute;
+    width: var(--figma-bg-width);
+    height: var(--figma-bg-height);
+    top: var(--figma-bg-top);
+    left: var(--figma-bg-left);
+    transform-origin: center center;
+    transform: rotate(var(--figma-bg-rotate));
+    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
+    opacity: 0.85; /* Adjustable */
+}
+
+/* Local overrides to remove the generic global background and lift content */
+.bpo-page .service-intro::before {
+    display: none !important;
+}
+
+.bpo-page .service-intro {
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
+}
+
+.bpo-page .service-title,
+.bpo-page .service-lead {
+    position: relative;
+    z-index: 10;
+    color: #1f2a3c;
+}
+
+.bpo-page .service-title,
+.bpo-page .service-lead {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 900px;
+}
+
+/* Service Provision Diagram Section */
+.service-provision {
+    padding: 100px 0;
+    background: transparent; /* Show parent background and watermarks */
+    position: relative;
+    z-index: 2;
+}
+
+.service-provision-inner {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.service-provision-inner .service-section-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #1f2a3c;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.service-section-lead-wrap {
+    margin-bottom: 60px;
+}
+
+.service-section-lead {
+    font-size: clamp(16px, 1.8vw, 18px);
+    line-height: 1.8;
+    color: #1f2a3c;
+    font-weight: 500;
+}
+
+/* Diagram Core Layout */
+.provision-diagram {
+    position: relative;
+    width: 100%;
+    max-width: var(--diagram-max-width, 1000px);
+    height: 700px;
+    margin: 0 auto;
+    background: transparent;
+    overflow: visible;
+
+    /* Arrow Configuration - Brother, you can adjust these! */
+    --arrow-gray: #6c757d;
+    --arrow-blue: #006BF9;
+    --arrow-tip-size: 10px;       /* Size of the V */
+    --arrow-tip-weight: 2px;   /* Thickness of the V lines */
+    --arrow-line-weight: 2px;    /* Thickness of the connecting line */
+    --h-arrow-offset: 40px;      /* Vertical gap between horizontal arrows (from center) */
+    --arrow-label-gap: 20px;     /* Gap between arrow and text label */
+
+    /* Gap Configuration - Brother, adjust these for the horizontal spacing! */
+    --side-node-gap: 40px;      /* Gap between side panels and arrows */
+    --gk-node-gap: 25px;        /* Gap between arrows and GK logo */
+    
+    /* Outward Shift Configuration - Brother, use these to move the tables! */
+    --diagram-max-width: 1200px;    /* Increase this to spread the whole diagram wider */
+    --table-outward-offset: 0px;    /* Use negative values like -20px to push tables outwards individually */
+    --side-table-top: 280px;        /* Vertical position of the side tables (Brother, adjust this!) */
+}
+
+
+.diagram-node {
+    position: absolute;
+    z-index: 10;
+}
+
+/* Node Positions */
+.node--hq {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node--gk {
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node--partners {
+    top: var(--side-table-top, 360px);
+    left: var(--table-outward-offset, 0);
+}
+
+.node--bases {
+    top: var(--side-table-top, 360px);
+    right: var(--table-outward-offset, 0);
+}
+
+/* Node Circles */
+.node-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.node-circle--blue {
+    width: 200px;
+    height: 200px;
+    background: #00358F;
+    color: white;
+    border: 2.05px solid #006BF9;
+}
+
+.node-circle--white {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border: 2.05px solid #006BF9;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.node-label {
+    font-size: 25px; /* Increased by 125% */
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.node-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.node-name {
+    font-size: 30px; /* Increased by 125% */
+    font-weight: 800;
+    color: #1f2a3c;
+    letter-spacing: 0.05em;
+}
+
+/* Box Nodes (Left/Right) */
+.node-box-wrap {
+    background: #E3EFFF;
+    padding: 30px 12px;
+    border-radius: 4px;
+}
+
+.node-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 23px;
+    font-weight: 700;
+    color: #1f2a3c;
+    letter-spacing: 0.3em;
+    background: #F8FAFC; /* User requested color */
+    padding: 30px 8px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.node-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.node-icon-row {
+    width: 70px;
+    height: 70px;
+    background: transparent; /* Removed white background */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    /* Removed heavy shadows as per design */
+}
+
+.node-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Arrows and Labels Container */
+.diagram-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.arrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-label {
+    position: absolute;
+    font-size: 18px; /* Increased by 125% (14*1.25=17.5) */
+    line-height: 1.4;
+    color: #1f2a3c;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    pointer-events: auto; /* Enable text selection */
+}
+
+/* Arrow Lines */
+.arrow::before {
+    content: "";
+    position: absolute;
+    background: currentColor; /* Inherit color from arrow class if needed, but we use specific colors */
+}
+
+.arrow::after {
+    content: "";
+    position: absolute;
+}
+
+/* Specific Arrows */
+
+/* HQ <-> GK (Vertical) */
+.arrow--up, .arrow--down {
+    width: 2px;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.arrow--gk-hq {
+    top: 215px;
+    height: 135px;
+    left: calc(50% - 60px); /* Increased gap from 15px */
+}
+
+.arrow--gk-hq::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--arrow-line-weight);
+    background: var(--arrow-gray);
+}
+
+.arrow--gk-hq::after {
+    top: 0px; /* Half of tip-size to reach the vertex */
+    left: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-top: var(--arrow-tip-weight) solid var(--arrow-gray);
+    border-left: var(--arrow-tip-weight) solid var(--arrow-gray);
+    transform: translateX(-50%) rotate(45deg);
+    background: none;
+}
+
+.arrow--hq-gk {
+    top: 215px;
+    height: 135px;
+    left: calc(50% + 60px); /* Increased gap from 15px */
+}
+
+.arrow--hq-gk::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--arrow-line-weight);
+    background: var(--arrow-blue);
+}
+
+.arrow--hq-gk::after {
+    bottom: 0px; /* Half of tip-size to reach the vertex */
+    left: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-bottom: var(--arrow-tip-weight) solid var(--arrow-blue);
+    border-right: var(--arrow-tip-weight) solid var(--arrow-blue);
+    transform: translateX(-50%) rotate(45deg);
+    background: none;
+}
+
+.arrow--gk-hq .arrow-label { left: -40px; transform: translateX(-100%); top: 40%; text-align: center; }
+.arrow--hq-gk .arrow-label { right: -40px; transform: translateX(100%); top: 40%; text-align: center; }
+
+/* Horizontal Arrows (Partners-GK & Bases-GK) */
+.arrow--left, .arrow--right {
+    height: 2px;
+    top: 460px;
+}
+
+.arrow--right::before, .arrow--left::before {
+    left: 0;
+    right: 0;
+    height: 2px;
+}
+
+/* Partners <-> GK Arrows (Left side) */
+.arrow--partners-gk {
+    left: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
+    width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
+    top: calc(460px - var(--h-arrow-offset)); /* Centered around 460px */
+}
+
+.arrow--partners-gk::before {
+    left: 0;
+    right: 0;
+    height: var(--arrow-line-weight);
+    background: var(--arrow-gray);
+}
+.arrow--partners-gk::after {
+    right: 0px; /* Half of tip-size to reach the vertex */
+    top: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-top: var(--arrow-tip-weight) solid var(--arrow-gray);
+    border-right: var(--arrow-tip-weight) solid var(--arrow-gray);
+    transform: translateY(-50%) rotate(45deg);
+    background: none;
+}
+
+.arrow--gk-partners {
+    left: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
+    width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
+    top: calc(460px + var(--h-arrow-offset)); /* Centered around 460px */
+}
+
+.arrow--gk-partners::before {
+    left: 0;
+    right: 0;
+    height: var(--arrow-line-weight);
+    background: var(--arrow-blue);
+}
+.arrow--gk-partners::after {
+    left: 0px; /* Half of tip-size to reach the vertex */
+    top: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-top: var(--arrow-tip-weight) solid var(--arrow-blue);
+    border-left: var(--arrow-tip-weight) solid var(--arrow-blue);
+    transform: translateY(-50%) rotate(-45deg);
+    background: none;
+}
+
+.arrow--partners-gk .arrow-label { bottom: var(--arrow-label-gap); width: 100%; text-align: center; }
+.arrow--gk-partners .arrow-label { top: var(--arrow-label-gap); width: 100%; text-align: center; }
+
+/* Bases <-> GK Arrows (Right side) */
+.arrow--bases-gk {
+    right: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
+    width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
+    top: calc(460px + var(--h-arrow-offset)); /* Centered around 460px */
+}
+
+.arrow--bases-gk::before {
+    left: 0;
+    right: 0;
+    height: var(--arrow-line-weight);
+    background: var(--arrow-blue);
+}
+.arrow--bases-gk::after {
+    left: 0px; /* Half of tip-size to reach the vertex */
+    top: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-top: var(--arrow-tip-weight) solid var(--arrow-blue);
+    border-left: var(--arrow-tip-weight) solid var(--arrow-blue);
+    transform: translateY(-50%) rotate(-45deg);
+    background: none;
+}
+
+.arrow--gk-bases {
+    right: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
+    width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
+    top: calc(460px - var(--h-arrow-offset)); /* Centered around 460px */
+}
+
+.arrow--gk-bases::before {
+    left: 0;
+    right: 0;
+    height: var(--arrow-line-weight);
+    background: var(--arrow-gray);
+}
+.arrow--gk-bases::after {
+    right: 0px; /* Half of tip-size to reach the vertex */
+    top: 50%;
+    width: var(--arrow-tip-size);
+    height: var(--arrow-tip-size);
+    border-top: var(--arrow-tip-weight) solid var(--arrow-gray);
+    border-right: var(--arrow-tip-weight) solid var(--arrow-gray);
+    transform: translateY(-50%) rotate(45deg);
+    background: none;
+}
+
+.arrow--bases-gk .arrow-label { top: var(--arrow-label-gap); width: 100%; text-align: center; }
+.arrow--gk-bases .arrow-label { bottom: var(--arrow-label-gap); width: 100%; text-align: center; }
+
+/* Responsive Diagram (Mobile) */
+@media (max-width: 900px) {
+    .provision-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 60px;
+        padding-bottom: 60px;
+    }
+
+    .diagram-node {
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+    .diagram-elements {
+        display: none;
+    }
+
+    .node-box {
+        flex-direction: column;
+    }
+
+    .vertical-text {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        margin-bottom: 15px;
+    }
+
+    .node-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+/* Gomikan Functions Section */
+.gomikan-functions {
+    padding: 100px 0;
+    background: transparent; /* Show parent background and watermarks */
+    position: relative;
+    z-index: 2;
+}
+
+.gomikan-functions-inner {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gomikan-functions-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #1f2a3c;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.gomikan-functions-subtitle {
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: #1f2a3c;
+    font-weight: 500;
+    margin-bottom: 80px;
+}
+
+.functions-flow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.function-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.function-label {
+    background: #BED6FD;
+    color: #1f2a3c;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    border: 1.03px solid #AEAEAF;
+}
+
+.function-circle {
+    width: clamp(120px, 12vw, 180px);
+    height: clamp(120px, 12vw, 180px);
+    background: #BED6FD;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    border: 1.03px solid #AEAEAF;
+    box-shadow: 4.13px 4.13px 4.13px 0px rgba(0, 0, 0, 0.25);
+}
+
+.function-icon {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.function-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1f2a3c;
+    font-weight: 500;
+    text-align: left;
+}
+
+.function-arrow {
+    --arrow-w: 23.5px; /* Adjust width brother! */
+    --arrow-h: 85px; /* Adjust height brother! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Vertically center relative to circle center brother! */
+    margin-top: calc(clamp(120px, 12vw, 180px) / 2 + 47px); 
+    width: var(--arrow-w);
+    height: var(--arrow-h);
+    /* Secret: This ensures it grows from the center, not the top brother! */
+    transform: translateY(-50%); 
+    filter: drop-shadow(4.13px 4.13px 4.13px rgba(0, 0, 0, 0.25));
+    position: relative;
+    z-index: 1;
+}
+
+.function-arrow::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* Re-centered SVG path for better scaling brother! */
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2240%22%20height%3D%2230%22%20viewBox%3D%220%200%2040%2030%22%20preserveAspectRatio%3D%22none%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2%202L38%2015L2%2028V2Z%22%20fill%3D%22%2300358F%22%20stroke%3D%22%23AEAEAF%22%20stroke-width%3D%221.03%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.function-arrow .arrow-img {
+    display: none;
+}
+
+/* Mobile Adjustments for Gomikan Functions */
+@media (max-width: 900px) {
+    .functions-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .function-item {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .function-desc {
+        text-align: center;
+        max-width: 300px;
+    }
+
+    .function-arrow {
+        padding-top: 0;
+        margin-top: 0;
+        transform: none;
+        width: 30px;
+        height: 20px;
+    }
+
+    .function-arrow::after {
+        background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2230%22%20height%3D%2220%22%20viewBox%3D%220%200%2030%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2%202L15%2018L28%202H2Z%22%20fill%3D%22%2300358F%22%20stroke%3D%22%23AEAEAF%22%20stroke-width%3D%221.03%22%2F%3E%3C%2Fsvg%3E');
+    }
+}
+/* Service Details Section (提供サービス) */
+.service-details {
+    padding: 100px 0;
+    background: #f8fafc;
+    position: relative;
+    z-index: 2;
+}
+
+.service-details-inner {
+    width: min(1000px, 92vw);
+    margin: 0 auto;
+}
+
+.service-details-main-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.service-table-wrap {
+    margin-bottom: 60px;
+}
+
+.service-table-header {
+    background: #E3EFFF;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+    border: none;
+}
+
+.service-table {
+    border-left: 1px solid #D9D9D9;
+    border-right: 1px solid #D9D9D9;
+    background: white;
+    position: relative;
+    /* Tunable Row Lines brother! */
+    --row-line-color: #D9D9D9;    
+    --line-weight-top: 1.03px;    /* Thinner top line brother! */
+    --line-weight-bottom: 1.03px; /* Thinner bottom line brother! */
+    --line-weight-mid: 2px;       /* Thicker middle lines brother! */
+    --line-width-top: 100%;       /* Full width brother! */
+    --line-width-bottom: 100%;
+    --line-width-mid: 100%;
+}
+
+.service-table-row {
+    position: relative;
+    display: flex;
+}
+
+.service-table-row::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--line-width-mid);
+    height: var(--line-weight-mid);
+    background-color: var(--row-line-color);
+    z-index: 5;
+}
+
+/* First row special top line */
+.service-table-row:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--line-width-top);
+    height: var(--line-weight-top);
+    background-color: var(--row-line-color);
+    z-index: 5;
+}
+
+/* Last row special bottom line */
+.service-table-row:last-child::after {
+    width: var(--line-width-bottom);
+    height: var(--line-weight-bottom);
+}
+
+.service-table-label {
+    width: 240px;
+    background: #fcfdfe;
+    justify-content: flex-start;
+    padding: 40px 30px 40px 60px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    text-align: left;
+    border-right: none;
+    flex-shrink: 0;
+}
+
+.service-table-content {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.service-sub-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    line-height: 1.6;
+}
+
+.sub-number {
+    width: 30px;
+    font-weight: 700;
+    color: #000;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.sub-title {
+    font-weight: 400;
+    color: #000;
+    font-size: 16px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.sub-title:not(:last-child) {
+    width: 150px;
+}
+
+.sub-desc {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 1;
+}
+
+/* Option table overrides */
+.service-table--option .service-table-content {
+    text-align: center;
+    padding: 20px 40px;
+    font-weight: 400;
+    color: #000;
+}
+
+/* Mobile Adjustments for Service Details */
+@media (max-width: 768px) {
+    .service-table-row {
+        flex-direction: column;
+    }
+
+    .service-table-label {
+        width: 100%;
+        padding: 15px;
+        background: #f0f4f9;
+        border-right: none;
+        border-bottom: 1px solid #D9D9D9;
+    }
+
+    .service-table-content {
+        padding: 20px;
+    }
+
+    .service-sub-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .sub-title {
+        margin-right: 0;
+    }
+}
+
+/* Service Process Section (導入プロセス) */
+.service-process {
+    padding: 100px 0;
+    background: #F8FAFC;
+    position: relative;
+    z-index: 2;
+}
+
+.service-process-inner {
+    width: min(1000px, 92vw);
+    margin: 0 auto;
+}
+
+.service-process-main-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.process-step {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-card {
+    background: #BED6FD;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+    box-shadow: 4px 8px 4px 0 rgba(0, 0, 0, 0.25); /* Figma spec brother! */
+    border: none;
+    border-radius: 4px;
+}
+
+.step-image {
+    flex: 0 0 240px;
+    height: 240px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-content {
+    flex: 1;
+    color: #000;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;           /* Line 1091: Gap between STEP 01 and Title brother! */
+    margin-bottom: 30px;  /* Line 1092: Gap between Header and Description brother! */
+}
+
+.step-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.step-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.step-text {
+    font-size: 19px; /* Line 1108: Adjust font size here brother! */
+    line-height: 1.8;
+    color: #000;
+    font-weight: 400;
+}
+
+/* Arrows between steps */
+.process-arrow-wrap {
+    --arrow-gap: 100px;      /* Line 1115: Adjust gap between cards here! */
+    height: var(--arrow-gap);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-arrow {
+    --arrow-width: 248px;  /* Adjust width here brother! */
+    --arrow-height: 63px;   /* Adjust height here brother! */
+    width: 0;
+    height: 0;
+    border-left: calc(var(--arrow-width) / 2) solid transparent;
+    border-right: calc(var(--arrow-width) / 2) solid transparent;
+    border-top: var(--arrow-height) solid #BED6FD; /* Matching card color brother! */
+    filter: drop-shadow(4px 8px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .step-image {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+
+    .step-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Service Cases Section (導入事例) - New Layout */
+.service-cases {
+    --cases-max-width: 1600px; /* Brother, adjust this to find the sweet spot! */
+    padding: 100px 0;
+    background: #F8FAFC;
+    position: relative;
+    z-index: 2;
+}
+
+.service-cases-inner {
+    width: min(var(--cases-max-width), 94vw);
+    margin: 0 auto;
+}
+
+.service-cases-inner .service-section-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: #1f2a3c;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cases-container {
+    background: #BED6FD; /* Matched to Process cards brother! */
+    border-radius: 12px;
+    display: flex;
+    /* Figma Precise Shadow: X:3, Y:6, Blur:4.7, Spread:0, #00358F 22% brother! */
+    box-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
+    overflow: hidden;
+    position: relative;
+}
+
+.case-item {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Vertical Dividers */
+.case-divider {
+    width: 2px; /* Figma 2px brother! */
+    background: #00358FCC; /* Figma #00358F at 80% brother! */
+    margin: 50px 0;
+    flex-shrink: 0;
+}
+
+.case-client {
+    font-size: 16px;
+    color: #1f2a3c;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.case-highlight {
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 700;
+    color: #1f2a3c;
+    line-height: 1.5;
+    margin-bottom: 35px;
+    height: 3.2em; /* Align images brother! */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align brother! */
+    text-align: center; /* Center align brother! */
+}
+
+.case-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.case-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-label {
+    font-size: 18px; /* Increased brother! Line 1248 */
+    font-weight: 700;
+    color: #1f2a3c;
+}
+
+.detail-text {
+    font-size: 18px; /* Increased brother! Line 1254 */
+    line-height: 1.7;
+    color: #1f2a3c;
+    font-weight: 400;
+}
+
+/* Mobile Adjustments for Case Studies */
+@media (max-width: 1000px) {
+    .cases-container {
+        flex-direction: column;
+    }
+
+    .case-divider {
+        width: 100%;
+        height: 1.5px;
+        margin: 0;
+    }
+
+    .case-item {
+        padding: 40px 30px;
+    }
+
+    .case-highlight {
+        height: auto;
+        margin-bottom: 25px;
+    }
+}

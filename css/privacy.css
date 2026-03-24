@@ -1,0 +1,123 @@
+/* Privacy Policy Styles */
+
+.privacy-page {
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    padding-bottom: 120px;
+}
+
+/* Abstract wave graphic on the left */
+.privacy-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 400px;
+    background: 
+        repeating-linear-gradient(167deg, rgba(82, 165, 226, 0.2) 0 2px, transparent 2px 6px),
+        linear-gradient(167deg, rgba(82, 165, 226, 0.3) 0%, rgba(82, 165, 226, 0.05) 75%, transparent 76%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.privacy-container {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 80px 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.privacy-title {
+    text-align: center;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 800;
+    color: #1a233a;
+    margin-bottom: 80px;
+    letter-spacing: 0.05em;
+}
+
+.privacy-intro {
+    font-size: 18px;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 80px;
+    text-align: left;
+}
+
+.privacy-article {
+    margin-bottom: 60px;
+}
+
+.privacy-article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a233a;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.privacy-article-content {
+    font-size: 16px;
+    line-height: 2;
+    color: #333;
+}
+
+.privacy-article-content p {
+    margin-bottom: 1.5em;
+}
+
+.privacy-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.privacy-list li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.privacy-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .privacy-container {
+        padding-top: 50px;
+    }
+
+    .privacy-title {
+        margin-bottom: 40px;
+        font-size: 28px;
+    }
+
+    .privacy-intro {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    .privacy-article {
+        margin-bottom: 40px;
+    }
+
+    .privacy-article-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .privacy-article-content {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+}

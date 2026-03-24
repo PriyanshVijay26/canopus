@@ -1,0 +1,280 @@
+/* Purpose Page Styles */
+
+.purpose-page {
+    position: relative;
+    background-color: #f6f9fc; /* Very light cyan/grey based on screenshot 2 */
+    overflow: hidden;
+}
+
+.purpose-bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: url('../images/purpose-lines-placeholder.png') left top no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.purpose-content-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px 100px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.purpose-block {
+    margin-bottom: 120px;
+}
+
+.purpose-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a233a;
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+}
+
+.purpose-statement {
+    font-size: 38px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.vision-block {
+    margin-bottom: 60px;
+}
+
+.vision-brand {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1a233a;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.vision-divider {
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a233a;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+}
+
+.vision-subtitle {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a233a;
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+}
+
+.vision-text p {
+    font-size: 18px;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.vision-text p:last-child {
+    margin-bottom: 0;
+}
+
+.purpose-image-block {
+    width: 100%;
+    height: 450px;
+    background: url('../images/purpose-ewaste-placeholder.webp') center center / cover no-repeat;
+    background-color: #a0aec0; /* fallback grey */
+    position: relative;
+}
+
+/* MVV Section */
+.mvv-section {
+    position: relative;
+    padding: 80px 20px 120px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.mvv-main-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a233a;
+    margin-bottom: 60px;
+    letter-spacing: 0.05em;
+}
+
+.mvv-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.mvv-card {
+    background: #fff;
+    border: 1px solid #d3e1ef;
+    border-radius: 4px;
+    box-shadow: 15px 15px 30px rgba(121, 155, 196, 0.3);
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mvv-card.value-card {
+    padding-bottom: 80px;
+}
+
+.mvv-watermark {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    font-weight: 800;
+    color: #eef3f7;
+    z-index: 0;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.mvv-title {
+    position: relative;
+    z-index: 1;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a233a;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+}
+
+.mvv-text {
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.value-list {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.value-item {
+    margin-bottom: 40px;
+}
+
+.value-item:last-child {
+    margin-bottom: 0;
+}
+
+.value-item dt {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a233a;
+    margin-bottom: 12px;
+}
+
+.value-item dd {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .purpose-content-inner {
+        padding: 60px 15px 70px;
+    }
+
+    .purpose-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .purpose-statement {
+        font-size: 22px;
+        line-height: 1.5;
+    }
+
+    .purpose-block {
+        margin-bottom: 80px;
+    }
+
+    .vision-brand {
+        font-size: 40px;
+    }
+
+    .vision-divider {
+        font-size: 28px;
+    }
+
+    .vision-subtitle {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .vision-text p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .purpose-image-block {
+        height: 250px;
+    }
+
+    .mvv-section {
+        padding: 60px 15px 80px;
+    }
+
+    .mvv-main-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .mvv-card {
+        padding: 40px 20px;
+        box-shadow: 8px 8px 20px rgba(121, 155, 196, 0.25);
+    }
+
+    .mvv-watermark {
+        font-size: 50px;
+        top: 25px;
+    }
+
+    .mvv-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .mvv-text {
+        font-size: 15px;
+    }
+
+    .value-list {
+        padding: 0 10px;
+    }
+
+    .value-item dt {
+        font-size: 18px;
+    }
+
+    .value-item dd {
+        font-size: 14px;
+    }
+}
