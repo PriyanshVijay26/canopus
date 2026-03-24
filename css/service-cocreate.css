@@ -1,4 +1,15 @@
 /* Cocreate Page Layout Refinement */
+
+:root {
+    /* --- Sweet Spot Tuning Brother! (Lines 4-10) --- */
+    --cocreate-title-size: clamp(32px, 4vw, 42px);
+    --cocreate-lead-size: 19px;
+    --cocreate-intro-bottom: 100px; /* Gap between lead text and first card */
+    --cocreate-card-gap: 50px;     /* Gap between each card */
+    --cocreate-card-padding-v: 20px; /* Vertical padding inside card (controls height) */
+    --cocreate-card-text-size: 19px;  /* Font size for the service description text */
+}
+
 .cocreate-page {
     position: relative;
     overflow: hidden;
@@ -50,19 +61,19 @@
 
 .cocreate-page .service-intro {
     background: transparent !important;
-    padding: 80px 0 60px;
+    padding: 80px 0 var(--cocreate-intro-bottom); /* Tunable on Line 7 */
     text-align: center;
 }
 
 .cocreate-page .service-title {
-    font-size: clamp(32px, 4vw, 42px);
+    font-size: var(--cocreate-title-size); /* Tunable on Line 5 */
     font-weight: 800;
     color: #1f2a3c;
     margin-bottom: 24px;
 }
 
 .cocreate-page .service-lead {
-    font-size: 18px;
+    font-size: var(--cocreate-lead-size); /* Tunable on Line 6 */
     line-height: 1.8;
     color: #1f2a3c;
     font-weight: 500;
@@ -72,16 +83,20 @@
 .service-services-inner {
     width: min(1200px, 94vw); /* Restored to standard project width */
     margin: 0 auto;
-    padding-bottom: 100px;
+    padding-bottom: 50px; /* Reduced Brother! */
 }
 
 .service-block {
-    margin-bottom: 80px; /* Increased margin for floating labels */
+    margin-bottom: var(--cocreate-card-gap); /* Tunable on Line 8 */
     background: #E3EFFF; /* Finalized light blue background */
     overflow: visible; /* Changed to visible to allow floating header */
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: var(--cocreate-card-padding-v); /* Tunable on Line 9 */
     border-radius: 4px;
+}
+
+.service-block:last-child {
+    margin-bottom: 0; /* Remove gap after last card brother! */
 }
 
 .service-block-header {
@@ -108,7 +123,7 @@
 .service-block-main {
     display: flex;
     gap: 50px; 
-    padding: 0 60px 40px;
+    padding: 0 60px var(--cocreate-card-padding-v); /* Tunable on Line 9 */
     align-items: center; 
 }
 
@@ -131,7 +146,7 @@
 }
 
 .service-block-text {
-    font-size: 17px;
+    font-size: var(--cocreate-card-text-size); /* Tunable on Line 10 */
     line-height: 1.9;
     color: #1f2a3c;
     font-weight: 500;
@@ -165,7 +180,146 @@
     transform: translateY(-2px);
 }
 
-/* Local Responsive Tweaks */
+/* Service Voices Section Styles */
+.cocreate-page .service-voices {
+    padding: 60px 0 100px; /* Reduced top gap brother! */
+    position: relative;
+    background-color: transparent; /* Background color moved to pseudo-element */
+    overflow: visible; /* CRITICAL: Allow background circles to overflow */
+}
+
+/* Background layer to sit behind everything (z-index -2) */
+.cocreate-page .service-voices::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F8FAFC;
+    z-index: -2;
+}
+
+/* Hide only any specifically inherited global watermark circles if they belong to before/after 
+   without breaking our own background layer. */
+.cocreate-page .service-voices::before {
+    display: none !important;
+}
+
+.service-voices-inner {
+    width: min(1000px, 94vw);
+    margin: 0 auto;
+    position: relative;
+    /* No z-index here to avoid creating a new stacking context */
+}
+
+.cocreate-page .service-section-title {
+    text-align: center;
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
+    color: #1f2a3c;
+    margin-bottom: 60px;
+}
+
+.cocreate-page .service-voice-grid {
+    /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
+    --voice-person-width: 200px;      /* Line 199: Decrease this to make the person smaller */
+    --voice-h3-size: 24px;            /* Line 200: Increase this for larger item titles */
+    --voice-p-size: 20px;             /* Line 201: Increase this for larger quote text */
+    --voice-number-size: 48px;        /* Line 202: Increase this for larger number circles */
+    --voice-number-font-size: 26px;   /* Line 203: Adjust the size of the digits 1,2,3 */
+    --voice-content-gap: 80px;        /* Line 204: Space between person and text */
+    --voice-person-translateX: -120px;   /* Line 205: Change this to shift person left/right (e.g., -50px) */
+    
+    --voice-bg-width: 1000px;
+    --voice-bg-height: 1000px;
+    --voice-bg-top: 110%;
+    --voice-bg-right: -800px;
+    --voice-bg-opacity: 1; 
+    --voice-bg-color: #E3EFFF99;
+
+    display: flex;
+    align-items: center;
+    gap: var(--voice-content-gap);    /* Line 215: Applied gap */
+    position: relative;
+    z-index: 5; /* Keep content ABOVE the background circle */
+}
+
+/* Tunable Background Blob Shape */
+.cocreate-page .service-voice-grid::before {
+    content: "";
+    position: absolute;
+    width: var(--voice-bg-width);
+    height: var(--voice-bg-height);
+    right: var(--voice-bg-right);
+    top: var(--voice-bg-top);
+    transform: translateY(-50%);
+    background: var(--voice-bg-color);
+    border-radius: 50%;
+    z-index: -1; /* CRITICAL: Must be negative to sit behind the list items */
+    opacity: var(--voice-bg-opacity);
+    pointer-events: none;
+}
+
+.cocreate-page .service-person {
+    display: block !important;
+    flex: 0 0 var(--voice-person-width); /* Line 233: Smaller width */
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    transform: translateX(var(--voice-person-translateX)); /* Line 239: Shift left/right */
+}
+
+.cocreate-page .service-person img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-voice-list {
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: voice-count;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.service-voice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.service-voice-number {
+    flex: 0 0 var(--voice-number-size); /* Line 266: Circular icon size */
+    height: var(--voice-number-size);
+    background: #68A0FF !important; /* Line 268: Number background color */
+    color: #2D3A3A !important;      /* Line 269: Digit color (Blackish) */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--voice-number-font-size); /* Line 273: Digit size */
+    font-weight: 400;                /* Line 274: Light weight consistent with screenshots */
+    box-shadow: 0 4px 10px rgba(104, 160, 255, 0.3);
+}
+
+.service-voice-copy h3 {
+    font-size: var(--voice-h3-size); /* Line 277: Item Title Font Size */
+    font-weight: 700;
+    color: #2D3A3A !important;      /* Line 279: Item Title Text Color */
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.service-voice-copy p {
+    font-size: var(--voice-p-size);  /* Line 283: Quote Text Font Size */
+    line-height: 1.7;
+    color: #2D3A3A !important;      /* Line 285: Quote Text Color */
+    font-weight: 500;
+}
+
 @media (max-width: 900px) {
     .service-block-main {
         flex-direction: column;
@@ -188,5 +342,322 @@
     .service-pill {
         min-width: 0;
     }
+
+    .cocreate-page .service-voice-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .cocreate-page .service-person {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    .cocreate-page .service-voice-grid::before {
+        width: 120%;
+        height: 120%;
+        right: -10%;
+        top: 20%;
+    }
 }
 
+.service-features-block {
+    /* --- FEATURES CONFIGURATION PANEL --- */
+    --feature-container-width: 1400px; /* Line 353: Total width of the feature section */
+    --features-grid-gap: 60px;         /* Line 354: Gap between cards */
+    --feature-card-padding: 40px 30px; /* Line 355: Internal card padding */
+    --feature-bg-width: 500px;         /* Line 356: Background circle size */
+    --feature-bg-height: 500px;
+    --feature-bg-top: 60%;
+    --feature-bg-left: -100px;
+    --feature-bg-color: #E3EFFF99;
+
+    padding: 100px 0;
+    background-color: transparent; /* Set to transparent to see background bleed from previous section */
+    position: relative;
+    overflow: visible; /* Allow overflow from above to show through */
+}
+
+/* Background circle for Features section */
+.service-features-block::after {
+    content: "";
+    position: absolute;
+    width: var(--feature-bg-width);
+    height: var(--feature-bg-height);
+    left: var(--feature-bg-left);
+    top: var(--feature-bg-top);
+    transform: translateY(-50%);
+    background: var(--feature-bg-color);
+    border-radius: 50%;
+    z-index: -1; /* Above background but below cards */
+    pointer-events: none;
+}
+
+/* Background color for features block moved to pseudo-element to stay BEHIND the bleed */
+.service-features-block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F8FAFC;
+    z-index: -2; /* Behind everything */
+}
+
+.service-features-inner {
+    width: min(var(--feature-container-width), 94vw);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.service-features-block .service-section-lead {
+    text-align: center;
+    max-width: 800px;
+    margin: -30px auto 60px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #1f2a3c;
+    font-weight: 500;
+}
+
+.service-features-grid {
+    --feature-card-bg: #FFFFFF;
+    --feature-card-border: rgba(45, 58, 58, 0.8); /* #2D3A3A at 80% */
+    --feature-card-shadow-color: #E3EFFF;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--features-grid-gap);
+}
+
+.service-feature-card {
+    background: var(--feature-card-bg);
+    border: 1px solid var(--feature-card-border);
+    border-radius: 8px;
+    padding: var(--feature-card-padding);
+    box-shadow: 10px 6px 21.4px 0px var(--feature-card-shadow-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10; /* Ensure cards stay ABOVE the background circle bleed */
+}
+
+.service-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 53, 143, 0.08);
+}
+
+.feature-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.feature-number {
+    font-size: 20px;
+    font-weight: 500;
+    color: #64748b;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.feature-card-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2a3c;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.feature-icon {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.feature-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.feature-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #334155;
+    font-weight: 400;
+    text-align: justify;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .service-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* Case Studies Section (導入事例) - Integrated Sweet Spot Tuning brother! */
+.service-cases {
+    /* --- CONFIGURATION PANEL (Sweet Spot Tuning synchronized from Venous BX) --- */
+    --cases-max-width: 1600px;
+    --cases-title-size: clamp(28px, 3.5vw, 40px);
+    --cases-client-size: 20px;
+    --cases-highlight-size: clamp(18px, 2vw, 22px);
+    --cases-detail-label-size: 20px;
+    --cases-detail-text-size: 20px;
+    --cases-detail-indent: 1.5em;
+
+    /* Shadows & Dividers */
+    --cases-container-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
+    --cases-image-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --cases-divider-color: #00358FCC;
+
+    padding: 100px 0;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+/* Background color for cases block moved to pseudo-element */
+.service-cases::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F8FAFC;
+    z-index: -2;
+}
+
+.service-cases-inner {
+    width: min(var(--cases-max-width), 94vw);
+    margin: 0 auto;
+}
+
+.service-cases-inner .service-section-title {
+    font-size: var(--cases-title-size);
+    color: #1f2a3c;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cases-container {
+    background: #BED6FD;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: var(--cases-container-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.case-item {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Vertical Dividers */
+.case-divider {
+    width: 2px;
+    background: var(--cases-divider-color);
+    margin: 50px 0;
+    flex-shrink: 0;
+}
+
+.case-client {
+    font-size: var(--cases-client-size);
+    color: #1f2a3c;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.case-highlight {
+    font-size: var(--cases-highlight-size);
+    font-weight: 700;
+    color: #1f2a3c;
+    line-height: 1.5;
+    margin-bottom: 35px;
+    height: 3.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.case-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    box-shadow: var(--cases-image-shadow);
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.case-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-label {
+    font-size: var(--cases-detail-label-size);
+    font-weight: 700;
+    color: #1f2a3c;
+}
+
+.detail-text {
+    font-size: var(--cases-detail-text-size);
+    line-height: 1.7;
+    color: #1f2a3c;
+    font-weight: 400;
+    padding-left: var(--cases-detail-indent); /* Indentation from label brother! */
+}
+
+/* Mobile Adjustments for Case Studies */
+@media (max-width: 1000px) {
+    .cases-container {
+        flex-direction: column;
+    }
+
+    .case-divider {
+        width: 100%;
+        height: 1.5px;
+        margin: 0;
+    }
+
+    .case-item {
+        padding: 40px 30px;
+    }
+
+    .case-highlight {
+        height: auto;
+        margin-bottom: 25px;
+    }
+}

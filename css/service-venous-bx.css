@@ -1,59 +1,650 @@
-/* Venous BX Service Page - Image Backgrounds */
+/* Venous BX Service Page - Specific Styles */
 
-/* Feature Card Styling */
-.service-feature-card h3 {
+:root {
+    /* --- Sweet Spot Tuning Brother! (Lines 4-10) --- */
+    --venous-title-size: clamp(32px, 4vw, 42px); 
+    --venous-lead-size: 19px; 
+    --venous-intro-bottom: 100px; /* Gap between lead text and first card */
+    --venous-card-gap: 50px;     /* Gap between each card */
+    --venous-card-padding-v: 20px; /* Vertical padding inside card (controls height) */
+    --venous-card-text-size: 19px;  /* Font size for the service description text */
+}
+
+/* Venous Page Specific Background Mask (Responsive Figma Coordinate System) */
+.venous-page {
+    position: relative;
+    overflow: hidden;
+    background-color: #F8FAFC; /* Consistent premium background */
+}
+
+.venous-header-mask {
+    --figma-bg-width: 113vw;
+    --figma-bg-height: 76vw;
+    --figma-bg-top: -64vw;
+    --figma-bg-left: -34.8vw;
+    --figma-bg-rotate: -13deg;
+
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.venous-header-mask::before {
+    content: "";
+    position: absolute;
+    width: var(--figma-bg-width);
+    height: var(--figma-bg-height);
+    top: var(--figma-bg-top);
+    left: var(--figma-bg-left);
+    transform-origin: center center;
+    transform: rotate(var(--figma-bg-rotate));
+    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
+    opacity: 0.85;
+}
+
+.venous-page-content {
+    position: relative;
+    z-index: 10;
+}
+
+.venous-page .service-intro {
+    position: relative;
+    z-index: 10;
+    background: transparent !important;
+    padding: 80px 0 var(--venous-intro-bottom); /* Tunable on Line 7 */
+    text-align: center;
+}
+
+.venous-page .service-title {
+    font-size: var(--venous-title-size); /* Tunable on Line 5 */
+    font-weight: 800;
+    color: #1f2a3c;
+    margin-bottom: 24px;
+}
+
+.venous-page .service-lead {
+    font-size: var(--venous-lead-size); /* Tunable on Line 6 */
+    line-height: 1.8;
+    color: #1f2a3c;
+    font-weight: 500;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Service Grid & Blocks (Exact Co-create Mechanism) */
+.service-services {
+    overflow: visible; /* Allow background bleed from below */
+}
+
+.service-services-inner {
+    width: min(1200px, 94vw);
+    margin: 0 auto;
+    padding-bottom: 50px; /* Reduced brother! */
+}
+
+.service-block {
+    margin-bottom: var(--venous-card-gap); /* Tunable on Line 8 */
+    background: #E3EFFF; 
+    overflow: visible; /* Required for floating header */
+    position: relative;
+    padding-bottom: var(--venous-card-padding-v); /* Tunable on Line 9 */
+    border-radius: 4px;
+}
+
+.service-block:last-child {
+    margin-bottom: 0; /* Remove gap after last card brother! */
+}
+
+.service-block-header {
+    background: #00358F;
+    padding: 14px 60px;
+    text-align: center;
+    width: fit-content;
+    min-width: 920px; /* Synced with Co-create brother! */
+    margin: -28px auto 40px; /* The exact -28px negative margin brother! */
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 53, 143, 0.25);
+}
+
+.service-block-header h3 {
+    color: #FFFFFF;
+    font-size: 22px; 
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin: 0;
+}
+
+.service-block-main {
+    display: flex;
+    gap: 50px; 
+    padding: 0 60px var(--venous-card-padding-v); /* Tunable on Line 9 */
+    align-items: center; 
+}
+
+.service-block-image {
+    flex: 0 0 360px; 
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Image Placeholders - User will save these names brother! */
+.venous-image-1 { background-image: url('../images/venous-card-01.jpeg'); }
+.venous-image-2 { background-image: url('../images/venous-card-02.jpeg'); }
+.venous-image-3 { background-image: url('../images/venous-card-03.jpeg'); }
+
+.service-block-content {
+    flex: 1;
+}
+
+.service-block-text {
+    font-size: var(--venous-card-text-size); /* Tunable on Line 10 */
+    line-height: 1.9;
+    color: #1f2a3c;
+    font-weight: 500;
+}
+
+.service-block-footer {
+    padding: 0 60px;
+}
+
+.service-pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center; 
+}
+
+.service-pill {
+    background: #00358F;
+    color: #FFFFFF;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    min-width: 180px;
+}
+
+/* Features Section - Premium Layout (Synced with Co-create) */
+.service-features {
+    --feature-container-width: 1400px; /* Sweeter Spot brother! */
+    --features-grid-gap: 60px;         /* Sweeter Spot brother! */
+    --feature-card-padding: 40px 30px; 
+    --feature-bg-width: 500px;         
+    --feature-bg-height: 500px;
+    --feature-bg-top: 60%;
+    --feature-bg-left: -100px;
+    --feature-bg-color: #E3EFFF99;
+
+    padding: 100px 0;
+    background-color: transparent;
+    position: relative;
+    overflow: visible; /* Allow background bleed from above */
+}
+
+/* Background color for features block moved to pseudo-element to stay BEHIND the bleed */
+.service-features::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F8FAFC;
+    z-index: -2; /* Behind everything */
+}
+
+/* Background blob for Features section */
+.service-features::after {
+    content: "";
+    position: absolute;
+    width: var(--feature-bg-width);
+    height: var(--feature-bg-height);
+    left: var(--feature-bg-left);
+    top: var(--feature-bg-top);
+    transform: translateY(-50%);
+    background: var(--feature-bg-color);
+    border-radius: 50%;
+    z-index: -1; /* Above background but below cards */
+    pointer-events: none;
+}
+
+.service-features-inner {
+    width: min(var(--feature-container-width), 94vw);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.service-features .service-section-title {
+    text-align: center;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800;
+    color: #1f2a3c;
+    margin-bottom: 24px;
+}
+
+.service-features .service-section-lead {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #1f2a3c;
+    font-weight: 500;
+}
+
+.service-features-grid {
+    --feature-card-bg: #FFFFFF;
+    --feature-card-border: rgba(45, 58, 58, 0.8); /* #2D3A3A at 80% */
+    --feature-card-shadow-color: #E3EFFF;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--features-grid-gap);
+}
+
+.service-feature-card {
+    background: var(--feature-card-bg);
+    border: 1px solid var(--feature-card-border);
+    border-radius: 8px;
+    padding: var(--feature-card-padding);
+    box-shadow: 10px 6px 21.4px 0px var(--feature-card-shadow-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10; /* Ensure cards stay ABOVE the background circle bleed */
 }
 
-.service-feature-card h3 span {
-    display: block;
-    font-size: 1em;
+.service-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 53, 143, 0.08);
+}
+
+.feature-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.feature-number {
+    font-size: 20px;
+    font-weight: 500;
+    color: #64748b;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.feature-card-header h3 {
+    font-size: 22px;
     font-weight: 700;
+    color: #1f2a3c;
+    margin: 0;
+    letter-spacing: 0.05em;
 }
 
-.service-image-1 {
-    background:
-        radial-gradient(circle at 72% 40%, rgba(75, 173, 49, 0.95) 0 22%, transparent 24%),
-        radial-gradient(circle at 42% 60%, rgba(103, 195, 75, 0.9) 0 17%, transparent 19%),
-        linear-gradient(160deg, #dad4e3 0%, #c8bfd4 48%, #f5d8ca 100%);
+.feature-icon {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
-.service-image-2 {
-    background:
-        radial-gradient(circle at 62% 62%, rgba(13, 93, 183, 0.44) 0 20%, transparent 22%),
-        radial-gradient(circle at 48% 56%, rgba(255, 111, 72, 0.5) 0 11%, transparent 13%),
-        linear-gradient(145deg, #e7ecef 0%, #d6dde2 45%, #96a8ba 100%);
+.feature-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.service-image-3 {
-    background:
-        radial-gradient(circle at 44% 62%, rgba(151, 208, 108, 0.45) 0 17%, transparent 19%),
-        radial-gradient(circle at 70% 38%, rgba(171, 188, 218, 0.38) 0 18%, transparent 20%),
-        linear-gradient(145deg, #454a50 0%, #2f343a 46%, #6a6257 100%);
+.feature-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #334155;
+    font-weight: 400;
+    text-align: justify;
+    margin: 0;
 }
 
-.service-feature-icon-1 {
-    background:
-        linear-gradient(0deg, transparent 76%, #0f4b97 76% 78%, transparent 78%),
-        radial-gradient(circle at 50% 70%, rgba(15, 75, 151, 0.95) 0 8%, transparent 8.5%),
-        linear-gradient(145deg, #f4f7fb, #e6edf8);
+/* Mobile Adjustments (Synced with Co-create) */
+@media (max-width: 900px) {
+    .service-block-main {
+        flex-direction: column;
+        padding: 0 20px 24px;
+        gap: 24px;
+    }
+    
+    .service-block-image {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .service-pill-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .service-pill {
+        min-width: 0;
+    }
+
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }
 
-.service-feature-icon-2 {
-    background:
-        radial-gradient(circle at 50% 57%, rgba(19, 76, 152, 0.86) 0 11%, transparent 11.5%),
-        radial-gradient(circle at 30% 38%, rgba(19, 76, 152, 0.86) 0 8%, transparent 8.5%),
-        radial-gradient(circle at 70% 38%, rgba(19, 76, 152, 0.86) 0 8%, transparent 8.5%),
-        linear-gradient(145deg, #f4f7fb, #e6edf8);
+
+/* Service Voices Section Styles (Synced with Co-create) */
+.venous-page .service-voices {
+    padding: 60px 0 100px; /* Reduced top gap brother! */
+    position: relative;
+    background-color: transparent;
+    overflow: visible; /* CRITICAL: Allow background circles to overflow */
 }
 
-.service-feature-icon-3 {
-    background:
-        linear-gradient(12deg, transparent 64%, rgba(15, 75, 151, 0.96) 64% 70%, transparent 70%),
-        linear-gradient(90deg, transparent 26%, rgba(15, 75, 151, 0.9) 26% 35%, transparent 35% 42%, rgba(15, 75, 151, 0.9) 42% 52%, transparent 52% 59%, rgba(15, 75, 151, 0.9) 59% 68%, transparent 68%),
-        linear-gradient(145deg, #f4f7fb, #e6edf8);
+.venous-page .service-voices::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F8FAFC;
+    z-index: -2;
 }
 
+/* Service Cases Section (導入事例) - Ported from BPO brother! */
+.service-cases {
+    /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
+    --cases-max-width: 1600px;
+    --cases-title-size: clamp(28px, 3.5vw, 40px);
+    --cases-client-size: 20px;
+    --cases-highlight-size: clamp(18px, 2vw, 22px);
+    --cases-detail-label-size: 20px;
+    --cases-detail-text-size: 20px;
+    --cases-detail-indent: 1.5em; /* Brother, adjust this for Figma indentation! */
+
+    /* Shadows & Dividers */
+    --cases-container-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
+    --cases-image-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --cases-divider-color: #00358FCC;
+
+    padding: 100px 0;
+    background: #F8FAFC;
+    position: relative;
+    z-index: 2;
+}
+
+.service-cases-inner {
+    width: min(var(--cases-max-width), 94vw);
+    margin: 0 auto;
+}
+
+.service-cases-inner .service-section-title {
+    font-size: var(--cases-title-size);
+    color: #1f2a3c;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cases-container {
+    background: #BED6FD;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: var(--cases-container-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.case-item {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Vertical Dividers */
+.case-divider {
+    width: 2px;
+    background: var(--cases-divider-color);
+    margin: 50px 0;
+    flex-shrink: 0;
+}
+
+.case-client {
+    font-size: var(--cases-client-size);
+    color: #1f2a3c;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.case-highlight {
+    font-size: var(--cases-highlight-size);
+    font-weight: 700;
+    color: #1f2a3c;
+    line-height: 1.5;
+    margin-bottom: 35px;
+    height: 3.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.case-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    box-shadow: var(--cases-image-shadow);
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.case-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-label {
+    font-size: var(--cases-detail-label-size);
+    font-weight: 700;
+    color: #1f2a3c;
+}
+
+.detail-text {
+    font-size: var(--cases-detail-text-size);
+    line-height: 1.7;
+    color: #1f2a3c;
+    font-weight: 400;
+    padding-left: var(--cases-detail-indent); /* Indentation from label brother! */
+}
+
+/* Mobile Adjustments for Case Studies */
+@media (max-width: 1000px) {
+    .cases-container {
+        flex-direction: column;
+    }
+
+    .case-divider {
+        width: 100%;
+        height: 1.5px;
+        margin: 0;
+    }
+
+    .case-item {
+        padding: 40px 30px;
+    }
+
+    .case-highlight {
+        height: auto;
+        margin-bottom: 25px;
+    }
+}
+
+.venous-page .service-voices::before {
+    display: none !important;
+}
+
+.service-voices-inner {
+    width: min(1000px, 94vw);
+    margin: 0 auto;
+    position: relative;
+}
+
+.venous-page .service-voices-title {
+    text-align: center;
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
+    color: #1f2a3c;
+    margin-bottom: 60px;
+}
+
+.venous-page .service-voice-grid {
+    /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
+    --voice-person-width: 200px;
+    --voice-h3-size: 24px;
+    --voice-p-size: 20px;
+    --voice-number-size: 48px;
+    --voice-number-font-size: 26px;
+    --voice-content-gap: 80px;
+    --voice-person-translateX: -120px;
+    
+    --voice-bg-width: 1000px;
+    --voice-bg-height: 1000px;
+    --voice-bg-top: 110%;
+    --voice-bg-right: -800px;
+    --voice-bg-opacity: 1; 
+    --voice-bg-color: #E3EFFF99;
+
+    display: flex;
+    align-items: center;
+    gap: var(--voice-content-gap);
+    position: relative;
+    z-index: 5;
+}
+
+.venous-page .service-voice-grid::before {
+    content: "";
+    position: absolute;
+    width: var(--voice-bg-width);
+    height: var(--voice-bg-height);
+    right: var(--voice-bg-right);
+    top: var(--voice-bg-top);
+    transform: translateY(-50%);
+    background: var(--voice-bg-color);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: var(--voice-bg-opacity);
+    pointer-events: none;
+}
+
+.venous-page .service-person {
+    display: block !important;
+    flex: 0 0 var(--voice-person-width);
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    transform: translateX(var(--voice-person-translateX));
+}
+
+.venous-page .service-person img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-voice-list {
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: voice-count;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.service-voice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.service-voice-number {
+    flex: 0 0 var(--voice-number-size);
+    height: var(--voice-number-size);
+    background: #68A0FF !important;
+    color: #2D3A3A !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--voice-number-font-size);
+    font-weight: 400;
+    box-shadow: 0 4px 10px rgba(104, 160, 255, 0.3);
+}
+
+.service-voice-copy h3 {
+    font-size: var(--voice-h3-size);
+    font-weight: 700;
+    color: #2D3A3A !important;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.service-voice-copy p {
+    font-size: var(--voice-p-size);
+    line-height: 1.7;
+    color: #2D3A3A !important;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .venous-page .service-voice-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .venous-page .service-person {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    .venous-page .service-voice-grid::before {
+        width: 120%;
+        height: 120%;
+        right: -10%;
+        top: 20%;
+    }
+}
