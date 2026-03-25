@@ -19,6 +19,47 @@
     /* Button "Sweet Spot" Variables */
     --dt-btn-width: 300px;        /* Desktop: Width of the yellow hero button */
     --sp-btn-width: 92%;         /* Mobile: Width of the yellow hero button */
+
+    /* Footer Configuration (Sweet Spot Tuning) */
+    --footer-bg-color: #00358F;
+    --footer-brand-size: 32px;      /* Brand name 'Canopus' */
+    --header-logo-height: 54px;      /* New: Header logo (Desktop) */
+    --sp-header-logo-height: 42px;   /* New: Header logo (Mobile) */
+    --footer-address-size: 17px;    /* Desktop */
+    --footer-nav-title-size: 17px;  /* Desktop */
+    --footer-nav-link-size: 17px;   /* Desktop */
+    --footer-nav-sublink-size: 17px; /* Desktop */
+    --footer-logo-height: 120px;    /* Height of the image-based logo */
+
+    /* Mobile Footer Tuning (Brother, find your sweet spot here!) */
+    --sp-footer-address-size: 15px;
+    --sp-footer-nav-title-size: 15px;
+    --sp-footer-nav-link-size: 15px;
+    --sp-footer-nav-sublink-size: 15px;
+    --sp-footer-logo-height: 80px;
+    --sp-footer-padding-left: 30px; /* New: Tune the left padding for HOME and 会社情報 here! */
+
+    /* Contact CTA Tuning (Sweet Spot Configuration) */
+    --contact-watermark-size: 100px;
+    --contact-watermark-top: -10%;
+    --contact-watermark-opacity: 1;
+    --contact-title-size: 32px;
+    --contact-info-size: 20px;
+    --contact-btn-font-size: 20px;
+    --contact-btn-border: 1px solid #00358F;
+    --contact-btn-padding-y: 15px;
+    --contact-btn-padding-x: 10px;
+    --contact-btn-min-width: 180px;
+    --contact-btn-radius: 7px;
+    --contact-panel-width: 1000px; /* brother, increase this to make the blue card wider! */
+
+    /* Mobile Contact CTA Tuning */
+    --sp-contact-info-size: 16px;
+    --sp-contact-btn-font-size: 16px;
+    --sp-contact-btn-padding-y: 10px;
+    --sp-contact-btn-padding-x: 10px;
+    --sp-contact-btn-min-width: 50%;
+    --sp-contact-panel-width: 82vw;
 }
 
 /* Utility for mobile-only line breaks */
@@ -806,23 +847,27 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: clamp(18px, 1.8vw, 24px);
-    font-weight: 800;
-    letter-spacing: 0.02em;
     padding: 8px 0;
 }
 
+.header-logo-dt {
+    height: var(--header-logo-height);
+    width: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.header-logo-sp {
+    display: none;
+}
+
 .brand-orb {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(122, 195, 246, 0.8) 100%);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    display: none; /* Deprecated in favor of images! */
 }
 
 .brand-name {
-    color: #fff;
-    line-height: 1;
+    display: none; /* Deprecated in favor of images! */
 }
 
 .menu-toggle {
@@ -878,11 +923,11 @@ a {
 
 .section-watermark {
     display: block;
-    font-size: 100px;
+    font-size: var(--contact-watermark-size);
     font-weight: 800;
     color: #e5e9f0;
     position: absolute;
-    top: 50%;
+    top: var(--contact-watermark-top);
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
@@ -890,10 +935,11 @@ a {
     pointer-events: none;
     line-height: 1;
     margin-bottom: 0;
+    opacity: var(--contact-watermark-opacity);
 }
 
 .section-head h2 {
-    font-size: 32px;
+    font-size: var(--contact-title-size);
     font-weight: 700;
     color: #1a233a;
     position: relative;
@@ -902,7 +948,7 @@ a {
 
 .contact-panel {
     background-color: #d8eff3; /* Matching the light cyan */
-    max-width: 800px;
+    max-width: var(--contact-panel-width);
     margin: 0 auto;
     padding: 50px 60px;
     display: flex;
@@ -916,20 +962,24 @@ a {
 }
 
 .contact-meta {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(4.5em, auto) min-content auto; /* Perfect key:value align, brother! */
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: center;
+    text-align: left;
     margin-bottom: 0;
 }
 
-.contact-meta p {
-    font-size: 18px;
+.contact-meta span {
+    font-size: var(--contact-info-size);
     color: #333;
     font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 5px;
+    line-height: 1.4;
 }
 
-.contact-meta p:last-child {
-    margin-bottom: 0;
+.contact-label {
+    text-align: right; /* Keeps colons aligned without spreading the characters! */
 }
 
 .contact-btn {
@@ -938,15 +988,15 @@ a {
     justify-content: center;
     background: transparent;
     color: #1a233a;
-    padding: 16px 40px;
-    border: 1px solid #316298;
-    border-radius: 0;
-    font-size: 18px;
+    padding: var(--contact-btn-padding-y) var(--contact-btn-padding-x);
+    border: var(--contact-btn-border);
+    border-radius: var(--contact-btn-radius);
+    font-size: var(--contact-btn-font-size);
     font-weight: 500;
     letter-spacing: 0.01em;
     transition: all 0.3s ease;
     box-shadow: none;
-    min-width: 250px;
+    min-width: var(--contact-btn-min-width); /* Tunable min-width, brother! */
 }
 
 .contact-btn:hover {
@@ -958,7 +1008,7 @@ a {
 
 /* ========== FOOTER ========== */
 .site-footer {
-    background: #083c8a; /* Solid dark blue mapping to screenshot 1 */
+    background: var(--footer-bg-color);
     padding: 60px 16px 40px;
     border-top: none;
 }
@@ -987,37 +1037,20 @@ a {
     margin-bottom: 12px;
 }
 
-.footer-orb {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #aee1ff 0%, #3085d6 40%, #0c2b6e 90%);
-    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.6), 0 0 20px rgba(122, 195, 246, 0.3);
-    position: relative;
-    overflow: hidden;
+.footer-logo-dt {
+    height: var(--footer-logo-height);
+    width: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-.footer-orb::before {
-    content: "";
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    width: 25px;
-    height: 25px;
-    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 60%);
-    border-radius: 50%;
-}
-
-.footer-brand-name {
-    color: #8c836a;
-    font-size: 26px;
-    font-family: serif;
-    letter-spacing: 2px;
-    font-weight: 500;
+.footer-logo-sp {
+    display: none; /* Hidden by default */
 }
 
 .footer-brand-block p {
-    font-size: 12px;
+    font-size: var(--footer-address-size);
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     font-weight: 400;
@@ -1039,11 +1072,15 @@ a {
 
 .footer-links-grid a {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 13px;
+    font-size: var(--footer-nav-link-size);
     font-weight: 400;
     transition: color 0.3s ease;
     line-height: 1.6;
     text-decoration: none;
+}
+
+.footer-links-grid a.footer-sublink {
+    font-size: var(--footer-nav-sublink-size);
 }
 
 .footer-links-grid a:hover {
@@ -1054,7 +1091,7 @@ a {
 .footer-links-grid li:first-child a {
     font-weight: 700;
     color: #fff;
-    font-size: 14px;
+    font-size: var(--footer-nav-title-size);
     text-decoration: none;
 }
 
@@ -1106,10 +1143,7 @@ a {
 }
 
 .brand-name-overlay {
-    font-size: 22px;
-    font-weight: 800;
-    color: #1a233a;
-    letter-spacing: 0.02em;
+    display: none; /* Deprecated in favor of images! */
 }
 
 .mobile-nav-links-area {
@@ -1277,6 +1311,8 @@ a {
     }
 
     .contact-panel {
+        width: var(--sp-contact-panel-width); /* Now tunable, brother! */
+        margin: 0 auto;
         padding: 50px 20px 40px;
         flex-direction: column-reverse;
         gap: 30px;
@@ -1284,8 +1320,9 @@ a {
     }
 
     .contact-btn {
-        width: 100%;
-        max-width: 280px;
+        width: auto; /* Allow min-width to take over, brother! */
+        min-width: var(--sp-contact-btn-min-width);
+        max-width: none;
     }
 
     .section-watermark {
@@ -1293,9 +1330,11 @@ a {
     }
 
     .contact-meta {
+        display: grid;
+        justify-content: center; /* Centers the whole grid block! */
         gap: 8px;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left; /* Keep internal labels/values aligned! */
     }
 }
 
@@ -1311,14 +1350,26 @@ a {
 }
 
 @media (max-width: 560px) {
-    .brand {
-        gap: 6px;
-        font-size: 16px;
+    .header-logo-dt {
+        display: none;
+    }
+
+    .header-logo-sp {
+        display: block;
+        height: var(--sp-header-logo-height);
+        width: auto;
     }
 
     .brand-orb {
-        width: 24px;
-        height: 24px;
+        display: none;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+    .brand {
+        gap: 6px;
     }
 
     .section-head h2 {
@@ -1333,13 +1384,14 @@ a {
         padding: 40px 16px 30px;
     }
 
-    .contact-meta p {
-        font-size: 12px;
+    .contact-meta span {
+        font-size: var(--sp-contact-info-size);
     }
 
     .contact-btn {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: var(--sp-contact-btn-padding-y) var(--sp-contact-btn-padding-x);
+        font-size: var(--sp-contact-btn-font-size);
+        min-width: var(--sp-contact-btn-min-width);
     }
 
     .footer-inner {
@@ -1347,15 +1399,45 @@ a {
     }
 
     .footer-links-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+        text-align: left;
+    }
+
+    .footer-links-grid ul:nth-child(1),
+    .footer-links-grid ul:nth-child(3) {
+        padding-left: var(--sp-footer-padding-left);
+    }
+
+    .footer-links-grid ul:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo-dt {
+        display: none; /* Hide Desktop logo */
+    }
+
+    .footer-logo-sp {
+        display: block; /* Show Mobile logo */
+        height: var(--sp-footer-logo-height);
+        width: auto;
+        margin: 0 auto;
     }
 
     .footer-brand-block p {
-        font-size: 11px;
+        font-size: var(--sp-footer-address-size);
     }
 
     .footer-links-grid a {
-        font-size: 12px;
+        font-size: var(--sp-footer-nav-link-size);
+    }
+
+    .footer-links-grid a.footer-sublink {
+        font-size: var(--sp-footer-nav-sublink-size);
+    }
+
+    .footer-links-grid li:first-child a {
+        font-size: var(--sp-footer-nav-title-size);
     }
 }

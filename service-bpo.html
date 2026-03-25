@@ -86,92 +86,94 @@
                             </p>
                         </div>
 
-                        <div class="provision-diagram">
-                            <!-- HQ Node -->
-                            <div class="diagram-node node--hq">
-                                <div class="node-circle node-circle--blue">
-                                    <span class="node-label">貴社<br>(本部)</span>
+                        <div class="provision-diagram-wrap">
+                            <div class="provision-diagram">
+                                <!-- HQ Node -->
+                                <div class="diagram-node node--hq">
+                                    <div class="node-circle node-circle--blue">
+                                        <span class="node-label">貴社<br>(本部)</span>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- GK Node -->
-                            <div class="diagram-node node--gk">
-                                <div class="node-circle node-circle--white">
-                                    <img src="images/gk.png" alt="ゴミカン" class="node-logo">
-                                    <span class="node-name">ゴミカン</span>
+    
+                                <!-- GK Node -->
+                                <div class="diagram-node node--gk">
+                                    <div class="node-circle node-circle--white">
+                                        <img src="images/gk.png" alt="ゴミカン" class="node-logo">
+                                        <span class="node-name">ゴミカン</span>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Partners Node -->
-                            <div class="diagram-node node--partners">
-                                <div class="node-box-wrap">
-                                    <div class="node-box node-box--partners">
-                                        <span class="node-label vertical-text">廃棄物処理業者</span>
-                                        <div class="node-icons">
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-truck.png" alt="" class="node-icon">
-                                            </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-truck.png" alt="" class="node-icon">
-                                            </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
-                                            </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+    
+                                <!-- Partners Node -->
+                                <div class="diagram-node node--partners">
+                                    <div class="node-box-wrap">
+                                        <div class="node-box node-box--partners">
+                                            <span class="node-label vertical-text">廃棄物処理業者</span>
+                                            <div class="node-icons">
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-truck.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-truck.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Bases Node -->
-                            <div class="diagram-node node--bases">
-                                <div class="node-box-wrap">
-                                    <div class="node-box node-box--bases">
-                                        <div class="node-icons">
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+    
+                                <!-- Bases Node -->
+                                <div class="diagram-node node--bases">
+                                    <div class="node-box-wrap">
+                                        <div class="node-box node-box--bases">
+                                            <div class="node-icons">
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-building.png" alt="" class="node-icon">
+                                                </div>
+                                                <div class="node-icon-row">
+                                                    <img src="images/bpo-icon-building.png" alt="" class="node-icon">
+                                                </div>
                                             </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-factory.png" alt="" class="node-icon">
-                                            </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-building.png" alt="" class="node-icon">
-                                            </div>
-                                            <div class="node-icon-row">
-                                                <img src="images/bpo-icon-building.png" alt="" class="node-icon">
-                                            </div>
+                                            <span class="node-label vertical-text">貴社（各拠点）</span>
                                         </div>
-                                        <span class="node-label vertical-text">貴社（各拠点）</span>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Arrows and Labels -->
-                            <div class="diagram-elements">
-                                <!-- HQ <-> GK Arrows -->
-                                <div class="arrow arrow--up arrow--gk-hq">
-                                    <span class="arrow-label align-left">報告<br>請求</span>
-                                </div>
-                                <div class="arrow arrow--down arrow--hq-gk">
-                                    <span class="arrow-label align-right">依頼<br>承認<br>データ確認</span>
-                                </div>
-
-                                <!-- Partners <-> GK Arrows -->
-                                <div class="arrow arrow--right arrow--partners-gk">
-                                    <span class="arrow-label align-top">見積/回収予定/<br>マニフェスト、請求</span>
-                                </div>
-                                <div class="arrow arrow--left arrow--gk-partners">
-                                    <span class="arrow-label align-bottom">見積調整、契約書作成、<br>配車調整、マニフェスト交付</span>
-                                </div>
-
-                                <!-- Bases <-> GK Arrows -->
-                                <div class="arrow arrow--left arrow--bases-gk">
-                                    <span class="arrow-label align-bottom">依頼<br>承認<br>データ確認</span>
-                                </div>
-                                <div class="arrow arrow--right arrow--gk-bases">
-                                    <span class="arrow-label align-top">報告</span>
+    
+                                <!-- Arrows and Labels -->
+                                <div class="diagram-elements">
+                                    <!-- HQ <-> GK Arrows -->
+                                    <div class="arrow arrow--up arrow--gk-hq">
+                                        <span class="arrow-label align-left">報告<br>請求</span>
+                                    </div>
+                                    <div class="arrow arrow--down arrow--hq-gk">
+                                        <span class="arrow-label align-right">依頼<br>承認<br>データ確認</span>
+                                    </div>
+    
+                                    <!-- Partners <-> GK Arrows -->
+                                    <div class="arrow arrow--right arrow--partners-gk">
+                                        <span class="arrow-label align-top">見積/回収予定/<br>マニフェスト、請求</span>
+                                    </div>
+                                    <div class="arrow arrow--left arrow--gk-partners">
+                                        <span class="arrow-label align-bottom">見積調整、契約書作成、<br>配車調整、マニフェスト交付</span>
+                                    </div>
+    
+                                    <!-- Bases <-> GK Arrows -->
+                                    <div class="arrow arrow--left arrow--bases-gk">
+                                        <span class="arrow-label align-bottom">依頼<br>承認<br>データ確認</span>
+                                    </div>
+                                    <div class="arrow arrow--right arrow--gk-bases">
+                                        <span class="arrow-label align-top">報告</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -485,5 +487,16 @@
 
     <script src="js/components.js"></script>
     <script src="js/subpage.js"></script>
+
+    <!-- Mobile Diagram Lightbox overlay -->
+    <div id="diagram-lightbox" class="diagram-lightbox">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">&times;</button>
+            <div id="lightbox-container" class="lightbox-inner">
+                <!-- Cloned diagram will be injected here -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

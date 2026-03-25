@@ -1,7 +1,7 @@
 /* Venous BX Service Page - Specific Styles */
 
 :root {
-    /* --- Sweet Spot Tuning Brother! (Lines 4-10) --- */
+    /* --- Sweet Spot Tuning (Lines 4-10) --- */
     --venous-title-size: clamp(32px, 4vw, 42px); 
     --venous-lead-size: 19px; 
     --venous-intro-bottom: 100px; /* Gap between lead text and first card */
@@ -85,7 +85,7 @@
 .service-services-inner {
     width: min(1200px, 94vw);
     margin: 0 auto;
-    padding-bottom: 50px; /* Reduced brother! */
+    padding-bottom: 50px; /* Reduced */
 }
 
 .service-block {
@@ -98,7 +98,7 @@
 }
 
 .service-block:last-child {
-    margin-bottom: 0; /* Remove gap after last card brother! */
+    margin-bottom: 0; /* Remove gap after last card */
 }
 
 .service-block-header {
@@ -106,8 +106,8 @@
     padding: 14px 60px;
     text-align: center;
     width: fit-content;
-    min-width: 920px; /* Synced with Co-create brother! */
-    margin: -28px auto 40px; /* The exact -28px negative margin brother! */
+    min-width: 920px; /* Synced with Co-create */
+    margin: -28px auto 40px; /* The exact -28px negative margin */
     border-radius: 10px;
     position: relative;
     z-index: 2;
@@ -139,7 +139,7 @@
     background-position: center;
 }
 
-/* Image Placeholders - User will save these names brother! */
+/* Image Placeholders - User will save these names */
 .venous-image-1 { background-image: url('../images/venous-card-01.jpeg'); }
 .venous-image-2 { background-image: url('../images/venous-card-02.jpeg'); }
 .venous-image-3 { background-image: url('../images/venous-card-03.jpeg'); }
@@ -179,8 +179,8 @@
 
 /* Features Section - Premium Layout (Synced with Co-create) */
 .service-features {
-    --feature-container-width: 1400px; /* Sweeter Spot brother! */
-    --features-grid-gap: 60px;         /* Sweeter Spot brother! */
+    --feature-container-width: 1400px; /* Sweeter Spot */
+    --features-grid-gap: 60px;         /* Sweeter Spot */
     --feature-card-padding: 40px 30px; 
     --feature-bg-width: 500px;         
     --feature-bg-height: 500px;
@@ -352,7 +352,7 @@
 
 /* Service Voices Section Styles (Synced with Co-create) */
 .venous-page .service-voices {
-    padding: 60px 0 100px; /* Reduced top gap brother! */
+    padding: 60px 0 100px; /* Reduced top gap */
     position: relative;
     background-color: transparent;
     overflow: visible; /* CRITICAL: Allow background circles to overflow */
@@ -366,7 +366,7 @@
     z-index: -2;
 }
 
-/* Service Cases Section (導入事例) - Ported from BPO brother! */
+/* Service Cases Section (導入事例) - Ported from BPO */
 .service-cases {
     /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
     --cases-max-width: 1600px;
@@ -375,7 +375,7 @@
     --cases-highlight-size: clamp(18px, 2vw, 22px);
     --cases-detail-label-size: 20px;
     --cases-detail-text-size: 20px;
-    --cases-detail-indent: 1.5em; /* Brother, adjust this for Figma indentation! */
+    --cases-detail-indent: 1.5em; /* Adjust this for Figma indentation */
 
     /* Shadows & Dividers */
     --cases-container-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
@@ -484,7 +484,7 @@
     line-height: 1.7;
     color: #1f2a3c;
     font-weight: 400;
-    padding-left: var(--cases-detail-indent); /* Indentation from label brother! */
+    padding-left: var(--cases-detail-indent); /* Indentation from label */
 }
 
 /* Mobile Adjustments for Case Studies */

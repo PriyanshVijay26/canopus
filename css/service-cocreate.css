@@ -1,7 +1,7 @@
 /* Cocreate Page Layout Refinement */
 
 :root {
-    /* --- Sweet Spot Tuning Brother! (Lines 4-10) --- */
+    /* --- Sweet Spot Tuning (Lines 4-10) --- */
     --cocreate-title-size: clamp(32px, 4vw, 42px);
     --cocreate-lead-size: 19px;
     --cocreate-intro-bottom: 100px; /* Gap between lead text and first card */
@@ -83,7 +83,7 @@
 .service-services-inner {
     width: min(1200px, 94vw); /* Restored to standard project width */
     margin: 0 auto;
-    padding-bottom: 50px; /* Reduced Brother! */
+    padding-bottom: 50px; /* Reduced */
 }
 
 .service-block {
@@ -96,7 +96,7 @@
 }
 
 .service-block:last-child {
-    margin-bottom: 0; /* Remove gap after last card brother! */
+    margin-bottom: 0; /* Remove gap after last card */
 }
 
 .service-block-header {
@@ -182,7 +182,7 @@
 
 /* Service Voices Section Styles */
 .cocreate-page .service-voices {
-    padding: 60px 0 100px; /* Reduced top gap brother! */
+    padding: 60px 0 100px; /* Reduced top gap */
     position: relative;
     background-color: transparent; /* Background color moved to pseudo-element */
     overflow: visible; /* CRITICAL: Allow background circles to overflow */
@@ -510,7 +510,7 @@
     }
 }
 
-/* Case Studies Section (導入事例) - Integrated Sweet Spot Tuning brother! */
+/* Case Studies Section (導入事例) - Integrated Sweet Spot Tuning */
 .service-cases {
     /* --- CONFIGURATION PANEL (Sweet Spot Tuning synchronized from Venous BX) --- */
     --cases-max-width: 1600px;
@@ -637,7 +637,7 @@
     line-height: 1.7;
     color: #1f2a3c;
     font-weight: 400;
-    padding-left: var(--cases-detail-indent); /* Indentation from label brother! */
+    padding-left: var(--cases-detail-indent); /* Indentation from label */
 }
 
 /* Mobile Adjustments for Case Studies */
