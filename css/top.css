@@ -1,7 +1,7 @@
 .hero {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
-    min-height: 700px;
+    min-height: var(--hero-min-height, 700px);
     background: var(--primary);
     position: relative;
     padding-bottom: 0px;
@@ -23,7 +23,7 @@
 
 .hero-left {
     position: relative;
-    padding: 64px 52px 40px;
+    padding: var(--dt-hero-content-top, 64px) 52px 40px;
 }
 
 .hero-left::after {
@@ -59,7 +59,7 @@
 .hero-card {
     position: absolute;
     left: 52px;
-    bottom: 24px;
+    bottom: var(--dt-hero-card-bottom, 24px);
     z-index: 10;
     width: 720px;
     /* Reduced width for a more compact look */
@@ -236,9 +236,9 @@
     background-size: cover;
     background-position: center;
     min-height: 700px;
-    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
-    margin-left: -12%;
-    width: 112%;
+    clip-path: polygon(var(--dt-hero-slope-x1) 0, 100% 0, 100% 100%, var(--dt-hero-slope-x2) 100%);
+    margin-left: var(--dt-hero-image-offset);
+    width: var(--dt-hero-image-width);
 }
 
 
@@ -363,31 +363,59 @@
     font-weight: 700;
 }
 
-.works-section {
+.surface.works-section {
     position: relative;
     overflow: hidden;
+    background-color: #FFFFFF;
+
+    /* Works Blobs Tuning (Sweet Spot Brother!) */
+    --works-blob1-size: 1960px;
+    --works-blob1-top: -250px;
+    --works-blob1-right:400px;
+    --works-blob1-color: #E3EFFFCC;
+
+    --works-blob2-size: 360px;
+    --works-blob2-bottom: 20px;
+    --works-blob2-right: -180px;
+    --works-blob2-color: #D2FFE3CC;
+
+    --works-blob3-size: 80px;
+    --works-blob3-top: -35px;
+    --works-blob3-right: 320px;
+    --works-blob3-color: #D2FFE3CC;
 }
 
 .works-section::before {
     content: "";
     position: absolute;
-    right: -140px;
-    top: -120px;
-    width: 460px;
-    height: 460px;
+    right: var(--works-blob1-right);
+    top: var(--works-blob1-top);
+    width: var(--works-blob1-size);
+    height: var(--works-blob1-size);
     border-radius: 50%;
-    background: #f4f5f8;
+    background: var(--works-blob1-color);
 }
 
 .works-section::after {
     content: "";
     position: absolute;
-    right: -60px;
-    bottom: 20px;
-    width: 250px;
-    height: 250px;
+    right: var(--works-blob2-right);
+    bottom: var(--works-blob2-bottom);
+    width: var(--works-blob2-size);
+    height: var(--works-blob2-size);
     border-radius: 50%;
-    background: #c8efd8;
+    background: var(--works-blob2-color);
+}
+
+.works-blob-extra {
+    position: absolute;
+    right: var(--works-blob3-right);
+    top: var(--works-blob3-top);
+    width: var(--works-blob3-size);
+    height: var(--works-blob3-size);
+    border-radius: 50%;
+    background: var(--works-blob3-color);
+    z-index: 1;
 }
 
 .works-list {
@@ -463,6 +491,24 @@
     font-weight: 700;
 }
 
+/* Cases Section Tuning (Sweet Spot Brother!) */
+:root {
+    --case-card-border: 2px solid #68A0FF;
+    --case-card-radius: 8px;
+    --case-card-shadow: 0 4px 20px rgba(104, 160, 255, 0.1);
+    --case-card-hover-shadow: 0 12px 32px rgba(104, 160, 255, 0.2);
+    --case-thumb-height: 200px;
+    --case-chip-bg: #00358F;
+    --case-chip-bottom: -7px;
+    --case-chip-size: 15px;
+    --case-title-size: 16px;
+    --case-sub-size: 16px;
+    --case-desc-size: 15px;
+    --case-btn-size: 16px;
+    --case-btn-padding: 12px 36px;
+    --case-btn-radius: 4px;
+}
+
 .case-section,
 .feature-section,
 .news-section,
@@ -487,15 +533,15 @@
 
 .info-card {
     background: #fff;
-    border: 2px solid #68A0FF;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(104, 160, 255, 0.1);
+    border: var(--case-card-border);
+    border-radius: var(--case-card-radius);
+    box-shadow: var(--case-card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: visible; /* To allow overlapping chips */
 }
 
 .info-card .thumb {
-    height: 200px;
+    height: var(--case-thumb-height);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -523,7 +569,7 @@
 
 .info-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(104, 160, 255, 0.2);
+    box-shadow: var(--case-card-hover-shadow);
 }
 
 .thumb-case-1 {
@@ -541,10 +587,10 @@
 .info-card .thumb .chip {
     position: absolute;
     left: 12px; /* Left offset from the edge */
-    bottom: -7px; /* "Sweet Spot": Tweak this to change how much is outside (Decrease to -20px for more outside, Increase to -5px for more inside) */
-    background: #00358F !important;
+    bottom: var(--case-chip-bottom); /* "Sweet Spot": Tweak this to change how much is outside */
+    background: var(--case-chip-bg) !important;
     color: #fff !important;
-    font-size: 11px;
+    font-size: var(--case-chip-size);
     font-weight: 800;
     padding: 6px 12px;
     letter-spacing: 0.05em;
@@ -566,14 +612,14 @@
 }
 
 .info-card h3 {
-    font-size: 16px;
+    font-size: var(--case-title-size);
     font-weight: 700;
     color: #192b44;
     margin-bottom: 12px;
 }
 
 .case-sub {
-    font-size: 15px;
+    font-size: var(--case-sub-size);
     font-weight: 800;
     line-height: 1.4;
     color: #192b44;
@@ -581,7 +627,7 @@
 }
 
 .case-desc {
-    font-size: 13px;
+    font-size: var(--case-desc-size);
     line-height: 1.6;
     color: #555;
     font-weight: 500;
@@ -607,6 +653,13 @@
 .info-btn:hover {
     background: #00348a;
     color: #fff;
+}
+
+/* Specific tuning for Case section button */
+.case-section .outline-btn {
+    font-size: var(--case-btn-size);
+    padding: var(--case-btn-padding);
+    border-radius: var(--case-btn-radius);
 }
 
 .section-btn-wrap {
@@ -685,6 +738,13 @@
     max-width: 900px;
 }
 
+/* News Section Tuning (Sweet Spot Brother!) */
+:root {
+    --news-title-size: 22px;
+    --news-date-size: 18px;
+    --news-badge-size: 14px;
+}
+
 .news-listing {
     width: min(1000px, 90vw);
     margin: 56px auto 0;
@@ -718,7 +778,7 @@
 }
 
 .news-date {
-    font-size: 18px;
+    font-size: var(--news-date-size);
     color: #2D3A3A;
     font-weight: 500;
 }
@@ -726,7 +786,7 @@
 .news-badge {
     background: #4ADE80;
     color: #2D3A3A;
-    font-size: 14px;
+    font-size: var(--news-badge-size);
     font-weight: 700;
     padding: 4px 14px;
     border-radius: 999px;
@@ -735,7 +795,7 @@
 
 .news-title {
     grid-area: title;
-    font-size: 28px;
+    font-size: var(--news-title-size);
     color: #2D3A3A;
     font-weight: 500;
     /* Less bolder */
@@ -755,6 +815,18 @@
     transform: translateX(10px);
 }
 
+/* Column Section Tuning (Sweet Spot Brother!) */
+:root {
+    --column-thumb-height: 200px;
+    --column-title-size: 18px;
+    --column-cat-bg: #CBE2FF;
+    --column-cat-size: 17px;
+    --column-date-size: 16px;
+    --column-btn-size: 18px;
+    --column-btn-padding: 12px 36px;
+    --column-tag-size: 14px;
+}
+
 .column-section {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -769,7 +841,7 @@
 }
 
 .column-card .thumb {
-    height: 200px;
+    height: var(--column-thumb-height);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -828,7 +900,7 @@
     bottom: auto !important;
     background: #00358F !important;
     color: #fff !important;
-    font-size: 10px;
+    font-size: var(--column-tag-size);
     font-weight: 700;
     padding: 3px 10px;
     border-radius: 4px;
@@ -854,23 +926,29 @@
 }
 
 .card-meta .banner {
-    background: #CBE2FF;
+    background: var(--column-cat-bg);
     color: #00358F;
-    font-size: 11px;
+    font-size: var(--column-cat-size);
     font-weight: 700;
     padding: 4px 10px;
 }
 
 .card-meta .date {
-    font-size: 12px;
+    font-size: var(--column-date-size);
     color: #6B7280;
 }
 
 .column-card h3 {
-    font-size: 16px;
+    font-size: var(--column-title-size);
     color: #192b44;
     font-weight: 700;
     line-height: 1.5;
+}
+
+/* Specific tuning for Column section button */
+.column-section .outline-btn {
+    font-size: var(--column-btn-size);
+    padding: var(--column-btn-padding);
 }
 
 .contact-cta {
@@ -1063,7 +1141,7 @@
         margin-left: 0;
         order: 2;
         /* Triangular slope: goes from lower on left to higher on right */
-        clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(var(--sp-hero-slope-x1) var(--sp-hero-slope-y1), 100% 0, 100% 100%, 0 100%);
         margin-top: -30px;
         /* Overlap with blue area to hide gaps */
     }
@@ -1074,7 +1152,7 @@
         bottom: 0;
         width: calc(100% - (var(--sp-container-px) * 2));
         max-width: none;
-        margin: -140px auto 48px;
+        margin: var(--sp-hero-card-pullup, -140px) auto 48px;
         /* Pulled up, with bottom margin to show background gap */
         display: grid;
         grid-template-columns: 1.15fr 1fr;

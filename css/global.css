@@ -12,6 +12,20 @@
     --dt-container-max: 1200px;  /* Desktop: Maximum content width */
     --dt-card-padding: 16px;      /* Desktop: Internal padding for cards */
     --dt-section-gap: 80px;       /* Desktop: Vertical spacing between sections */
+    --dt-hero-content-top: 64px;  /* Desktop: Distance of headline from top edge */
+    --dt-hero-card-bottom: 24px;  /* Desktop: Distance of card from bottom edge */
+    --hero-min-height: 860px;     /* Overall height of the hero section */
+    
+    /* Hero Slope & Width Tuning (Sweet Spot Brother!) */
+    --dt-hero-slope-x1: 28%;        /* Desktop: Top-left x-coordinate of the slant (Decrease to shift left) */
+    --dt-hero-slope-x2: 0%;        /* Desktop: Bottom-left x-coordinate of the slant */
+    --dt-hero-image-width: 152%;  /* Desktop: Overall width of the image container */
+    --dt-hero-image-offset: -32%; /* Desktop: Negative margin to pull image left over blue area */
+
+    --sp-hero-slope-y1: 12%;      /* Mobile: Top-left y-coordinate (Decrease to make slant flatter) */
+    --sp-hero-slope-x1: 0%;       /* Mobile: Top-left x-coordinate */
+
+    --sp-hero-card-pullup: -140px; /* Mobile: How much the card overlaps the image */
 
     --sp-container-px: 20px;      /* Mobile: Standard side margins */
     --sp-card-padding: 16px;      /* Mobile: Internal padding for the hero card */
@@ -24,12 +38,16 @@
     --footer-bg-color: #00358F;
     --footer-brand-size: 32px;      /* Brand name 'Canopus' */
     --header-logo-height: 54px;      /* New: Header logo (Desktop) */
-    --sp-header-logo-height: 42px;   /* New: Header logo (Mobile) */
+    --sp-header-logo-height: 62px;   /* New: Header logo (Mobile) */
+    --logo-split-point: 83%;        /* New: Tune this to separate orb and text */
+    --header-logo-filter: none;     /* Deprecated for selective filtering */
     --footer-address-size: 17px;    /* Desktop */
     --footer-nav-title-size: 17px;  /* Desktop */
     --footer-nav-link-size: 17px;   /* Desktop */
     --footer-nav-sublink-size: 17px; /* Desktop */
     --footer-logo-height: 120px;    /* Height of the image-based logo */
+    --breadcrumb-size: 18px;        /* Tunable breadcrumb text, brother! */
+    --sp-breadcrumb-size: 16px;
 
     /* Mobile Footer Tuning (Brother, find your sweet spot here!) */
     --sp-footer-address-size: 15px;
@@ -126,7 +144,7 @@ a {
 }
 
 .subpage-breadcrumb {
-    font-size: 13px;
+    font-size: var(--breadcrumb-size);
     color: #273447;
     font-weight: 700;
 }
@@ -522,7 +540,7 @@ a {
     }
 
     .subpage-breadcrumb {
-        font-size: 11px;
+        font-size: var(--sp-breadcrumb-size);
     }
 
     .service-intro,
@@ -848,6 +866,29 @@ a {
     align-items: center;
     gap: 10px;
     padding: 8px 0;
+}
+
+.logo-split-wrap {
+    position: relative;
+    display: inline-flex;
+    pointer-events: none;
+}
+
+.logo-split-wrap img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.logo-layer-orb {
+    clip-path: inset(0 0 calc(100% - var(--logo-split-point)) 0);
+}
+
+.logo-layer-text {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(var(--logo-split-point) 0 0 0);
+    filter: brightness(0) invert(1);
 }
 
 .header-logo-dt {
@@ -1357,7 +1398,6 @@ a {
     .header-logo-sp {
         display: block;
         height: var(--sp-header-logo-height);
-        width: auto;
     }
 
     .brand-orb {
