@@ -17,39 +17,13 @@
     background-color: #F8FAFC; /* Consistent premium background */
 }
 
-.venous-header-mask {
-    --figma-bg-width: 113vw;
-    --figma-bg-height: 76vw;
-    --figma-bg-top: -64vw;
-    --figma-bg-left: -34.8vw;
-    --figma-bg-rotate: -13deg;
-
-    position: absolute;
-    width: 100%;
-    height: 1000px;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.venous-header-mask::before {
-    content: "";
-    position: absolute;
-    width: var(--figma-bg-width);
-    height: var(--figma-bg-height);
-    top: var(--figma-bg-top);
-    left: var(--figma-bg-left);
-    transform-origin: center center;
-    transform: rotate(var(--figma-bg-rotate));
-    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
-    opacity: 0.85;
-}
+/* Mask is now globally controlled from global.css — see :root variables */
+/* .venous-header-mask styles inherited from global rule */
 
 .venous-page-content {
     position: relative;
-    z-index: 10;
+    z-index: 1;
+    background: transparent; /* Reveal mask behind */
 }
 
 .venous-page .service-intro {
@@ -629,22 +603,245 @@
 }
 
 @media (max-width: 900px) {
+    :root {
+        --venous-title-size: 28px;
+        --venous-lead-size: 16px;
+        --venous-intro-bottom: 60px;
+        --venous-card-text-size: 16px;
+
+        /* --- MOBILE (SP) CARD CONFIGURATION PANEL --- */
+        --venous-sp-container-width: 88vw;
+        --venous-sp-card-padding: 30px 15px 25px;
+        --venous-sp-header-width: 92%;
+        --venous-sp-header-font: 18px;
+        --venous-sp-image-max-width: 400px;
+        --venous-sp-pill-width: 130px;
+        --venous-sp-pill-font: 12px;
+        --venous-sp-text-font: 14px;
+        --venous-sp-content-gap: 15px;
+        --venous-sp-pills-gap: 8px;
+        --venous-sp-image-aspect: 16 / 10;
+
+        /* --- MOBILE (SP) VOICES CONFIGURATION PANEL --- */
+        --venous-voice-sp-padding-v: 40px 0 120px;
+        --venous-voice-sp-person-width: 240px;
+        --venous-voice-sp-person-translateX: 0px;
+        --venous-voice-sp-person-translateY: 0px;
+        --venous-voice-sp-number-size: 44px;
+        --venous-voice-sp-number-font: 20px;
+        --venous-voice-sp-h3-size: 20px;
+        --venous-voice-sp-p-size: 16px;
+        --venous-voice-sp-list-gap: 32px;
+        --venous-voice-sp-item-gap: 20px;
+        --venous-voice-sp-list-padding: 0 16px;
+        --venous-voice-sp-bg-radius: 100%;
+        --venous-voice-sp-bg-x: -40%;
+        --venous-voice-sp-bg-y: 85%;
+        --venous-voice-sp-bg-opacity: 1;
+        --venous-voice-sp-bg-color: #E3EFFF99;
+
+        /* --- MOBILE (SP) FEATURES CONFIGURATION PANEL --- */
+        --venous-feature-sp-container-width: 85vw;
+        --venous-feature-sp-title-size: 26px;
+        --venous-feature-sp-lead-size: 14px;
+        --venous-feature-sp-padding-v: 60px 0;
+        --venous-feature-sp-bg-radius: 400px;
+        --venous-feature-sp-bg-x: -50px;
+        --venous-feature-sp-bg-y: 60%;
+        --venous-feature-sp-bg-color: #E3EFFF99;
+
+        /* --- MOBILE (SP) CASES CONFIGURATION PANEL --- */
+        --venous-cases-sp-container-width: 85vw;
+        --venous-cases-sp-padding-v: 60px 0 80px;
+        --venous-cases-sp-title-size: 24px;
+    }
+
+    /* Mask mobile overrides are now in global.css — tune --sp-mask-bg-* in :root */
+
+    .venous-page .service-intro {
+        padding: 40px 20px var(--venous-intro-bottom); /* Tunable mobile gap */
+    }
+
+    .service-services-inner {
+        width: var(--venous-sp-container-width);
+    }
+
+    .service-block {
+        display: grid;
+        grid-template-columns: var(--venous-sp-pill-width) 1fr;
+        grid-template-areas: 
+            "header header"
+            "image image"
+            "pills text";
+        gap: var(--venous-sp-content-gap);
+        padding: var(--venous-sp-card-padding);
+        margin-bottom: 40px;
+        align-items: center; /* Vertically center pills and text */
+    }
+
+    .service-block-header {
+        grid-area: header;
+        min-width: 0;
+        width: var(--venous-sp-header-width);
+        margin: -45px auto 10px; /* Float top over border */
+        padding: 10px 15px;
+    }
+
+    .service-block-header h3 {
+        font-size: var(--venous-sp-header-font);
+        letter-spacing: 0.05em;
+    }
+
+    /* Sub-div contents allow children to participate in the outer grid */
+    .service-block-main {
+        display: contents; 
+    }
+
+    .service-block-image {
+        grid-area: image;
+        flex: none;
+        width: 100%;
+        max-width: var(--venous-sp-image-max-width);
+        aspect-ratio: var(--venous-sp-image-aspect);
+        margin: 0 auto;
+    }
+
+    .service-block-content {
+        grid-area: text;
+    }
+
+    .service-block-text {
+        font-size: var(--venous-sp-text-font);
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .service-block-footer {
+        grid-area: pills;
+        padding: 0;
+    }
+
+    .service-pill-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--venous-sp-pills-gap);
+        justify-content: flex-start;
+    }
+
+    .service-pill {
+        min-width: 0;
+        padding: 8px 10px;
+        font-size: var(--venous-sp-pill-font);
+        border-radius: 6px;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .venous-page .service-voices {
+        padding: var(--venous-voice-sp-padding-v);
+    }
+
     .venous-page .service-voice-grid {
         flex-direction: column;
         gap: 40px;
+        position: relative;
+    }
+
+    /* Apply Background Circle (Voice) */
+    .venous-page .service-voice-grid::before {
+        width: var(--venous-voice-sp-bg-radius);
+        aspect-ratio: 1 / 1;
+        height: auto;
+        right: var(--venous-voice-sp-bg-x);
+        top: var(--venous-voice-sp-bg-y);
+        opacity: var(--venous-voice-sp-bg-opacity);
+        background: var(--venous-voice-sp-bg-color);
+        display: block !important;
     }
 
     .venous-page .service-person {
         flex: 0 0 auto;
-        width: 100%;
-        max-width: 240px;
+        width: var(--venous-voice-sp-person-width);
+        max-width: 100%;
+        margin: 0 auto;
+        transform: translate(var(--venous-voice-sp-person-translateX), var(--venous-voice-sp-person-translateY));
+        display: block !important;
+    }
+
+    .service-voice-number {
+        flex: 0 0 var(--venous-voice-sp-number-size);
+        height: var(--venous-voice-sp-number-size);
+        font-size: var(--venous-voice-sp-number-font);
+    }
+
+    .service-voice-copy h3 {
+        font-size: var(--venous-voice-sp-h3-size);
+    }
+
+    .service-voice-copy p {
+        font-size: var(--venous-voice-sp-p-size);
+        line-height: 1.6;
+    }
+
+    .service-voice-list {
+        gap: var(--venous-voice-sp-list-gap);
+        padding: var(--venous-voice-sp-list-padding);
+    }
+
+    .service-voice-item {
+        gap: var(--venous-voice-sp-item-gap);
+    }
+
+    /* Features Section Mobile Tuning */
+    .service-features {
+        padding: var(--venous-feature-sp-padding-v);
+    }
+
+    .service-features-inner {
+        width: var(--venous-feature-sp-container-width);
         margin: 0 auto;
     }
 
-    .venous-page .service-voice-grid::before {
-        width: 120%;
-        height: 120%;
-        right: -10%;
-        top: 20%;
+    .service-features .service-section-title {
+        font-size: var(--venous-feature-sp-title-size);
+        margin-bottom: 40px;
+    }
+
+    .service-features .service-section-lead {
+        font-size: var(--venous-feature-sp-lead-size);
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    /* Apply Background Circle (Features) */
+    .service-features::after {
+        width: var(--venous-feature-sp-bg-radius);
+        aspect-ratio: 1 / 1;
+        height: auto;
+        left: var(--venous-feature-sp-bg-x);
+        top: var(--venous-feature-sp-bg-y);
+        background: var(--venous-feature-sp-bg-color);
+        display: block !important;
+    }
+
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Case Studies Section Mobile Tuning */
+    .service-cases {
+        padding: var(--venous-cases-sp-padding-v);
+    }
+
+    .service-cases-inner {
+        width: var(--venous-cases-sp-container-width);
+        margin: 0 auto;
+    }
+
+    .service-cases-inner .service-section-title {
+        font-size: var(--venous-cases-sp-title-size);
+        margin-bottom: 40px;
     }
 }

@@ -7,21 +7,7 @@
     padding-bottom: 120px;
 }
 
-/* Abstract wave graphic on the left */
-.privacy-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%;
-    height: 400px;
-    background: 
-        repeating-linear-gradient(167deg, rgba(82, 165, 226, 0.2) 0 2px, transparent 2px 6px),
-        linear-gradient(167deg, rgba(82, 165, 226, 0.3) 0%, rgba(82, 165, 226, 0.05) 75%, transparent 76%);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    pointer-events: none;
-    z-index: 0;
-}
+/* Old CSS mesh removed — now using global bpo-mask-bg.png */
 
 .privacy-container {
     max-width: 940px;

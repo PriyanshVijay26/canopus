@@ -216,56 +216,17 @@
 }
 
 
-/* BPO Page Specific Background Mask (Responsive Figma Coordinate System) */
+/* BPO Page Specific Layout */
 .bpo-page {
     position: relative;
     overflow: hidden;
     background-color: #F8FAFC; /* Consistent premium background */
 }
 
-/* 
- * Tunable Figma Coordinates (Based on 1440px Figma Canvas Width)
- * Adjust these values in Chrome DevTools to find the exact "sweet spot"
- */
-.bpo-header-mask {
-    --figma-bg-width: 113vw;      /* 781.11 / 1440 scaled */
-    --figma-bg-height: 76vw;     /* 1802.55 / 1440 scaled */
-    --figma-bg-top: -64vw;       /* -817 / 1440 scaled */
-    --figma-bg-left: -34.8vw;    /* -646 / 1440 scaled */
-    --figma-bg-rotate: -13deg;
+/* Mask is now globally controlled from global.css — see :root variables */
+/* .bpo-header-mask styles inherited from global .bpo-header-mask rule */
 
-    /* Wrapper container to strictly limit where the image shows */
-    position: absolute;
-    width: 100%;
-    height: 1000px;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden; /* Crucial: This crops the rotated image so it doesn't break layout */
-}
-
-/* 
- * The actual image placed mathematically. 
- * Because it uses vw, it will scale proportionally on any desktop monitor.
- */
-.bpo-header-mask::before {
-    content: "";
-    position: absolute;
-    width: var(--figma-bg-width);
-    height: var(--figma-bg-height);
-    top: var(--figma-bg-top);
-    left: var(--figma-bg-left);
-    transform-origin: center center;
-    transform: rotate(var(--figma-bg-rotate));
-    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
-    opacity: 0.85; /* Adjustable */
-}
-
-/* Local overrides to remove the generic global background and lift content */
-.bpo-page .service-intro::before {
-    display: none !important;
-}
+/* Local overrides to lift content above the mask */
 
 .bpo-page .service-intro {
     position: relative;

@@ -8,19 +8,7 @@
     overflow: hidden;
 }
 
-/* Background layer for decorative waves */
-.features-bg-layer {
-    position: absolute;
-    top: -50px;
-    left: -10vw;
-    width: 60vw;
-    height: 60vh;
-    background: url('../images/kv-wave.png') center / contain no-repeat;
-    opacity: 0.2;
-    z-index: 0;
-    pointer-events: none;
-    transform: rotate(15deg);
-}
+/* Old CSS bg-layer removed — now using global bpo-mask-bg.png */
 
 .features-content-inner {
     max-width: 1000px;

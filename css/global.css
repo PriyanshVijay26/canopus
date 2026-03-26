@@ -59,7 +59,7 @@
 
     /* Contact CTA Tuning (Sweet Spot Configuration) */
     --contact-watermark-size: 100px;
-    --contact-watermark-top: -10%;
+    --contact-watermark-top: -28%;
     --contact-watermark-opacity: 1;
     --contact-title-size: 32px;
     --contact-info-size: 20px;
@@ -78,6 +78,22 @@
     --sp-contact-btn-padding-x: 10px;
     --sp-contact-btn-min-width: 50%;
     --sp-contact-panel-width: 82vw;
+
+    /* ========== GLOBAL BACKGROUND MASK CONFIGURATION (Desktop) ========== */
+    --mask-bg-width: 113vw;           /* Width of the mask image */
+    --mask-bg-height: 76vw;          /* Height of the mask image */
+    --mask-bg-top: -64vw;            /* Y-position (negative = higher) */
+    --mask-bg-left: -34.8vw;         /* X-position (negative = more left) */
+    --mask-bg-rotate: -13deg;        /* Rotation angle */
+    --mask-bg-opacity: 0.85;         /* Transparency */
+    --mask-bg-container-height: 1000px; /* How tall the cropping container is */
+
+    /* ========== GLOBAL BACKGROUND MASK CONFIGURATION (Mobile SP) ========== */
+    --sp-mask-bg-width: 163vw;
+    --sp-mask-bg-height: 66vw;
+    --sp-mask-bg-top: -46vw;
+    --sp-mask-bg-left: -44.8vw;
+    --sp-mask-bg-rotate: -43deg;
 }
 
 /* Utility for mobile-only line breaks */
@@ -171,17 +187,57 @@ a {
 .service-intro::before,
 .vbx-intro::before,
 .ccs-intro::before {
-    content: "";
+    display: none !important; /* Replaced by bpo-mask-bg.png image mask */
+}
+
+/* ========== GLOBAL IMAGE-BASED BACKGROUND MASK ========== */
+/*
+ * This replaces the old CSS mesh with the bpo-mask-bg.png image.
+ * Tune the variables in :root above to control all pages at once.
+ * Excluded from index.html (no mask div present).
+ */
+.global-header-mask,
+.bpo-header-mask,
+.cocreate-header-mask,
+.venous-header-mask {
     position: absolute;
+    width: 100%;
+    height: var(--mask-bg-container-height);
     top: 0;
     left: 0;
-    width: 70%;
-    height: 210px;
-    background:
-        repeating-linear-gradient(167deg, rgba(122, 195, 246, 0.34) 0 2px, rgba(122, 195, 246, 0.07) 2px 5px),
-        linear-gradient(167deg, rgba(122, 195, 246, 0.44) 0%, rgba(122, 195, 246, 0.12) 62%, rgba(236, 238, 242, 0) 63%);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 0;
     pointer-events: none;
+    overflow: hidden; /* Crucial: crops the rotated image */
+}
+
+.global-header-mask::before,
+.bpo-header-mask::before,
+.cocreate-header-mask::before,
+.venous-header-mask::before {
+    content: "";
+    position: absolute;
+    width: var(--mask-bg-width);
+    height: var(--mask-bg-height);
+    top: var(--mask-bg-top);
+    left: var(--mask-bg-left);
+    transform-origin: center center;
+    transform: rotate(var(--mask-bg-rotate));
+    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
+    opacity: var(--mask-bg-opacity);
+}
+
+/* Mobile overrides for the mask */
+@media (max-width: 900px) {
+    .global-header-mask::before,
+    .bpo-header-mask::before,
+    .cocreate-header-mask::before,
+    .venous-header-mask::before {
+        width: var(--sp-mask-bg-width);
+        height: var(--sp-mask-bg-height);
+        top: var(--sp-mask-bg-top);
+        left: var(--sp-mask-bg-left);
+        transform: rotate(var(--sp-mask-bg-rotate));
+    }
 }
 
 .service-title,
@@ -970,7 +1026,7 @@ a {
     position: absolute;
     top: var(--contact-watermark-top);
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     z-index: 0;
     letter-spacing: 0.05em;
     pointer-events: none;
@@ -1368,6 +1424,7 @@ a {
 
     .section-watermark {
         font-size: 70px;
+         --contact-watermark-top: -10%;
     }
 
     .contact-meta {

@@ -6,17 +6,7 @@
     background-color: #f8f9fa; /* slightly off-white match the screenshot */
 }
 
-.company-bg-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: url('../images/company-bg-placeholder.png') center top / cover no-repeat;
-    opacity: 0.1; /* Placeholders for now */
-    z-index: 0;
-    pointer-events: none;
-}
+/* Old CSS bg-layer removed — now using global bpo-mask-bg.png */
 
 .company-content-inner {
     max-width: 1000px;

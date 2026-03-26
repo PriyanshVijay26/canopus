@@ -16,47 +16,13 @@
     background-color: #F8FAFC; /* User requested background color */
 }
 
-/* Background Mask (Same as BPO) */
-.cocreate-header-mask {
-    --figma-bg-width: 113vw;      /* 781.11 / 1440 scaled */
-    --figma-bg-height: 76vw;     /* 1802.55 / 1440 scaled */
-    --figma-bg-top: -64vw;       /* -817 / 1440 scaled */
-    --figma-bg-left: -34.8vw;    /* -646 / 1440 scaled */
-    --figma-bg-rotate: -13deg;
-
-    /* Wrapper container to strictly limit where the image shows */
-    position: absolute;
-    width: 100%;
-    height: 1000px;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden; 
-}
-
-.cocreate-header-mask::before {
-    content: "";
-    position: absolute;
-    width: var(--figma-bg-width);
-    height: var(--figma-bg-height);
-    top: var(--figma-bg-top);
-    left: var(--figma-bg-left);
-    transform-origin: center center;
-    transform: rotate(var(--figma-bg-rotate));
-    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
-    opacity: 0.85; /* Adjustable */
-}
+/* Mask is now globally controlled from global.css — see :root variables */
+/* .cocreate-header-mask styles inherited from global rule */
 
 .cocreate-page-content {
     position: relative;
     z-index: 1;
     background: transparent; /* Reveal mask behind */
-}
-
-/* Local overrides to remove the generic global background and lift content */
-.cocreate-page .service-intro::before {
-    display: none !important;
 }
 
 .cocreate-page .service-intro {
@@ -212,7 +178,7 @@
 
 .cocreate-page .service-section-title {
     text-align: center;
-    font-size: clamp(28px, 3.5vw, 36px);
+    font-size: var(--feature-title-size, clamp(28px, 3.5vw, 36px));
     font-weight: 800;
     color: #1f2a3c;
     margin-bottom: 60px;
@@ -320,52 +286,12 @@
     font-weight: 500;
 }
 
-@media (max-width: 900px) {
-    .service-block-main {
-        flex-direction: column;
-        padding: 0 20px 24px;
-        gap: 24px;
-    }
-    
-    .service-block-image {
-        flex: none;
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .service-pill-group {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .service-pill {
-        min-width: 0;
-    }
-
-    .cocreate-page .service-voice-grid {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .cocreate-page .service-person {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 240px;
-        margin: 0 auto;
-    }
-
-    .cocreate-page .service-voice-grid::before {
-        width: 120%;
-        height: 120%;
-        right: -10%;
-        top: 20%;
-    }
-}
 
 .service-features-block {
-    /* --- FEATURES CONFIGURATION PANEL --- */
-    --feature-container-width: 1400px; /* Line 353: Total width of the feature section */
+    /* --- FEATURES CONFIGURATION PANEL (Desktop) --- */
+    --feature-title-size: clamp(28px, 100vw, 48px); /* Section title size */
+    --feature-lead-size: 18px;                      /* Section lead text size */
+    --feature-container-width: 1400px;
     --features-grid-gap: 60px;         /* Line 354: Gap between cards */
     --feature-card-padding: 40px 30px; /* Line 355: Internal card padding */
     --feature-bg-width: 500px;         /* Line 356: Background circle size */
@@ -415,7 +341,7 @@
     text-align: center;
     max-width: 800px;
     margin: -30px auto 60px;
-    font-size: 18px;
+    font-size: var(--feature-lead-size, 18px);
     line-height: 1.8;
     color: #1f2a3c;
     font-weight: 500;
@@ -659,5 +585,258 @@
     .case-highlight {
         height: auto;
         margin-bottom: 25px;
+    }
+}
+@media (max-width: 900px) {
+    /* --- MOBILE (SP) CONFIGURATION PANEL --- */
+    .service-services-inner {
+        --cocreate-sp-container-width: 88vw;        /* Width of the card container on mobile */
+        --cocreate-sp-card-padding: 30px 15px 25px; /* Internal card padding */
+        --cocreate-sp-header-width: 92%;           /* Title bar width on mobile */
+        --cocreate-sp-header-font: 18px;            /* Title bar font size */
+        --cocreate-sp-image-max-width: 400px;       /* Max width for images */
+        --cocreate-sp-pill-width: 130px;            /* Width of the left column with pills */
+        --cocreate-sp-pill-font: 12px;              /* Font size for pills on mobile */
+        --cocreate-sp-text-font: 14px;              /* Font size for description text */
+        --cocreate-sp-content-gap: 15px;            /* Gap between elements */
+        --cocreate-sp-pills-gap: 8px;               /* Space between individual pills */
+        --cocreate-sp-image-aspect: 16 / 10;        /* Keep image ratio tight */
+
+        width: var(--cocreate-sp-container-width);
+    }
+
+    /* --- MOBILE (SP) INTRO CONFIGURATION PANEL --- */
+    .cocreate-page .service-intro {
+        --cocreate-sp-title-size: clamp(22px, 8vw, 28px); /* Adjustment for mobile font size */
+        --cocreate-sp-lead-size: 16px;                     /* Added lead size for consistency */
+        
+        padding: 60px 20px 80px;
+    }
+
+    .cocreate-page .service-title {
+        font-size: var(--cocreate-sp-title-size);
+    }
+
+    .cocreate-page .service-lead {
+        font-size: var(--cocreate-sp-lead-size);
+    }
+
+    .cocreate-page .service-lead br {
+        display: none;
+    }
+
+    .service-block {
+        display: grid;
+        grid-template-columns: var(--cocreate-sp-pill-width) 1fr;
+        grid-template-areas: 
+            "header header"
+            "image image"
+            "pills text";
+        gap: var(--cocreate-sp-content-gap);
+        padding: var(--cocreate-sp-card-padding);
+        margin-bottom: 40px;
+        align-items: center; /* Vertically center pills and text */
+    }
+
+    .service-block-header {
+        grid-area: header;
+        min-width: 0;
+        width: var(--cocreate-sp-header-width);
+        margin: -45px auto 10px; /* Float top over border */
+        padding: 10px 15px;
+    }
+
+    .service-block-header h3 {
+        font-size: var(--cocreate-sp-header-font);
+        letter-spacing: 0.05em;
+    }
+
+    /* Sub-div contents allow children to participate in the outer grid */
+    .service-block-main {
+        display: contents; 
+    }
+
+    .service-block-image {
+        grid-area: image;
+        flex: none;
+        width: 100%;
+        max-width: var(--cocreate-sp-image-max-width);
+        aspect-ratio: var(--cocreate-sp-image-aspect);
+        margin: 0 auto;
+    }
+
+    .service-block-content {
+        grid-area: text;
+    }
+
+    .service-block-text {
+        font-size: var(--cocreate-sp-text-font);
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .service-block-footer {
+        grid-area: pills;
+        padding: 0;
+    }
+
+    .service-pill-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--cocreate-sp-pills-gap);
+        justify-content: flex-start;
+    }
+
+    .service-pill {
+        min-width: 0;
+        padding: 8px 10px;
+        font-size: var(--cocreate-sp-pill-font);
+        border-radius: 6px;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    /* --- MOBILE (SP) VOICES CONFIGURATION PANEL --- */
+    .cocreate-page .service-voices {
+        --voice-sp-padding-v: 40px 0 120px;         /* Section vertical padding (top, bottom) */
+        --voice-sp-person-width: 240px;            /* Width of the person image on mobile */
+        --voice-sp-person-translateX: 0px;          /* Shift left/right */
+        --voice-sp-person-translateY: 0px;          /* Shift up/down */
+        --voice-sp-number-size: 44px;               /* Size of circular icon */
+        --voice-sp-number-font: 20px;               /* Digit size */
+        --voice-sp-h3-size: 20px;                   /* Item Header Font Size */
+        --voice-sp-p-size: 16px;                    /* Quote/Description Font Size */
+        --voice-sp-list-gap: 32px;                 /* Vertical gap between rows */
+        --voice-sp-item-gap: 20px;                 /* Horizontal gap between circle and text */
+        --voice-sp-list-padding: 0 16px;           /* Padding for the entire list container */
+
+        /* Blue Circle (Voice) Configuration */
+        --voice-sp-bg-radius: 100%;                 /* Radius (Size) */
+        --voice-sp-bg-x: -40%;                      /* X-coordinate (relative to right) */
+        --voice-sp-bg-y: 85%;                       /* Y-coordinate (relative to top) */
+        --voice-sp-bg-opacity: 1;                   /* Background circle opacity */
+        --voice-sp-bg-color: #E3EFFF99;             /* Background circle color */
+
+        padding: var(--voice-sp-padding-v);
+    }
+
+    .cocreate-page .service-voice-grid {
+        flex-direction: column;
+        gap: 40px;
+        position: relative;
+    }
+
+    /* Apply Background Circle (Voice) */
+    .cocreate-page .service-voice-grid::before {
+        width: var(--voice-sp-bg-radius);
+        aspect-ratio: 1 / 1;
+        height: auto;
+        right: var(--voice-sp-bg-x);
+        top: var(--voice-sp-bg-y);
+        opacity: var(--voice-sp-bg-opacity);
+        background: var(--voice-sp-bg-color);
+        display: block !important;
+    }
+
+    .cocreate-page .service-person {
+        flex: 0 0 auto;
+        width: var(--voice-sp-person-width);
+        max-width: 100%;
+        margin: 0 auto;
+        /* Position tuning */
+        transform: translate(var(--voice-sp-person-translateX), var(--voice-sp-person-translateY));
+        display: block !important;
+    }
+
+    /* Apply Typography Overrides */
+    .service-voice-number {
+        flex: 0 0 var(--voice-sp-number-size);
+        height: var(--voice-sp-number-size);
+        font-size: var(--voice-sp-number-font);
+    }
+
+    .service-voice-copy h3 {
+        font-size: var(--voice-sp-h3-size);
+    }
+
+    .service-voice-copy p {
+        font-size: var(--voice-sp-p-size);
+        line-height: 1.6;
+    }
+
+    /* Apply Spacing Overrides */
+    .service-voice-list {
+        gap: var(--voice-sp-list-gap);
+        padding: var(--voice-sp-list-padding);
+    }
+
+    .service-voice-item {
+        gap: var(--voice-sp-item-gap);
+    }
+
+    /* --- MOBILE (SP) FEATURES CONFIGURATION PANEL --- */
+    .service-features-block {
+        --feature-sp-container-width: 85vw;         /* Width of the feature section on mobile */
+        --feature-sp-title-size: 26px;              /* Section title size on mobile */
+        --feature-sp-lead-size: 14px;               /* Section lead text size on mobile */
+        --feature-sp-padding-v: 60px 0;             /* Section vertical padding */
+        --feature-sp-bg-radius: 400px;              /* Radius (Size) of circle */
+        --feature-sp-bg-x: -50px;                   /* X-coordinate (relative to left) */
+        --feature-sp-bg-y: 60%;                     /* Y-coordinate (relative to top) */
+        --feature-sp-bg-color: #E3EFFF99;           /* Background circle color */
+        
+        padding: var(--feature-sp-padding-v);
+    }
+
+    .service-features-inner {
+        width: var(--feature-sp-container-width);
+        margin: 0 auto;
+    }
+
+    .service-features-block .service-section-title {
+        font-size: var(--feature-sp-title-size);
+        margin-bottom: 40px;
+    }
+
+    .service-features-block .service-section-lead {
+        font-size: var(--feature-sp-lead-size);
+        margin: -20px auto 40px;
+        padding: 0 20px;
+    }
+
+    /* Apply Background Circle (Features) */
+    .service-features-block::after {
+        width: var(--feature-sp-bg-radius);
+        aspect-ratio: 1 / 1;
+        height: auto;
+        left: var(--feature-sp-bg-x);
+        top: var(--feature-sp-bg-y);
+        background: var(--feature-sp-bg-color);
+        display: block !important;
+    }
+
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* --- MOBILE (SP) CASES CONFIGURATION PANEL --- */
+    .service-cases {
+        --cases-sp-container-width: 85vw;           /* Width of the case studies section on mobile */
+        --cases-sp-padding-v: 60px 0 80px;         /* Section vertical padding on mobile */
+        --cases-sp-title-size: 24px;              /* Section title size on mobile */
+        
+        padding: var(--cases-sp-padding-v);
+    }
+
+    .service-cases-inner {
+        width: var(--cases-sp-container-width);
+        margin: 0 auto;
+    }
+
+    .service-cases-inner .service-section-title {
+        font-size: var(--cases-sp-title-size);
+        margin-bottom: 40px;
     }
 }
