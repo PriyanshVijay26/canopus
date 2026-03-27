@@ -96,6 +96,20 @@
     --sp-mask-bg-top: -46vw;
     --sp-mask-bg-left: -44.8vw;
     --sp-mask-bg-rotate: -43deg;
+    --sp-mask-bg-opacity: 0.85;      /* Mobile Transparency BROTHER! */
+    --sp-mask-bg-container-height: 800px; /* Mobile Container Height BROTHER! */
+
+    /* ========== SUBPAGE HERO TUNING (Brother!) ========== */
+    --subpage-hero-bg-img: url('../images/subpage-hero-bg.png');    /* DESKTOP image name */
+    --sp-subpage-hero-bg-img: url('../images/subpage-hero-bg-sp.png'); /* MOBILE image name */
+    --subpage-hero-height: 162px;
+    --subpage-hero-bg-size: cover;
+    --subpage-hero-bg-pos: center;
+    --subpage-hero-opacity: 1;
+
+    --sp-subpage-hero-height: 162px;
+    --sp-subpage-hero-bg-size: cover;
+    --sp-subpage-hero-bg-pos: center;
 }
 
 /* Utility for mobile-only line breaks */
@@ -145,20 +159,28 @@ a {
 .subpage-hero {
     position: relative;
     z-index: 10; /* Ensures breadcrumb stays above the background mask */
-    min-height: 112px;
-    background:
-        radial-gradient(circle at 15% 30%, rgba(170, 208, 255, 0.6) 1px, transparent 2px),
-        radial-gradient(circle at 68% 22%, rgba(216, 232, 255, 0.6) 1px, transparent 2px),
-        linear-gradient(135deg, #a9b0c2 0%, #9fa7bc 55%, #9da8bf 100%);
-    background-size: 120px 120px, 160px 160px, cover;
+    min-height: var(--subpage-hero-height);
+    background-image: var(--subpage-hero-bg-img);
+    background-size: var(--subpage-hero-bg-size);
+    background-position: var(--subpage-hero-bg-pos);
+    background-repeat: no-repeat;
     border-top: 1px solid rgba(255, 255, 255, 0.45);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.subpage-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(169, 176, 194, 0.4) 0%, rgba(157, 168, 191, 0.4) 100%);
+    z-index: -1;
+    opacity: var(--subpage-hero-opacity);
 }
 
 .subpage-hero-inner {
     width: min(1100px, 90vw);
     margin: 0 auto;
-    min-height: 112px;
+    min-height: var(--subpage-hero-height);
     display: flex;
     align-items: center;
 }
@@ -232,6 +254,13 @@ a {
 
 /* Mobile overrides for the mask */
 @media (max-width: 900px) {
+    .global-header-mask,
+    .bpo-header-mask,
+    .cocreate-header-mask,
+    .venous-header-mask {
+        height: var(--sp-mask-bg-container-height);
+    }
+
     .global-header-mask::before,
     .bpo-header-mask::before,
     .cocreate-header-mask::before,
@@ -241,6 +270,19 @@ a {
         top: var(--sp-mask-bg-top);
         left: var(--sp-mask-bg-left);
         transform: rotate(var(--sp-mask-bg-rotate));
+        opacity: var(--sp-mask-bg-opacity);
+    }
+
+    /* ========== SUBPAGE HERO MOBILE OVERRIDES (Brother!) ========== */
+    .subpage-hero {
+        min-height: var(--sp-subpage-hero-height);
+        background-image: var(--sp-subpage-hero-bg-img);
+        background-size: var(--sp-subpage-hero-bg-size);
+        background-position: var(--sp-subpage-hero-bg-pos);
+    }
+
+    .subpage-hero-inner {
+        min-height: var(--sp-subpage-hero-height);
     }
 }
 
@@ -601,6 +643,10 @@ a {
 
     .subpage-breadcrumb {
         font-size: var(--sp-breadcrumb-size);
+    }
+
+    .subpage-hero {
+        background-image: var(--sp-subpage-hero-bg-img);
     }
 
     .service-intro,

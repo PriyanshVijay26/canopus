@@ -1,5 +1,13 @@
 /* Privacy Policy Styles */
 
+:root {
+    /* Sweet Spot Tuning (Brother, find your perfect padding here!) */
+    --dt-privacy-px: 20px;     /* Desktop side padding */
+    --dt-privacy-pt: 80px;     /* Desktop top padding */
+    --sp-privacy-px: 30px;     /* Mobile side padding (Sweet Spot!) */
+    --sp-privacy-pt: 50px;     /* Mobile top padding */
+}
+
 .privacy-page {
     position: relative;
     background-color: #F8FAFC;
@@ -12,7 +20,7 @@
 .privacy-container {
     max-width: 940px;
     margin: 0 auto;
-    padding: 80px 20px 0;
+    padding: var(--dt-privacy-pt) var(--dt-privacy-px) 0;
     position: relative;
     z-index: 1;
 }
@@ -79,7 +87,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .privacy-container {
-        padding-top: 50px;
+        padding: var(--sp-privacy-pt) var(--sp-privacy-px) 0;
     }
 
     .privacy-title {

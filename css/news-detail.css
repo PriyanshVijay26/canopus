@@ -1,0 +1,260 @@
+/* ========== NEWS DETAIL PAGE STYLES ========== */
+:root {
+    /* Centralized Configuration Panel BROTHER! */
+    --news-detail-top-spacing: 100px;    /* Space ABOVE the news content */
+    --news-detail-bottom-spacing: 120px; /* Space BELOW the news content */
+    
+    --news-detail-width: min(1000px, 92vw); /* Width of the content area */
+    
+    /* Main Title & Date Tuning BROTHER! */
+    --news-detail-title-size: 42px;       /* Increased per feedback */
+    --news-detail-title-weight: 800;
+    --news-detail-date-size: 20px;        /* Increased per feedback */
+    --news-detail-date-weight: 500;
+    
+    /* Heading (H2) & Underline Tuning BROTHER! */
+    --news-detail-h2-size: 32px;
+    --news-detail-h2-weight: 700;
+    --news-detail-h2-line-color: #00358F; /* Set to specifically requested color! */
+    --news-detail-h2-line-width: 100%;    /* Brother, configure the length here! (e.g. 100%, 80%, etc.) */
+    --news-detail-h2-line-height: 2px;
+    --news-detail-h2-pb: 15px;
+    
+    /* Lead Text (H3) Tuning BROTHER! */
+    --news-detail-lead-size: 24px;       /* Separate heading size */
+    --news-detail-lead-weight: 700;      /* Making it BOLDER brother! */
+    --news-detail-lead-color: #1a233a;
+    --news-detail-lead-mt: 60px;        /* Gap ABOVE the lead heading brother! */
+    --news-detail-lead-mb: 60px;        /* Gap BELOW the lead heading brother! */
+    
+    /* Content & Body Tuning BROTHER! */
+    --news-detail-body-size: 18px;
+    --news-detail-body-line-height: 1.85;
+    --news-detail-body-mb: 28px;
+    --news-detail-ext-link-mt: 100px;     /* Gap ABOVE the official HP link area brother! */
+    
+    --news-detail-bg: #F8FAFC;            /* Page background color brother! */
+    --news-image-box-bg: #FFFFFF;        /* Pure white for the logo box! */
+    
+    --news-logo-max-width: 440px;         /* Restrict logo size brother! */
+    --news-logo-padding: 80px 40px;      /* Large padding for the "wall" feel */
+    --news-logo-box-width: 100%;        /* Width of the white box itself! (e.g. 100%, 800px, etc.) */
+    
+    /* Button Tuning BROTHER! Configure each and everything here! */
+    --news-detail-back-btn-width: 180px;  /* Control the width here! */
+    --news-detail-back-btn-height: 50px;
+    --news-detail-back-btn-padding: 0 10px; /* Adjust the padding here brother! */
+    --news-detail-back-btn-size: 20px;     /* Adjust the font size here! */
+    --news-detail-back-btn-color: #2D3A3A; /* Font color! */
+    
+    /* SP Tuning (Mobile) BROTHER! */
+    --sp-news-detail-top-spacing: 50px;
+    --sp-news-detail-bottom-spacing: 80px;
+    --sp-news-detail-title-size: 28px;
+    --sp-news-detail-date-size: 16px;
+    --sp-news-detail-h2-size: 22px;
+    
+    --sp-news-logo-max-width: 100px;     /* Mobile logo size brother! */
+    --sp-news-logo-box-width: 100%;      /* Mobile white wall width! (e.g. 100%, 90vw, etc.) */
+    
+    --sp-news-detail-lead-size: 18px;
+    --sp-news-detail-lead-mt: 40px;      /* Mobile gap ABOVE lead heading brother! */
+    --sp-news-detail-lead-mb: 40px;      /* Mobile gap BELOW lead heading brother! */
+    
+    --sp-news-detail-body-size: 15px;
+    --sp-news-detail-ext-link-mt: 60px;  /* Mobile gap ABOVE link area brother! */
+    
+    --sp-news-detail-side-padding: 6vw;  /* Mobile side padding */
+}
+
+.news-detail-page {
+    background-color: var(--news-detail-bg);
+}
+
+.news-detail-content-wrap {
+    position: relative;
+}
+
+.news-detail-section {
+    position: relative;
+    padding-top: var(--news-detail-top-spacing);
+    padding-bottom: var(--news-detail-bottom-spacing);
+    /* background-color removed brother! it was hiding the mask! */
+    z-index: 1;
+}
+
+.news-detail-inner {
+    width: var(--news-detail-width);
+    margin: 0 auto;
+}
+
+.news-detail-header {
+    margin-bottom: 40px;
+}
+
+.news-detail-title {
+    font-size: var(--news-detail-title-size);
+    font-weight: var(--news-detail-title-weight);
+    color: #1a233a;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+}
+
+.news-detail-date {
+    font-size: var(--news-detail-date-size);
+    font-weight: var(--news-detail-date-weight);
+    color: #4a5568;
+}
+
+/* ========== IMAGE CONTAINER (WHITE BACKGROUND) ========== */
+.news-detail-image-box {
+    background-color: var(--news-image-box-bg);
+    padding: var(--news-logo-padding);
+    width: var(--news-logo-box-width);   /* Configuration is here brother! */
+    margin: 0 auto 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border for the "wall" edge */
+}
+
+.news-detail-main-img {
+    width: 100%;
+    max-width: var(--news-logo-max-width);
+    height: auto;
+    display: block;
+}
+
+/* ========== CONTENT TEXT ========== */
+.news-detail-content {
+    color: #333d4f;
+    font-size: var(--news-detail-body-size);
+    line-height: 1.8;
+}
+
+.news-detail-content h2 {
+    font-size: var(--news-detail-h2-size);
+    font-weight: var(--news-detail-h2-weight);
+    color: #1a233a;
+    margin: 40px 0 20px;
+    padding-bottom: var(--news-detail-h2-pb);
+    border-bottom: var(--news-detail-h2-line-height) solid var(--news-detail-h2-line-color);
+    display: block;
+    width: var(--news-detail-h2-line-width);
+}
+
+.news-detail-lead {
+    font-size: var(--news-detail-lead-size);
+    font-weight: var(--news-detail-lead-weight);
+    color: var(--news-detail-lead-color);
+    margin-top: var(--news-detail-lead-mt);
+    margin-bottom: var(--news-detail-lead-mb);
+    line-height: 1.4;
+}
+
+.news-detail-content p {
+    margin-bottom: var(--news-detail-body-mb);
+    text-align: justify;
+    line-height: var(--news-detail-body-line-height);
+    font-size: var(--news-detail-body-size);
+}
+
+.news-detail-ext-link {
+    margin-top: var(--news-detail-ext-link-mt);
+}
+
+.news-detail-link {
+    color: #0040a8;
+    text-decoration: underline;
+    transition: opacity 0.2s;
+}
+
+.news-detail-link:hover {
+    opacity: 0.7;
+}
+
+/* ========== BACK BUTTON ========== */
+.news-back-btn-wrap {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.news-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--news-detail-back-btn-width);
+    height: var(--news-detail-back-btn-height);
+    padding: var(--news-detail-back-btn-padding);
+    background-color: #ffffff;
+    border: 1px solid #0040a8;
+    color: var(--news-detail-back-btn-color);
+    font-size: var(--news-detail-back-btn-size);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.news-back-btn:hover {
+    background-color: #0040a8;
+    color: #ffffff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .news-detail-section {
+        padding-top: var(--sp-news-detail-top-spacing);
+        padding-bottom: var(--sp-news-detail-bottom-spacing);
+    }
+    
+    .news-detail-inner {
+        width: 100%;
+        padding: 0 var(--sp-news-detail-side-padding);
+    }
+    
+    .news-detail-title {
+        font-size: var(--sp-news-detail-title-size);
+    }
+    
+    .news-detail-date {
+        font-size: var(--sp-news-detail-date-size);
+    }
+    
+    .news-detail-image-box {
+        padding: 30px;
+        width: var(--sp-news-logo-box-width); /* Configuration is here brother! */
+        margin: 0 auto 30px;
+        /* Remove full-viewport negative margin if user wants custom width */
+        position: relative; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .news-detail-main-img {
+        max-width: var(--sp-news-logo-max-width);
+    }
+    
+    .news-detail-content h2 {
+        font-size: var(--sp-news-detail-h2-size);
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .news-detail-lead {
+        font-size: var(--sp-news-detail-lead-size);
+        margin-top: var(--sp-news-detail-lead-mt);
+        margin-bottom: var(--sp-news-detail-lead-mb);
+    }
+    
+    .news-detail-content p {
+        margin-bottom: 20px;
+        font-size: var(--sp-news-detail-body-size);
+    }
+
+    .news-detail-ext-link {
+        margin-top: var(--sp-news-detail-ext-link-mt);
+    }
+}

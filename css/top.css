@@ -760,6 +760,9 @@ main .section-head h2 {
     --news-title-size: 22px;
     --news-date-size: 18px;
     --news-badge-size: 14px;
+    
+    /* SP Tuning (Sweet Spot Brother!) */
+    --sp-news-width: 90vw; /* Tune the home page news width here! */
 }
 
 .news-listing {
@@ -1379,7 +1382,7 @@ main .section-head h2 {
     }
 
     .news-listing {
-        width: calc(100% - (var(--sp-container-px) * 2));
+        width: var(--sp-news-width);
         margin-top: 32px;
     }
 
@@ -1389,6 +1392,13 @@ main .section-head h2 {
     }
 
     .news-meta {
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    .news-meta {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
         gap: 12px;
         margin-bottom: 8px;
     }
