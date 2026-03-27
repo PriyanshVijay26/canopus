@@ -1,68 +1,68 @@
 /* ========== NEWS DETAIL PAGE STYLES ========== */
 :root {
-    /* Centralized Configuration Panel BROTHER! */
+    /* Centralized Configuration Panel */
     --news-detail-top-spacing: 100px;    /* Space ABOVE the news content */
     --news-detail-bottom-spacing: 120px; /* Space BELOW the news content */
     
     --news-detail-width: min(1000px, 92vw); /* Width of the content area */
     
-    /* Main Title & Date Tuning BROTHER! */
+    /* Main Title & Date Tuning */
     --news-detail-title-size: 42px;       /* Increased per feedback */
     --news-detail-title-weight: 800;
     --news-detail-date-size: 20px;        /* Increased per feedback */
     --news-detail-date-weight: 500;
     
-    /* Heading (H2) & Underline Tuning BROTHER! */
+    /* Heading (H2) & Underline Tuning */
     --news-detail-h2-size: 32px;
     --news-detail-h2-weight: 700;
     --news-detail-h2-line-color: #00358F; /* Set to specifically requested color! */
-    --news-detail-h2-line-width: 100%;    /* Brother, configure the length here! (e.g. 100%, 80%, etc.) */
+    --news-detail-h2-line-width: 100%;    /* Configure the length here! (e.g. 100%, 80%, etc.) */
     --news-detail-h2-line-height: 2px;
     --news-detail-h2-pb: 15px;
     
-    /* Lead Text (H3) Tuning BROTHER! */
+    /* Lead Text (H3) Tuning */
     --news-detail-lead-size: 24px;       /* Separate heading size */
-    --news-detail-lead-weight: 700;      /* Making it BOLDER brother! */
+    --news-detail-lead-weight: 700;      /* Making it BOLDER */
     --news-detail-lead-color: #1a233a;
-    --news-detail-lead-mt: 60px;        /* Gap ABOVE the lead heading brother! */
-    --news-detail-lead-mb: 60px;        /* Gap BELOW the lead heading brother! */
+    --news-detail-lead-mt: 60px;        /* Gap ABOVE the lead heading */
+    --news-detail-lead-mb: 60px;        /* Gap BELOW the lead heading */
     
-    /* Content & Body Tuning BROTHER! */
+    /* Content & Body Tuning */
     --news-detail-body-size: 18px;
     --news-detail-body-line-height: 1.85;
     --news-detail-body-mb: 28px;
-    --news-detail-ext-link-mt: 100px;     /* Gap ABOVE the official HP link area brother! */
+    --news-detail-ext-link-mt: 100px;     /* Gap ABOVE the official HP link area */
     
-    --news-detail-bg: #F8FAFC;            /* Page background color brother! */
+    --news-detail-bg: #F8FAFC;            /* Page background color */
     --news-image-box-bg: #FFFFFF;        /* Pure white for the logo box! */
     
-    --news-logo-max-width: 440px;         /* Restrict logo size brother! */
+    --news-logo-max-width: 440px;         /* Restrict logo size */
     --news-logo-padding: 80px 40px;      /* Large padding for the "wall" feel */
     --news-logo-box-width: 100%;        /* Width of the white box itself! (e.g. 100%, 800px, etc.) */
     
-    /* Button Tuning BROTHER! Configure each and everything here! */
+    /* Button Tuning: Configure each and everything here! */
     --news-detail-back-btn-width: 180px;  /* Control the width here! */
     --news-detail-back-btn-height: 50px;
-    --news-detail-back-btn-padding: 0 10px; /* Adjust the padding here brother! */
+    --news-detail-back-btn-padding: 0 10px; /* Adjust the padding here! */
     --news-detail-back-btn-size: 20px;     /* Adjust the font size here! */
     --news-detail-back-btn-color: #2D3A3A; /* Font color! */
     
-    /* SP Tuning (Mobile) BROTHER! */
+    /* SP Tuning (Mobile) */
     --sp-news-detail-top-spacing: 50px;
     --sp-news-detail-bottom-spacing: 80px;
     --sp-news-detail-title-size: 28px;
     --sp-news-detail-date-size: 16px;
     --sp-news-detail-h2-size: 22px;
     
-    --sp-news-logo-max-width: 100px;     /* Mobile logo size brother! */
+    --sp-news-logo-max-width: 100px;     /* Mobile logo size */
     --sp-news-logo-box-width: 100%;      /* Mobile white wall width! (e.g. 100%, 90vw, etc.) */
     
     --sp-news-detail-lead-size: 18px;
-    --sp-news-detail-lead-mt: 40px;      /* Mobile gap ABOVE lead heading brother! */
-    --sp-news-detail-lead-mb: 40px;      /* Mobile gap BELOW lead heading brother! */
+    --sp-news-detail-lead-mt: 40px;      /* Mobile gap ABOVE lead heading */
+    --sp-news-detail-lead-mb: 40px;      /* Mobile gap BELOW lead heading */
     
     --sp-news-detail-body-size: 15px;
-    --sp-news-detail-ext-link-mt: 60px;  /* Mobile gap ABOVE link area brother! */
+    --sp-news-detail-ext-link-mt: 60px;  /* Mobile gap ABOVE link area */
     
     --sp-news-detail-side-padding: 6vw;  /* Mobile side padding */
 }
@@ -79,7 +79,7 @@
     position: relative;
     padding-top: var(--news-detail-top-spacing);
     padding-bottom: var(--news-detail-bottom-spacing);
-    /* background-color removed brother! it was hiding the mask! */
+    /* background-color removed: it was hiding the mask! */
     z-index: 1;
 }
 
@@ -111,7 +111,7 @@
 .news-detail-image-box {
     background-color: var(--news-image-box-bg);
     padding: var(--news-logo-padding);
-    width: var(--news-logo-box-width);   /* Configuration is here brother! */
+    width: var(--news-logo-box-width);   /* Configuration is here */
     margin: 0 auto 50px;
     display: flex;
     justify-content: center;
@@ -225,7 +225,7 @@
     
     .news-detail-image-box {
         padding: 30px;
-        width: var(--sp-news-logo-box-width); /* Configuration is here brother! */
+        width: var(--sp-news-logo-box-width); /* Configuration is here */
         margin: 0 auto 30px;
         /* Remove full-viewport negative margin if user wants custom width */
         position: relative; 

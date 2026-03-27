@@ -368,7 +368,7 @@ main .section-head h2 {
     overflow: hidden;
     background-color: #FFFFFF;
 
-    /* Works Blobs Tuning (Sweet Spot Brother!) */
+    /* Works Blobs Tuning (Sweet Spot Tuning) */
     --works-blob1-size: 1960px;
     --works-blob1-top: -250px;
     --works-blob1-right:400px;
@@ -503,7 +503,7 @@ main .section-head h2 {
     clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-/* Cases Section Tuning (Sweet Spot Brother!) */
+/* Cases Section Tuning (Sweet Spot Tuning) */
 :root {
     --case-card-border: 2px solid #68A0FF;
     --case-card-radius: 8px;
@@ -755,13 +755,13 @@ main .section-head h2 {
     max-width: 900px;
 }
 
-/* News Section Tuning (Sweet Spot Brother!) */
+/* News Section Tuning (Sweet Spot Tuning) */
 :root {
     --news-title-size: 22px;
     --news-date-size: 18px;
     --news-badge-size: 14px;
     
-    /* SP Tuning (Sweet Spot Brother!) */
+    /* SP Tuning (Sweet Spot Tuning) */
     --sp-news-width: 90vw; /* Tune the home page news width here! */
 }
 
@@ -835,7 +835,7 @@ main .section-head h2 {
     transform: translateX(10px);
 }
 
-/* Column Section Tuning (Sweet Spot Brother!) */
+/* Column Section Tuning (Sweet Spot Tuning) */
 :root {
     --column-thumb-height: 200px;
     --column-title-size: 18px;
@@ -1011,7 +1011,7 @@ main .section-head h2 {
 /* Consolidating and refining mobile responsiveness */
 @media (max-width: 900px) {
 
-    /* --- MOBILE (SP) SPACING CONFIGURATION (Sweet Spot Tuning Brother!) --- */
+    /* --- MOBILE (SP) SPACING CONFIGURATION (Sweet Spot Tuning) --- */
     body {
         --sp-section-gap-top: 48px;       /* Line 1111: Top gap for all sections */
         --sp-section-gap-bottom: 104px;     /* Line 1112: Bottom gap for all sections (after button) */
@@ -1020,12 +1020,12 @@ main .section-head h2 {
         --sp-header-margin-bottom: 34px;  /* Line 1115: Space below Title before content */
         --sp-btn-margin-top: 32px;        /* Line 1116: Space above section buttons */
 
-        /* --- WORKS (SP) CONFIGURATION Brother! --- */
+        /* --- WORKS (SP) CONFIGURATION --- */
         --sp-works-row-min-height: 140px;
         --sp-works-title-size: 19px;
         --sp-works-tag-size: 15px;
 
-        /* --- COLUMN (SP) CONFIGURATION Brother! --- */
+        /* --- COLUMN (SP) CONFIGURATION --- */
         --sp-column-thumb-height: 180px;
         --sp-column-title-size: 17px;
         --sp-column-cat-size: 14px;
@@ -1269,7 +1269,7 @@ main .section-head h2 {
         padding-top: var(--sp-section-gap-top);
         padding-bottom: var(--sp-section-gap-bottom);
 
-        /* SP Works Blobs Tuning (Sweet Spot Brother!) */
+        /* SP Works Blobs Tuning (Sweet Spot Tuning) */
         --works-blob1-size: 960px;
         --works-blob1-top: -139px;
         --works-blob1-right: 124px;

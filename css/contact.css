@@ -1,7 +1,7 @@
 /* Contact Page Styles */
 
 :root {
-    /* Desktop Typography Control (Sweet Spot Brother!) */
+    /* Desktop Typography Control (Sweet Spot Tuning) */
     --cp-title-fz: clamp(32px, 3vw, 42px);
     --cp-desc-fz: 16px;
     --cp-label-fz: 18px;
@@ -19,7 +19,7 @@
     --sp-cp-agreement-fz: 14px;
     --sp-cp-submit-fz: 16px;
 
-    /* Submit Button Tuning (Brother, adjust your padding/margin here!) */
+    /* Submit Button Tuning (Adjust padding/margin here if needed) */
     --cp-submit-mt: 60px;
     --cp-submit-width: 160px;
     --cp-submit-height: 56px;
@@ -28,10 +28,10 @@
     --sp-cp-submit-width: 160px;
     --sp-cp-submit-height: 50px;
 
-    /* Page Background (Brother, change this to #fff if you want pure white!) */
+    /* Page Background (Change this to #fff for pure white) */
     --cp-bg-color: #F8FAFC;
 
-    /* Mobile Side Padding (Brother, adjust the empty space here!) */
+    /* Mobile Side Padding (Adjust the spacing here) */
     --sp-cp-side-padding: 40px;
 }
 

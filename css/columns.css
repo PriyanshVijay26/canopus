@@ -1,14 +1,14 @@
 /* ========== COLUMNS PAGE STYLES ========== */
 :root {
-    /* Centralized Configuration Panel BROTHER! */
+    /* Centralized Configuration Panel */
     --column-filter-top-spacing: 160px;    /* Space ABOVE the blue box */
     --column-filter-bottom-spacing: 60px;  /* Space BELOW the blue box */
     --column-filter-inner-padding: 36px 40px; /* Vertical/Horizontal space inside the box (controls height) */
     --column-filter-width: min(1300px, 92vw); /* Width of the blue box (matched to cases.html) */
     --column-filter-font-size: 18px;       /* Font size of the filter links */
-    --column-filter-radius: 4px;          /* Match cases.html desktop style brother! */
+    --column-filter-radius: 4px;          /* Match cases.html desktop style */
 
-    /* Tag Styling BROTHER! */
+    /* Tag Styling */
     --column-tag-bg: #01368a;
     --column-tag-color: #ffffff;
     --column-tag-radius: 4px;   /* Rectangular style matching Home page */
@@ -19,12 +19,12 @@
     --column-title-size: 20px;
     --column-category-size: 13px;
 
-    /* ========== SP Tuning (Mobile) BROTHER! ========== */
+    /* ========== SP Tuning (Mobile) ========== */
     --sp-column-title-size: 16px;    /* Title font size on mobile */
     --sp-column-category-size: 12px; /* Category label font size on mobile */
     --sp-column-tag-size: 11px;      /* Tag/Chip font size on mobile */
 
-    /* ========== COLUMN DETAIL CONFIGURATION BROTHER! ========== */
+    /* ========== COLUMN DETAIL CONFIGURATION ========== */
     --detail-article-top-spacing: 100px;    /* Space ABOVE the whole article section */
     --detail-article-bottom-spacing: 100px; /* Space BELOW the whole article section */
     
@@ -39,19 +39,19 @@
     --detail-body-size: 17px;              /* Desktop body text size */
 
     --detail-qa-question-weight: 400;      /* Question font weight */
-    --detail-qa-answer-weight: 500;        /* Answer font weight - making it BOLDER brother! */
+    --detail-qa-answer-weight: 500;        /* Answer font weight - making it BOLDER */
 
-    --detail-list-item-weight: 500;        /* Bullet point font weight BROTHER! */
+    --detail-list-item-weight: 500;        /* Bullet point font weight */
     --detail-list-point-weight: 500;       /* Bold text weight for specific list items */
     --detail-list-square-size: 16px;       /* Size of the ■ symbol */
     --detail-list-bullet-size: 18px;       /* Size of the ・ symbol */
 
-    --detail-back-btn-height: 50px;       /* Height of the button BROTHER! */
-    --detail-back-btn-padding: 0 20px;    /* Internal space around text BROTHER! */
-    --detail-back-btn-min-width: 170px;   /* Desktop minimum width BROTHER! */
-    --detail-back-btn-size: 20px;         /* Desktop button text size BROTHER! */
+    --detail-back-btn-height: 50px;       /* Height of the button */
+    --detail-back-btn-padding: 0 20px;    /* Internal space around text */
+    --detail-back-btn-min-width: 170px;   /* Desktop minimum width */
+    --detail-back-btn-size: 20px;         /* Desktop button text size */
 
-    /* Column Detail SP (Mobile) Tuning BROTHER! */
+    /* Column Detail SP (Mobile) Tuning */
     --sp-detail-article-top-spacing: 40px;
     --sp-detail-article-bottom-spacing: 60px;
     
@@ -65,16 +65,16 @@
     --sp-detail-h4-size: 16px;
     --sp-detail-body-size: 15px;
 
-    --sp-detail-side-padding: 10vw;      /* Horizontal space for CONTENT only on mobile (L/R) BROTHER! */
-    --sp-detail-header-image-side-padding: 6vw; /* Horizontal space for HEADER/IMAGE on mobile (L/R) BROTHER! */
-    --sp-detail-back-btn-width: 140px;  /* Width of the "Column List" button on mobile BROTHER! */
-    --sp-detail-back-btn-height: 40px;  /* Height of the button on mobile BROTHER! */
-    --sp-detail-back-btn-padding: 0 10px; /* Internal space on mobile BROTHER! */
-    --sp-detail-back-btn-min-width: auto; /* Reset desktop min-width BROTHER! */
-    --sp-detail-back-btn-size: 18px;     /* Button text size on mobile BROTHER! */
+    --sp-detail-side-padding: 10vw;      /* Horizontal space for CONTENT only on mobile (L/R) */
+    --sp-detail-header-image-side-padding: 6vw; /* Horizontal space for HEADER/IMAGE on mobile (L/R) */
+    --sp-detail-back-btn-width: 140px;  /* Width of the "Column List" button on mobile */
+    --sp-detail-back-btn-height: 40px;  /* Height of the button on mobile */
+    --sp-detail-back-btn-padding: 0 10px; /* Internal space on mobile */
+    --sp-detail-back-btn-min-width: auto; /* Reset desktop min-width */
+    --sp-detail-back-btn-size: 18px;     /* Button text size on mobile */
 
-    --sp-detail-list-square-size: 14px;  /* Mobile size of the ■ symbol BROTHER! */
-    --sp-detail-list-bullet-size: 16px;  /* Mobile size of the ・ symbol BROTHER! */
+    --sp-detail-list-square-size: 14px;  /* Mobile size of the ■ symbol */
+    --sp-detail-list-bullet-size: 16px;  /* Mobile size of the ・ symbol */
 }
 
 .columns-page {
@@ -104,7 +104,7 @@
     margin: 0 auto;
     background-color: #01368a; /* Deep blue background based on screenshot */
     padding: var(--column-filter-inner-padding);
-    border-radius: var(--column-filter-radius); /* Rounded desktop version brother! */
+    border-radius: var(--column-filter-radius); /* Rounded desktop version */
     box-shadow: 0 10px 30px rgba(1, 54, 138, 0.15);
 }
 
@@ -191,7 +191,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 50, 150, 0.04);
+    background: rgba(0, 53, 143, 0.15); /* #00358F at 15% opacity */
 }
 
 .column-tags {
@@ -257,7 +257,7 @@
 @media (max-width: 900px) {
     .columns-filter-inner {
         padding: 24px 20px;
-        display: flex;         /* CENTERED BLOCK BROTHER! */
+        display: flex;         /* CENTERED BLOCK */
         justify-content: center;
         align-items: center;
         border-radius: 0;      /* SHARP LOOK ON MOBILE! */
@@ -297,7 +297,7 @@
     }
 
     .columns-filter-link {
-        font-size: 15px; /* You can make this a variable too if needed Brother! */
+        font-size: 15px; /* You can make this a variable too if needed */
     }
 
     .columns-grid-section {
@@ -354,9 +354,19 @@
 }
 
 .column-detail-hero {
+    position: relative;
     margin: 0 auto 50px;
     width: 100%;
     max-width: 800px; /* Limit image width to avoid being too massive */
+    overflow: hidden;
+}
+
+.column-detail-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 53, 143, 0.15); /* #00358F at 15% opacity */
+    pointer-events: none;
 }
 
 .column-detail-hero-img {
@@ -500,8 +510,9 @@
     }
     
     .column-detail-hero {
-        padding-left: var(--sp-detail-header-image-side-padding);
-        padding-right: var(--sp-detail-header-image-side-padding);
+        width: auto;
+        margin-left: var(--sp-detail-header-image-side-padding);
+        margin-right: var(--sp-detail-header-image-side-padding);
         margin-bottom: 32px;
     }
     

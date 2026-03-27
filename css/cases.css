@@ -8,19 +8,19 @@
     --case-chip-bottom: -7px;
     --case-chip-size: 15px;
     
-    /* Tunable Spacing BROTHER! */
+    /* Tunable Spacing */
     --case-title-min-height: 2.2em;     /* Vertical area for title (keeps descriptions aligned) */
     --case-title-margin-bottom: 8px;  /* Gap between title and description */
-    --case-title-size: clamp(12px, 1.5vw, 22px); /* Font size of the main title BROTHER! */
+    --case-title-size: clamp(12px, 1.5vw, 22px); /* Font size of the main title */
     
-    /* Client Name Configuration BROTHER! */
+    /* Client Name Configuration */
     --case-client-size: 18px;
     --case-client-margin: 16px;
     
-    /* Description Font Size BROTHER! */
+    /* Description Font Size */
     --case-desc-size: 17px;
 
-    /* Filter Bar Tuning BROTHER! */
+    /* Filter Bar Tuning */
     --case-filter-padding-y-pc: 32px; /* Adjust this to change the height of the blue bar on desktop */
     --case-filter-padding-y-sp: 20px; /* Adjust this to change the height of the blue bar on mobile */
     --case-filter-font-size-pc: 22px; 
@@ -35,7 +35,7 @@
     overflow: hidden;
 }
 
-/* Content wrapper matching features.html structure BROTHER! */
+/* Content wrapper matching features.html structure */
 .cases-page-content {
     position: relative;
     overflow: hidden;
@@ -73,7 +73,7 @@
 .cases-filter-inner {
     width: min(1300px, 92vw); /* Contained width like the card grid */
     margin: 0 auto;
-    background: #00358F; /* NEW BRAND COLOR BROTHER! */
+    background: #00358F; /* NEW BRAND COLOR */
     display: flex;
     justify-content: center;
     padding: var(--case-filter-padding-y-pc) 24px;
@@ -83,7 +83,7 @@
 
 .cases-filter-list {
     display: flex;
-    gap: 80px; /* Desktop gap BROTHER! */
+    gap: 80px; /* Desktop gap */
 }
 
 .cases-filter-item {
@@ -189,7 +189,7 @@
 .cases-card-tag {
     position: absolute;
     left: 12px;
-    bottom: var(--case-chip-bottom); /* HALF FLOATING BROTHER! */
+    bottom: var(--case-chip-bottom); /* HALF FLOATING */
     background: var(--case-chip-bg);
     color: #ffffff;
     padding: 6px 16px;
@@ -220,7 +220,7 @@
     line-height: 1.5;
     color: #1f2a3c;
     margin-bottom: var(--case-title-margin-bottom);
-    min-height: var(--case-title-min-height); /* Keeps descriptions aligned BROTHER! */
+    min-height: var(--case-title-min-height); /* Keeps descriptions aligned */
 }
 
 .cases-card-desc {
@@ -245,8 +245,8 @@
         padding: var(--case-filter-padding-y-sp) 24px;
         display: flex;
         justify-content: center;
-        align-items: center; /* Centers the list block itself BROTHER! */
-        border-radius: 0;   /* SHARP LOOK ON MOBILE BROTHER! */
+        align-items: center; /* Centers the list block itself */
+        border-radius: 0;   /* SHARP LOOK ON MOBILE */
     }
 
     .cases-filter-list {

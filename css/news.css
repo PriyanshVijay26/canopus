@@ -1,11 +1,11 @@
 /* ========== NEWS PAGE STYLES ========== */
 :root {
-    /* Sweet Spot Tuning Brother! */
+    /* Sweet Spot Tuning */
     --news-page-bg: #F8FAFC;
     --news-container-width: min(1000px, 92vw);
     
     --news-filter-bg: #01368a;
-    --news-filter-width: min(1200px, 92vw); /* ← 1200px brother! */
+    --news-filter-width: min(1200px, 92vw); /* ← 1200px max width */
     --news-filter-padding: 32px 20px;
     --news-filter-gap: 48px;
     --news-filter-radius: 4px;
@@ -19,7 +19,7 @@
     --news-section-pb: 120px;
     --news-filter-margin-bottom: 60px;
     
-    /* SP Tuning (Sweet Spot Brother!) */
+    /* SP Tuning (Sweet Spot Tuning) */
     --sp-news-container-width: 80vw;   /* Mobile list width */
     --sp-news-filter-width: 100vw;     /* Mobile filter bar width */
     --sp-news-filter-gap: 20px;

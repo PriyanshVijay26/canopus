@@ -16,7 +16,7 @@
     --dt-hero-card-bottom: 24px;  /* Desktop: Distance of card from bottom edge */
     --hero-min-height: 860px;     /* Overall height of the hero section */
     
-    /* Hero Slope & Width Tuning (Sweet Spot Brother!) */
+    /* Hero Slope & Width Tuning (Sweet Spot Tuning) */
     --dt-hero-slope-x1: 28%;        /* Desktop: Top-left x-coordinate of the slant (Decrease to shift left) */
     --dt-hero-slope-x2: 0%;        /* Desktop: Bottom-left x-coordinate of the slant */
     --dt-hero-image-width: 152%;  /* Desktop: Overall width of the image container */
@@ -54,10 +54,10 @@
     --footer-nav-link-size: 17px;   /* Desktop */
     --footer-nav-sublink-size: 17px; /* Desktop */
     --footer-logo-height: 120px;    /* Height of the image-based logo */
-    --breadcrumb-size: 18px;        /* Tunable breadcrumb text, brother! */
+    --breadcrumb-size: 18px;        /* Tunable breadcrumb text size */
     --sp-breadcrumb-size: 16px;
 
-    /* Mobile Footer Tuning (Brother, find your sweet spot here!) */
+    /* Mobile Footer Tuning (Sweet Spot Tuning) */
     --sp-footer-address-size: 15px;
     --sp-footer-nav-title-size: 15px;
     --sp-footer-nav-link-size: 15px;
@@ -78,7 +78,7 @@
     --contact-btn-padding-x: 10px;
     --contact-btn-min-width: 180px;
     --contact-btn-radius: 7px;
-    --contact-panel-width: 1000px; /* brother, increase this to make the blue card wider! */
+    --contact-panel-width: 1000px; /* Increase this to make the blue card wider if needed */
 
     /* Mobile Contact CTA Tuning */
     --sp-contact-padding-top: 90px;   /* New: Mobile space above the watermark */
@@ -104,10 +104,10 @@
     --sp-mask-bg-top: -46vw;
     --sp-mask-bg-left: -44.8vw;
     --sp-mask-bg-rotate: -43deg;
-    --sp-mask-bg-opacity: 0.85;      /* Mobile Transparency BROTHER! */
-    --sp-mask-bg-container-height: 800px; /* Mobile Container Height BROTHER! */
+    --sp-mask-bg-opacity: 0.85;      /* Mobile Transparency */
+    --sp-mask-bg-container-height: 800px; /* Mobile Container Height */
 
-    /* ========== SUBPAGE HERO TUNING (Brother!) ========== */
+    /* ========== SUBPAGE HERO TUNING ========== */
     --subpage-hero-bg-img: url('../images/subpage-hero-bg.png');    /* DESKTOP image name */
     --sp-subpage-hero-bg-img: url('../images/subpage-hero-bg-sp.png'); /* MOBILE image name */
     --subpage-hero-height: 162px;
@@ -172,9 +172,9 @@ a {
     background-size: var(--subpage-hero-bg-size);
     background-position: var(--subpage-hero-bg-pos);
     background-repeat: no-repeat;
-    /* Gap fix: removed border-top brother! */
+    /* Gap fix: removed border-top */
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    margin-top: -1px; /* SUBTLE PULL UP TO REMOVE THE GAP BROTHER! */
+    margin-top: -1px; /* SUBTLE PULL UP TO REMOVE THE GAP */
 }
 
 .subpage-hero::before {
@@ -282,7 +282,7 @@ a {
         opacity: var(--sp-mask-bg-opacity);
     }
 
-    /* ========== SUBPAGE HERO MOBILE OVERRIDES (Brother!) ========== */
+    /* ========== SUBPAGE HERO MOBILE OVERRIDES ========== */
     .subpage-hero {
         min-height: var(--sp-subpage-hero-height);
         background-image: var(--sp-subpage-hero-bg-img);
@@ -1119,7 +1119,7 @@ a {
 
 .contact-meta {
     display: grid;
-    grid-template-columns: minmax(4.5em, auto) min-content auto; /* Perfect key:value align, brother! */
+    grid-template-columns: minmax(4.5em, auto) min-content auto; /* Perfect key:value align */
     column-gap: 10px;
     row-gap: 8px;
     align-items: center;
@@ -1152,7 +1152,7 @@ a {
     letter-spacing: 0.01em;
     transition: all 0.3s ease;
     box-shadow: none;
-    min-width: var(--contact-btn-min-width); /* Tunable min-width, brother! */
+    min-width: var(--contact-btn-min-width); /* Tunable min-width */
 }
 
 .contact-btn:hover {
@@ -1472,7 +1472,7 @@ a {
     }
 
     .contact-panel {
-        width: var(--sp-contact-panel-width); /* Now tunable, brother! */
+        width: var(--sp-contact-panel-width); /* Now tunable */
         margin: 0 auto;
         padding: 50px 20px 40px;
         flex-direction: column-reverse;
@@ -1485,7 +1485,7 @@ a {
     }
 
     .contact-btn {
-        width: auto; /* Allow min-width to take over, brother! */
+        width: auto; /* Allow min-width to take over */
         min-width: var(--sp-contact-btn-min-width);
         max-width: none;
     }

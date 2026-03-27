@@ -1,7 +1,7 @@
 /* Privacy Policy Styles */
 
 :root {
-    /* Sweet Spot Tuning (Brother, find your perfect padding here!) */
+    /* Sweet Spot Tuning (Find your perfect padding here!) */
     --dt-privacy-px: 20px;     /* Desktop side padding */
     --dt-privacy-pt: 80px;     /* Desktop top padding */
     --sp-privacy-px: 30px;     /* Mobile side padding (Sweet Spot!) */
