@@ -1,13 +1,45 @@
 /* ========== COLUMNS PAGE STYLES ========== */
+:root {
+    /* Centralized Configuration Panel BROTHER! */
+    --column-filter-top-spacing: 160px;    /* Space ABOVE the blue box */
+    --column-filter-bottom-spacing: 60px;  /* Space BELOW the blue box */
+    --column-filter-inner-padding: 36px 40px; /* Vertical/Horizontal space inside the box (controls height) */
+    --column-filter-width: min(1300px, 92vw); /* Width of the blue box (matched to cases.html) */
+    --column-filter-font-size: 18px;       /* Font size of the filter links */
+    --column-filter-radius: 4px;          /* Match cases.html desktop style brother! */
+
+    /* Tag Styling BROTHER! */
+    --column-tag-bg: #01368a;
+    --column-tag-color: #ffffff;
+    --column-tag-radius: 4px;   /* Rectangular style matching Home page */
+    --column-tag-size: 13px;
+    --column-tag-padding: 6px 14px;
+
+    /* Desktop Typography Tuning */
+    --column-title-size: 20px;
+    --column-category-size: 13px;
+
+    /* ========== SP Tuning (Mobile) BROTHER! ========== */
+    --sp-column-title-size: 16px;    /* Title font size on mobile */
+    --sp-column-category-size: 12px; /* Category label font size on mobile */
+    --sp-column-tag-size: 11px;      /* Tag/Chip font size on mobile */
+}
 
 .columns-page {
+    background-color: #ffffff;
+}
+
+.columns-page-content {
+    position: relative;
+    overflow: hidden;
     background-color: #ffffff;
 }
 
 /* ========== FILTER SECTION ========== */
 .columns-filter-section {
     position: relative;
-    padding: 60px 0;
+    padding-top: var(--column-filter-top-spacing);
+    padding-bottom: var(--column-filter-bottom-spacing);
     overflow: hidden;
 }
 
@@ -16,10 +48,11 @@
 .columns-filter-inner {
     position: relative;
     z-index: 1;
-    width: min(1080px, 92vw);
+    width: var(--column-filter-width);
     margin: 0 auto;
     background-color: #01368a; /* Deep blue background based on screenshot */
-    padding: 36px 40px;
+    padding: var(--column-filter-inner-padding);
+    border-radius: var(--column-filter-radius); /* Rounded desktop version brother! */
     box-shadow: 0 10px 30px rgba(1, 54, 138, 0.15);
 }
 
@@ -39,7 +72,7 @@
     align-items: center;
     gap: 12px;
     color: #ffffff;
-    font-size: 16px;
+    font-size: var(--column-filter-font-size);
     font-weight: 500;
     letter-spacing: 0.02em;
     text-decoration: none;
@@ -122,12 +155,12 @@
 }
 
 .column-tag {
-    background-color: #01368a;
-    color: #ffffff;
-    font-size: 13px;
+    background-color: var(--column-tag-bg);
+    color: var(--column-tag-color);
+    font-size: var(--column-tag-size);
     font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 20px;
+    padding: var(--column-tag-padding);
+    border-radius: var(--column-tag-radius);
     letter-spacing: 0.02em;
     line-height: 1;
 }
@@ -148,7 +181,7 @@
     background-color: #dce7f9;
     color: #3b5072;
     padding: 4px 12px;
-    font-size: 13px;
+    font-size: var(--column-category-size);
     font-weight: 600;
     letter-spacing: 0.02em;
 }
@@ -161,7 +194,7 @@
 }
 
 .column-title {
-    font-size: 20px;
+    font-size: var(--column-title-size);
     font-weight: 700;
     color: #2b3342;
     line-height: 1.5;
@@ -172,17 +205,33 @@
 @media (max-width: 900px) {
     .columns-filter-inner {
         padding: 24px 20px;
+        display: flex;         /* CENTERED BLOCK BROTHER! */
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;      /* SHARP LOOK ON MOBILE! */
     }
 
     .columns-filter-list {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* LEFT ALIGNED WITHIN CENTERED BLOCK! */
         gap: 16px;
     }
 
     .columns-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .column-title {
+        font-size: var(--sp-column-title-size);
+    }
+
+    .column-category {
+        font-size: var(--sp-column-category-size);
+    }
+
+    .column-tag {
+        font-size: var(--sp-column-tag-size);
     }
 }
 
@@ -196,7 +245,7 @@
     }
 
     .columns-filter-link {
-        font-size: 15px;
+        font-size: 15px; /* You can make this a variable too if needed Brother! */
     }
 
     .columns-grid-section {
@@ -204,7 +253,7 @@
     }
 
     .column-title {
-        font-size: 18px;
+        font-size: var(--sp-column-title-size);
     }
 }
 

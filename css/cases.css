@@ -19,6 +19,14 @@
     
     /* Description Font Size BROTHER! */
     --case-desc-size: 17px;
+
+    /* Filter Bar Tuning BROTHER! */
+    --case-filter-padding-y-pc: 32px; /* Adjust this to change the height of the blue bar on desktop */
+    --case-filter-padding-y-sp: 20px; /* Adjust this to change the height of the blue bar on mobile */
+    --case-filter-font-size-pc: 22px; 
+    --case-filter-font-size-sp: 18px;
+    --case-filter-square-size-pc: 18px;
+    --case-filter-square-size-sp: 16px;
 }
 
 .cases-page {
@@ -68,7 +76,7 @@
     background: #00358F; /* NEW BRAND COLOR BROTHER! */
     display: flex;
     justify-content: center;
-    padding: 48px 24px;
+    padding: var(--case-filter-padding-y-pc) 24px;
     border-radius: 4px;
     box-shadow: 0 4px 20px rgba(0, 53, 143, 0.15); /* Subtle shadow for depth */
 }
@@ -83,7 +91,7 @@
     align-items: center;
     gap: 16px;
     color: #ffffff;
-    font-size: clamp(18px, 1.4vw, 22px);
+    font-size: var(--case-filter-font-size-pc);
     font-weight: 700;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -98,8 +106,8 @@
 }
 
 .cases-checkbox {
-    width: 24px;
-    height: 24px;
+    width: var(--case-filter-square-size-pc);
+    height: var(--case-filter-square-size-pc);
     background: #ffffff;
     display: inline-flex;
     align-items: center;
@@ -110,8 +118,8 @@
 /* Checkmark logic if needed */
 .cases-filter-item input:checked + .cases-checkbox::after {
     content: "";
-    width: 12px;
-    height: 12px;
+    width: calc(var(--case-filter-square-size-pc) * 0.5);
+    height: calc(var(--case-filter-square-size-pc) * 0.5);
     background: #013081;
     border-radius: 1px;
 }
@@ -234,10 +242,11 @@
 
     .cases-filter-inner {
         width: 100%; /* Go back to full-ish width on mobile for better touch area */
-        padding: 32px 24px;
+        padding: var(--case-filter-padding-y-sp) 24px;
         display: flex;
         justify-content: center;
         align-items: center; /* Centers the list block itself BROTHER! */
+        border-radius: 0;   /* SHARP LOOK ON MOBILE BROTHER! */
     }
 
     .cases-filter-list {
@@ -247,7 +256,17 @@
     }
 
     .cases-filter-item {
-        font-size: 18px;
+        font-size: var(--case-filter-font-size-sp);
+    }
+
+    .cases-checkbox {
+        width: var(--case-filter-square-size-sp);
+        height: var(--case-filter-square-size-sp);
+    }
+
+    .cases-filter-item input:checked + .cases-checkbox::after {
+        width: calc(var(--case-filter-square-size-sp) * 0.5);
+        height: calc(var(--case-filter-square-size-sp) * 0.5);
     }
 
     .cases-grid-section {
