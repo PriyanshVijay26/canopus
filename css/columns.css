@@ -23,6 +23,52 @@
     --sp-column-title-size: 16px;    /* Title font size on mobile */
     --sp-column-category-size: 12px; /* Category label font size on mobile */
     --sp-column-tag-size: 11px;      /* Tag/Chip font size on mobile */
+
+    /* ========== COLUMN DETAIL CONFIGURATION BROTHER! ========== */
+    --detail-article-top-spacing: 100px;    /* Space ABOVE the whole article section */
+    --detail-article-bottom-spacing: 100px; /* Space BELOW the whole article section */
+    
+    --detail-title-top-padding: 0px;       /* Custom top padding for title area */
+    --detail-title-bottom-padding: 60px;    /* Custom bottom padding for title area (gap above hero) */
+    
+    --detail-title-size: 36px;             /* Desktop title size */
+    --detail-date-size: 15px;              /* Desktop date size */
+    --detail-h2-size: 28px;                /* Desktop H2 size */
+    --detail-h3-size: 22px;                /* Desktop H3 size */
+    --detail-h4-size: 18px;                /* Desktop H4 size */
+    --detail-body-size: 17px;              /* Desktop body text size */
+
+    --detail-qa-question-weight: 400;      /* Question font weight */
+    --detail-qa-answer-weight: 500;        /* Answer font weight - making it BOLDER brother! */
+
+    --detail-list-item-weight: 500;        /* Bullet point font weight BROTHER! */
+
+    --detail-back-btn-height: 50px;       /* Height of the button BROTHER! */
+    --detail-back-btn-padding: 0 20px;    /* Internal space around text BROTHER! */
+    --detail-back-btn-min-width: 170px;   /* Desktop minimum width BROTHER! */
+    --detail-back-btn-size: 20px;         /* Desktop button text size BROTHER! */
+
+    /* Column Detail SP (Mobile) Tuning BROTHER! */
+    --sp-detail-article-top-spacing: 40px;
+    --sp-detail-article-bottom-spacing: 60px;
+    
+    --sp-detail-title-top-padding: 0px;
+    --sp-detail-title-bottom-padding: 24px;
+    
+    --sp-detail-title-size: 20px;
+    --sp-detail-date-size: 13px;
+    --sp-detail-h2-size: 18px;
+    --sp-detail-h3-size: 16px;
+    --sp-detail-h4-size: 16px;
+    --sp-detail-body-size: 15px;
+
+    --sp-detail-side-padding: 10vw;      /* Horizontal space for CONTENT only on mobile (L/R) BROTHER! */
+    --sp-detail-header-image-side-padding: 6vw; /* Horizontal space for HEADER/IMAGE on mobile (L/R) BROTHER! */
+    --sp-detail-back-btn-width: 140px;  /* Width of the "Column List" button on mobile BROTHER! */
+    --sp-detail-back-btn-height: 40px;  /* Height of the button on mobile BROTHER! */
+    --sp-detail-back-btn-padding: 0 10px; /* Internal space on mobile BROTHER! */
+    --sp-detail-back-btn-min-width: auto; /* Reset desktop min-width BROTHER! */
+    --sp-detail-back-btn-size: 18px;     /* Button text size on mobile BROTHER! */
 }
 
 .columns-page {
@@ -264,7 +310,8 @@
 
 .column-detail-section {
     position: relative;
-    padding: 60px 0 100px;
+    padding-top: var(--detail-article-top-spacing);
+    padding-bottom: var(--detail-article-bottom-spacing);
     background: #ffffff;
     overflow: hidden;
 }
@@ -280,11 +327,12 @@
 
 .column-detail-header {
     text-align: left;
-    margin-bottom: 40px;
+    padding-top: var(--detail-title-top-padding);
+    margin-bottom: var(--detail-title-bottom-padding);
 }
 
 .column-detail-title {
-    font-size: clamp(28px, 2.8vw, 36px);
+    font-size: var(--detail-title-size);
     font-weight: 800;
     color: #1a233a;
     line-height: 1.45;
@@ -294,7 +342,7 @@
 
 .column-detail-date {
     display: block;
-    font-size: 15px;
+    font-size: var(--detail-date-size);
     color: #4a5568;
     font-family: sans-serif;
 }
@@ -315,12 +363,12 @@
 
 .column-detail-content {
     color: #333d4f;
-    font-size: 16px;
+    font-size: var(--detail-body-size);
     line-height: 1.8;
 }
 
 .column-detail-content h2 {
-    font-size: clamp(22px, 2.2vw, 28px);
+    font-size: var(--detail-h2-size);
     font-weight: 700;
     color: #1a233a;
     padding-bottom: 12px;
@@ -330,7 +378,7 @@
 }
 
 .column-detail-content h3 {
-    font-size: clamp(18px, 1.8vw, 22px);
+    font-size: var(--detail-h3-size);
     font-weight: 700;
     color: #1a233a;
     background-color: #eaf2ff; /* Light blue background as per screenshot */
@@ -340,7 +388,7 @@
 }
 
 .column-detail-content h4 {
-    font-size: clamp(16px, 1.6vw, 18px);
+    font-size: var(--detail-h4-size);
     font-weight: 700;
     color: #1a233a;
     margin: 32px 0 16px;
@@ -352,6 +400,18 @@
     text-align: justify;
 }
 
+.qa-question {
+    font-weight: var(--detail-qa-question-weight);
+}
+
+.qa-answer {
+    font-weight: var(--detail-qa-answer-weight);
+}
+
+.column-bullet-item {
+    font-weight: var(--detail-list-item-weight);
+}
+
 .column-back-btn-wrap {
     text-align: center;
     margin-top: 80px;
@@ -361,12 +421,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px;
-    height: 50px;
+    min-width: var(--detail-back-btn-min-width);
+    height: var(--detail-back-btn-height);
+    padding: var(--detail-back-btn-padding);
     background-color: #ffffff;
     border: 1px solid #0040a8;
     color: #0040a8;
-    font-size: 16px;
+    font-size: var(--detail-back-btn-size);
     font-weight: 700;
     text-decoration: none;
     border-radius: 4px;
@@ -380,44 +441,56 @@
 
 @media (max-width: 900px) {
     .column-detail-section {
-        padding: 40px 0 60px;
+        padding-top: var(--sp-detail-article-top-spacing);
+        padding-bottom: var(--sp-detail-article-bottom-spacing);
+    }
+
+    .column-detail-inner {
+        width: 100%;
     }
     
     .column-detail-header {
-        margin-bottom: 24px;
+        padding-top: var(--sp-detail-title-top-padding);
+        padding-left: var(--sp-detail-header-image-side-padding);
+        padding-right: var(--sp-detail-header-image-side-padding);
+        margin-bottom: var(--sp-detail-title-bottom-padding);
     }
     
     .column-detail-title {
-        font-size: 24px;
+        font-size: var(--sp-detail-title-size);
         line-height: 1.4;
     }
     
     .column-detail-date {
-        font-size: 14px;
+        font-size: var(--sp-detail-date-size);
     }
     
     .column-detail-hero {
+        padding-left: var(--sp-detail-header-image-side-padding);
+        padding-right: var(--sp-detail-header-image-side-padding);
         margin-bottom: 32px;
     }
     
     .column-detail-content {
-        font-size: 15px;
+        font-size: var(--sp-detail-body-size);
+        padding-left: var(--sp-detail-side-padding);
+        padding-right: var(--sp-detail-side-padding);
     }
 
     .column-detail-content h2 {
-        font-size: 20px;
+        font-size: var(--sp-detail-h2-size);
         margin: 48px 0 20px;
         padding-bottom: 8px;
     }
     
     .column-detail-content h3 {
-        font-size: 16px;
+        font-size: var(--sp-detail-h3-size);
         margin: 32px 0 16px;
         padding: 12px 16px;
     }
     
     .column-detail-content h4 {
-        font-size: 15px;
+        font-size: var(--sp-detail-h4-size);
         margin: 24px 0 12px;
     }
     
@@ -431,8 +504,12 @@
     }
     
     .column-back-btn {
-        width: 100%;
-        max-width: 320px;
+        width: var(--sp-detail-back-btn-width);
+        min-width: var(--sp-detail-back-btn-min-width);
+        height: var(--sp-detail-back-btn-height);
+        padding: var(--sp-detail-back-btn-padding);
+        font-size: var(--sp-detail-back-btn-size);
+        max-width: 90%;
     }
     
     .sp-br {
