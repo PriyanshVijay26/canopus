@@ -1,8 +1,43 @@
 /* Contact Page Styles */
 
+:root {
+    /* Desktop Typography Control (Sweet Spot Brother!) */
+    --cp-title-fz: clamp(32px, 3vw, 42px);
+    --cp-desc-fz: 16px;
+    --cp-label-fz: 18px;
+    --cp-label-note-fz: 14px;
+    --cp-input-fz: 16px;
+    --cp-agreement-fz: 16px;
+    --cp-submit-fz: 20px;
+
+    /* Mobile Typography Control (SP Sweet Spot) */
+    --sp-cp-title-fz: 28px;
+    --sp-cp-desc-fz: 15px;
+    --sp-cp-label-fz: 16px;
+    --sp-cp-label-note-fz: 15px;
+    --sp-cp-input-fz: 14px;
+    --sp-cp-agreement-fz: 14px;
+    --sp-cp-submit-fz: 16px;
+
+    /* Submit Button Tuning (Brother, adjust your padding/margin here!) */
+    --cp-submit-mt: 60px;
+    --cp-submit-width: 160px;
+    --cp-submit-height: 56px;
+
+    --sp-cp-submit-mt: 40px;
+    --sp-cp-submit-width: 160px;
+    --sp-cp-submit-height: 50px;
+
+    /* Page Background (Brother, change this to #fff if you want pure white!) */
+    --cp-bg-color: #F8FAFC;
+
+    /* Mobile Side Padding (Brother, adjust the empty space here!) */
+    --sp-cp-side-padding: 40px;
+}
+
 .contact-page {
     position: relative;
-    background-color: #fff;
+    background-color: var(--cp-bg-color);
     overflow: hidden;
     padding-bottom: 120px;
 }
@@ -19,7 +54,7 @@
 
 .contact-title {
     text-align: center;
-    font-size: clamp(32px, 3vw, 42px);
+    font-size: var(--cp-title-fz);
     font-weight: 800;
     color: #1a233a;
     margin-bottom: 60px;
@@ -29,7 +64,7 @@
 .contact-description {
     max-width: 720px;
     margin: 0 auto 60px;
-    font-size: 16px;
+    font-size: var(--cp-desc-fz);
     line-height: 1.8;
     color: #333;
     text-align: left;
@@ -62,13 +97,13 @@
 }
 
 .form-label {
-    font-size: 18px;
+    font-size: var(--cp-label-fz);
     font-weight: 700;
     color: #1a233a;
 }
 
 .form-label span {
-    font-size: 14px;
+    font-size: var(--cp-label-note-fz);
     font-weight: 400;
     margin-left: 4px;
 }
@@ -81,7 +116,7 @@
     padding: 12px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: var(--cp-input-fz);
     font-family: inherit;
     background-color: #fff;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -115,7 +150,7 @@
 }
 
 .form-agreement label {
-    font-size: 16px;
+    font-size: var(--cp-agreement-fz);
     color: #333;
     cursor: pointer;
 }
@@ -126,7 +161,7 @@
 }
 
 .form-submit {
-    margin-top: 60px;
+    margin-top: var(--cp-submit-mt);
     text-align: center;
 }
 
@@ -134,11 +169,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px;
-    height: 56px;
+    min-width: var(--cp-submit-width);
+    height: var(--cp-submit-height);
     background-color: #003788;
     color: #fff;
-    font-size: 18px;
+    font-size: var(--cp-submit-fz);
     font-weight: 700;
     border: none;
     border-radius: 4px;
@@ -165,16 +200,16 @@
     }
 
     .contact-container {
-        padding: 50px 15px 0;
+        padding: 50px var(--sp-cp-side-padding) 0;
     }
 
     .contact-title {
         margin-bottom: 40px;
-        font-size: 28px;
+        font-size: var(--sp-cp-title-fz);
     }
 
     .contact-description {
-        font-size: 13px;
+        font-size: var(--sp-cp-desc-fz);
         margin-bottom: 40px;
         line-height: 1.6;
     }
@@ -186,14 +221,20 @@
     }
 
     .form-label {
-        font-size: 16px;
+        font-size: var(--sp-cp-label-fz);
         display: block;
         margin-bottom: 12px;
     }
 
-    .form-input-wrap input,
+    .form-label span {
+        font-size: var(--sp-cp-label-note-fz);
+    }
+
+    .form-input-wrap input[type="text"],
+    .form-input-wrap input[type="email"],
+    .form-input-wrap input[type="tel"],
     .form-input-wrap textarea {
-        font-size: 14px;
+        font-size: var(--sp-cp-input-fz);
         padding: 10px 12px;
     }
 
@@ -205,18 +246,18 @@
     }
 
     .form-agreement label {
-        font-size: 14px;
+        font-size: var(--sp-cp-agreement-fz);
         line-height: 1.4;
     }
 
     .form-submit {
-        margin-top: 40px;
+        margin-top: var(--sp-cp-submit-mt);
     }
 
     .submit-btn {
         width: 100%;
-        max-width: 300px;
-        height: 50px;
-        font-size: 16px;
+        max-width: var(--sp-cp-submit-width);
+        height: var(--sp-cp-submit-height);
+        font-size: var(--sp-cp-submit-fz);
     }
 }

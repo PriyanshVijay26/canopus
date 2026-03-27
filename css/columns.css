@@ -42,6 +42,9 @@
     --detail-qa-answer-weight: 500;        /* Answer font weight - making it BOLDER brother! */
 
     --detail-list-item-weight: 500;        /* Bullet point font weight BROTHER! */
+    --detail-list-point-weight: 500;       /* Bold text weight for specific list items */
+    --detail-list-square-size: 16px;       /* Size of the ■ symbol */
+    --detail-list-bullet-size: 18px;       /* Size of the ・ symbol */
 
     --detail-back-btn-height: 50px;       /* Height of the button BROTHER! */
     --detail-back-btn-padding: 0 20px;    /* Internal space around text BROTHER! */
@@ -69,16 +72,19 @@
     --sp-detail-back-btn-padding: 0 10px; /* Internal space on mobile BROTHER! */
     --sp-detail-back-btn-min-width: auto; /* Reset desktop min-width BROTHER! */
     --sp-detail-back-btn-size: 18px;     /* Button text size on mobile BROTHER! */
+
+    --sp-detail-list-square-size: 14px;  /* Mobile size of the ■ symbol BROTHER! */
+    --sp-detail-list-bullet-size: 16px;  /* Mobile size of the ・ symbol BROTHER! */
 }
 
 .columns-page {
-    background-color: #ffffff;
+    background-color: #F8FAFC;
 }
 
 .columns-page-content {
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #F8FAFC;
 }
 
 /* ========== FILTER SECTION ========== */
@@ -139,7 +145,7 @@
 /* ========== GRID SECTION ========== */
 .columns-grid-section {
     padding: 20px 0 100px;
-    background: #ffffff;
+    background: #F8FAFC;
 }
 
 .columns-grid-inner {
@@ -305,14 +311,14 @@
 
 /* ========== COLUMN DETAIL PAGE ========== */
 .column-detail-page {
-    background-color: #ffffff;
+    background-color: #F8FAFC;
 }
 
 .column-detail-section {
     position: relative;
     padding-top: var(--detail-article-top-spacing);
     padding-bottom: var(--detail-article-bottom-spacing);
-    background: #ffffff;
+    background: #F8FAFC;
     overflow: hidden;
 }
 
@@ -410,6 +416,34 @@
 
 .column-bullet-item {
     font-weight: var(--detail-list-item-weight);
+}
+
+.column-detail-content .column-list-square {
+    font-size: var(--detail-list-square-size);
+    margin-right: 8px;
+    line-height: 1;
+    color: #1a233a; /* Deep navy matching headings */
+    font-style: normal;
+}
+
+.column-detail-content .column-list-bullet {
+    font-size: var(--detail-list-bullet-size);
+    margin-right: 4px;
+    line-height: 1;
+    font-style: normal;
+}
+
+.column-detail-content .column-list-point {
+    font-weight: var(--detail-list-point-weight);
+}
+
+@media (max-width: 900px) {
+    .column-list-square {
+        font-size: var(--sp-detail-list-square-size);
+    }
+    .column-list-bullet {
+        font-size: var(--sp-detail-list-bullet-size);
+    }
 }
 
 .column-back-btn-wrap {
