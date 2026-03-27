@@ -38,7 +38,15 @@
     --footer-bg-color: #00358F;
     --footer-brand-size: 32px;      /* Brand name 'Canopus' */
     --header-logo-height: 54px;      /* New: Header logo (Desktop) */
+    --header-padding-y: 6px;        /* New: Navbar height tuning (Desktop) */
+    --header-bg: #00358F;            /* New: Navbar color tuning */
     --sp-header-logo-height: 62px;   /* New: Header logo (Mobile) */
+    --sp-header-padding-y: 10px;     /* New: Navbar height tuning (Mobile) */
+    --sp-header-logo-px: 6px;        /* New: Mobile logo horizontal offset (increase to shift right) */
+    --sp-hamburger-width: 52px;      /* New: Hamburger line length */
+    --sp-hamburger-height: 2.5px;    /* New: Hamburger line thickness */
+    --sp-hamburger-gap: 16px;         /* New: Separation between lines */
+    --sp-hamburger-pr: 0px;          /* New: Hamburger right padding/offset */
     --logo-split-point: 83%;        /* New: Tune this to separate orb and text */
     --header-logo-filter: none;     /* Deprecated for selective filtering */
     --footer-address-size: 17px;    /* Desktop */
@@ -164,8 +172,9 @@ a {
     background-size: var(--subpage-hero-bg-size);
     background-position: var(--subpage-hero-bg-pos);
     background-repeat: no-repeat;
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    /* Gap fix: removed border-top brother! */
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: -1px; /* SUBTLE PULL UP TO REMOVE THE GAP BROTHER! */
 }
 
 .subpage-hero::before {
@@ -954,8 +963,8 @@ a {
 .main-header {
     position: relative;
     z-index: 900;
-    background: linear-gradient(90deg, #0a46a6 0%, #0d4da8 100%);
-    padding: 16px 0;
+    background: var(--header-bg);
+    padding: var(--header-padding-y) 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -1020,7 +1029,7 @@ a {
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--sp-hamburger-gap);
     background: none;
     border: none;
     cursor: pointer;
@@ -1028,8 +1037,8 @@ a {
 }
 
 .menu-toggle span {
-    width: 24px;
-    height: 2.5px;
+    width: var(--sp-hamburger-width);
+    height: var(--sp-hamburger-height);
     background: #fff;
     border-radius: 2px;
     transition: all 0.3s ease;
@@ -1366,7 +1375,7 @@ a {
 .desktop-nav-links a::after {
     content: "";
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 4px;
@@ -1405,6 +1414,10 @@ a {
 
 /* ========== HEADER/FOOTER RESPONSIVE ========== */
 @media (max-width: 900px) {
+    .main-header {
+        padding: var(--sp-header-padding-y) 0;
+    }
+
     .header-inner {
         width: 92vw;
     }
@@ -1423,6 +1436,7 @@ a {
         display: flex;
         z-index: 10;
         margin-left: auto;
+        margin-right: var(--sp-hamburger-pr);
     }
 
     .footer-inner {
@@ -1521,6 +1535,7 @@ a {
 
     .brand {
         gap: 6px;
+        padding-left: var(--sp-header-logo-px);
     }
 
     .section-head h2 {
