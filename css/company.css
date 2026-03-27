@@ -1,17 +1,34 @@
 /* Company Profile Styles */
 
+/* 
+ * SWEET SPOT CONFIGURATION BROTHER! 
+ * Tune these variables to find the perfect layout.
+ */
+:root {
+    --company-content-width: 1000px;
+    --company-side-padding: 20px;
+    --company-map-height: 400px;
+    --company-map-margin-bottom: 60px;
+    --company-row-padding-y: 18px;
+    --company-title-margin-bottom: 60px;
+    
+    /* Mobile (SP) Sweet Spot */
+    --sp-company-side-padding: 40px;   /* Increase this to make separator lines shorter on mobile */
+    --sp-company-row-padding-y: 15px;
+}
+
 .company-page {
     position: relative;
     padding-bottom: 80px;
-    background-color: #f8f9fa; /* slightly off-white match the screenshot */
+    background-color: #F8FAFC; /* Standard consistent premium background */
 }
 
 /* Old CSS bg-layer removed — now using global bpo-mask-bg.png */
 
 .company-content-inner {
-    max-width: 1000px;
+    max-width: var(--company-content-width);
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 60px var(--company-side-padding);
     position: relative;
     z-index: 1;
 }
@@ -21,19 +38,19 @@
     font-size: 32px;
     font-weight: 700;
     color: #1a233a;
-    margin-bottom: 60px;
+    margin-bottom: var(--company-title-margin-bottom);
     letter-spacing: 0.05em;
 }
 
 /* MAP Area */
 .company-map-placeholder {
     width: 100%;
-    height: 400px;
+    height: var(--company-map-height);
     background-color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: var(--company-map-margin-bottom);
 }
 
 .company-map-placeholder span {
@@ -55,8 +72,9 @@
 
 .company-dl-row {
     display: flex;
+    align-items: center;
     border-bottom: 1px solid #7f8b99;
-    padding: 18px 0;
+    padding: var(--company-row-padding-y) 0;
 }
 
 .company-dl-row:last-child {
@@ -114,12 +132,12 @@
 /* Responsiveness */
 @media (max-width: 768px) {
     .company-content-inner {
-        padding: 40px 15px;
+        padding: 40px var(--sp-company-side-padding);
     }
 
     .company-dl-row {
         flex-direction: column;
-        padding: 15px 0;
+        padding: var(--sp-company-row-padding-y) 0;
     }
 
     .company-dl-row dt {

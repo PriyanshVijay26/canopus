@@ -1,5 +1,64 @@
 /* Purpose Page Styles */
 
+/* 
+ * SWEET SPOT CONFIGURATION BROTHER! 
+ * Tune these variables to find the perfect font sizes.
+ */
+:root {
+    --purpose-title-size: 32px;
+    --purpose-statement-size: 38px;
+    --vision-brand-size: 56px;
+    --vision-divider-size: 36px;
+    --vision-subtitle-size: 36px;
+    --vision-text-size: 21px;
+    --purpose-block-gap: 60px;
+    --purpose-content-width: 1000px;
+    --mvv-width: 900px;
+    --mvv-card-border-width: 2px;
+    --mvv-card-pt: 50px;
+    --mvv-card-pb: 30px;
+    --mvv-card-px: 40px;
+    --mvv-watermark-top: 20px;
+    --mvv-watermark-size: 60px;
+    --mvv-card-title-size: 28px;
+    --mvv-card-text-size: 20px;
+    --mvv-value-dt-size: 20px;
+    --mvv-value-dd-size: 18px;
+    
+    /* Mobile (SP) Sweet Spot */
+    --sp-vision-text-size: 14px;
+    --sp-purpose-block-gap: 80px;
+    --sp-mvv-watermark-top: 25px;
+    --sp-mvv-watermark-size: 50px;
+    --sp-mvv-card-title-size: 24px;
+    --sp-mvv-card-text-size: 15px;
+    --sp-mvv-value-dt-size: 18px;
+    --sp-mvv-value-dd-size: 14px;
+
+    /* Effects Sweet Spot */
+    --vision-text-shadow: 0 11.47px 13.77px rgba(0, 0, 0, 0.25);
+    --vision-body-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --vision-text-color: #2D3A3A;
+    --mvv-card-shadow: 10px 10px 10px 0 rgba(0, 53, 143, 0.5);
+    --mvv-watermark-color: rgba(0, 53, 143, 0.15);
+    
+    /* ========== MVV BACKGROUND MASK CONFIGURATION (Desktop) ========== */
+    --mvv-mask-width: 89vw;           /* Width of the mask image from screenshot */
+    --mvv-mask-height: 49vw;          /* Height of the mask image from screenshot */
+    --mvv-mask-top: -10vw;            /* Y-position from screenshot */
+    --mvv-mask-left: 55vw;            /* X-position from screenshot */
+    --mvv-mask-rotate: 54deg;         /* Rotation angle from screenshot */
+    --mvv-mask-opacity: 0.7;          /* Transparency from screenshot */
+    --mvv-mask-container-height: 100%; /* How tall the cropping container is - set to 100% to match section height */
+
+    /* ========== MVV BACKGROUND MASK CONFIGURATION (Mobile SP) ========== */
+    --sp-mvv-mask-width: 150vw;
+    --sp-mvv-mask-height: 137vw;
+    --sp-mvv-mask-top: -58vw;
+    --sp-mvv-mask-left: 60vw;
+    --sp-mvv-mask-rotate: 50deg;
+}
+
 .purpose-page {
     position: relative;
     background-color: #f6f9fc; /* Very light cyan/grey based on screenshot 2 */
@@ -9,7 +68,7 @@
 /* Old CSS bg-lines removed — now using global bpo-mask-bg.png */
 
 .purpose-content-inner {
-    max-width: 1000px;
+    max-width: var(--purpose-content-width);
     margin: 0 auto;
     padding: 80px 20px 100px;
     position: relative;
@@ -18,11 +77,11 @@
 }
 
 .purpose-block {
-    margin-bottom: 120px;
+    margin-bottom: var(--purpose-block-gap);
 }
 
 .purpose-title {
-    font-size: 32px;
+    font-size: var(--purpose-title-size);
     font-weight: 800;
     color: #1a233a;
     margin-bottom: 40px;
@@ -30,7 +89,7 @@
 }
 
 .purpose-statement {
-    font-size: 38px;
+    font-size: var(--purpose-statement-size);
     font-weight: 700;
     color: #333;
     line-height: 1.6;
@@ -42,34 +101,38 @@
 }
 
 .vision-brand {
-    font-size: 56px;
+    font-size: var(--vision-brand-size);
     font-weight: 800;
-    color: #1a233a;
+    color: var(--vision-text-color);
     letter-spacing: 0.05em;
     margin-bottom: 10px;
+    text-shadow: var(--vision-text-shadow);
 }
 
 .vision-divider {
-    font-size: 36px;
+    font-size: var(--vision-divider-size);
     font-weight: 300;
-    color: #1a233a;
+    color: var(--vision-text-color);
     margin-bottom: 10px;
     letter-spacing: 4px;
+    text-shadow: var(--vision-text-shadow);
 }
 
 .vision-subtitle {
-    font-size: 36px;
+    font-size: var(--vision-subtitle-size);
     font-weight: 800;
-    color: #1a233a;
+    color: var(--vision-text-color);
     margin-bottom: 40px;
     letter-spacing: 0.05em;
+    text-shadow: var(--vision-text-shadow);
 }
 
 .vision-text p {
-    font-size: 18px;
+    font-size: var(--vision-text-size);
     color: #4a5568;
     line-height: 1.8;
     margin-bottom: 24px;
+    text-shadow: var(--vision-body-shadow);
 }
 
 .vision-text p:last-child {
@@ -79,7 +142,9 @@
 .purpose-image-block {
     width: 100%;
     height: 450px;
-    background: url('../images/purpose-ewaste-placeholder.webp') center center / cover no-repeat;
+    background: 
+        linear-gradient(rgba(246, 249, 252, 0.5), rgba(246, 249, 252, 0.5)), 
+        url('../images/purpose-ewaste.jpeg') center center / cover no-repeat;
     background-color: #a0aec0; /* fallback grey */
     position: relative;
 }
@@ -93,6 +158,8 @@
 }
 
 .mvv-main-title {
+    position: relative;
+    z-index: 2;
     font-size: 36px;
     font-weight: 800;
     color: #1a233a;
@@ -101,7 +168,7 @@
 }
 
 .mvv-container {
-    max-width: 900px;
+    max-width: var(--mvv-width);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -112,10 +179,10 @@
 
 .mvv-card {
     background: #fff;
-    border: 1px solid #d3e1ef;
+    border: var(--mvv-card-border-width) solid #d3e1ef;
     border-radius: 4px;
-    box-shadow: 15px 15px 30px rgba(121, 155, 196, 0.3);
-    padding: 60px 40px;
+    box-shadow: var(--mvv-card-shadow);
+    padding: var(--mvv-card-pt) var(--mvv-card-px) var(--mvv-card-pb);
     position: relative;
     overflow: hidden;
 }
@@ -126,22 +193,24 @@
 
 .mvv-watermark {
     position: absolute;
-    top: 30px;
+    top: var(--mvv-watermark-top);
     left: 50%;
     transform: translateX(-50%);
-    font-size: 80px;
+    font-size: var(--mvv-watermark-size);
     font-weight: 800;
-    color: #eef3f7;
+    color: var(--mvv-watermark-color);
     z-index: 0;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
     pointer-events: none;
     line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .mvv-title {
     position: relative;
     z-index: 1;
-    font-size: 28px;
+    font-size: var(--mvv-card-title-size);
     font-weight: 800;
     color: #1a233a;
     margin-bottom: 40px;
@@ -151,7 +220,7 @@
 .mvv-text {
     position: relative;
     z-index: 1;
-    font-size: 18px;
+    font-size: var(--mvv-card-text-size);
     color: #333;
     line-height: 1.8;
 }
@@ -173,14 +242,14 @@
 }
 
 .value-item dt {
-    font-size: 20px;
+    font-size: var(--mvv-value-dt-size);
     font-weight: 700;
     color: #1a233a;
     margin-bottom: 12px;
 }
 
 .value-item dd {
-    font-size: 16px;
+    font-size: var(--mvv-value-dd-size);
     color: #4a5568;
     line-height: 1.6;
 }
@@ -192,34 +261,34 @@
     }
 
     .purpose-title {
-        font-size: 24px;
+        font-size: var(--sp-purpose-title-size);
         margin-bottom: 30px;
     }
 
     .purpose-statement {
-        font-size: 22px;
+        font-size: var(--sp-purpose-statement-size);
         line-height: 1.5;
     }
 
     .purpose-block {
-        margin-bottom: 80px;
+        margin-bottom: var(--sp-purpose-block-gap);
     }
 
     .vision-brand {
-        font-size: 40px;
+        font-size: var(--sp-vision-brand-size);
     }
 
     .vision-divider {
-        font-size: 28px;
+        font-size: var(--sp-vision-divider-size);
     }
 
     .vision-subtitle {
-        font-size: 24px;
+        font-size: var(--sp-vision-subtitle-size);
         margin-bottom: 30px;
     }
 
     .vision-text p {
-        font-size: 14px;
+        font-size: var(--sp-vision-text-size);
         margin-bottom: 20px;
     }
 
@@ -242,17 +311,17 @@
     }
 
     .mvv-watermark {
-        font-size: 50px;
-        top: 25px;
+        font-size: var(--sp-mvv-watermark-size);
+        top: var(--sp-mvv-watermark-top);
     }
 
     .mvv-title {
-        font-size: 24px;
+        font-size: var(--sp-mvv-card-title-size);
         margin-bottom: 30px;
     }
 
     .mvv-text {
-        font-size: 15px;
+        font-size: var(--sp-mvv-card-text-size);
     }
 
     .value-list {
@@ -260,10 +329,45 @@
     }
 
     .value-item dt {
-        font-size: 18px;
+        font-size: var(--sp-mvv-value-dt-size);
     }
 
     .value-item dd {
-        font-size: 14px;
+        font-size: var(--sp-mvv-value-dd-size);
+    }
+}
+/* ========== MVV BACKGROUND MASK ========== */
+.purpose-mvv-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Uses the full height of the parent section */
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden; /* Crucial: crops the rotated image */
+}
+
+.purpose-mvv-mask::before {
+    content: "";
+    position: absolute;
+    width: var(--mvv-mask-width);
+    height: var(--mvv-mask-height);
+    top: var(--mvv-mask-top);
+    left: var(--mvv-mask-left);
+    transform-origin: center center;
+    transform: rotate(var(--mvv-mask-rotate));
+    background: url('../images/bpo-mask-bg.png') no-repeat center/cover;
+    opacity: var(--mvv-mask-opacity);
+}
+
+/* Mobile overrides for the mask */
+@media (max-width: 768px) {
+    .purpose-mvv-mask::before {
+        width: var(--sp-mvv-mask-width);
+        height: var(--sp-mvv-mask-height);
+        top: var(--sp-mvv-mask-top);
+        left: var(--sp-mvv-mask-left);
+        transform: rotate(var(--sp-mvv-mask-rotate));
     }
 }

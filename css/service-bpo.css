@@ -181,11 +181,11 @@
     }
 
     .bpo-feature-title {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .bpo-page .service-lead {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.7;
     }
 
@@ -663,10 +663,10 @@
         height: 480px; /* Scaled down from 700px */
         
         /* --- MOBILE DIAGRAM FONT CONFIGURATION (Sweet Spot Tuning) --- */
-        --sp-hq-font: 14px;
-        --sp-gk-font: 14px;
-        --sp-box-text-font: 14px;
-        --sp-arrow-label-font: 9px;
+        --sp-hq-font: 13px;
+        --sp-gk-font: 13px;
+        --sp-box-text-font: 13px;
+        --sp-arrow-label-font: 8px;
 
         /* --- MOBILE DIAGRAM SPACING CONFIGURATION --- */
         --h-arrow-offset: 20px;
@@ -817,7 +817,7 @@
 .lightbox-content {
     position: relative;
     width: 95%;
-    max-height: 45%; /* Reduced height */
+    max-height: 65%; /* Reduced height */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);

@@ -1,5 +1,25 @@
 /* Features Page Styles */
 
+/* =========================================
+   Configuration Panel (Tunable Variables)
+   ========================================= */
+:root {
+    /* SP (Mobile) Strengths Header Configuration */
+    --sp-strength-padding: 0;           /* Overall padding for strength text block */
+    --sp-strength-head-margin: 20px;    /* Spacing below the (01 / 02) heading */
+    --sp-strength-num-margin: 15px;     /* Gap between the number (01) and the name */
+    --sp-strength-head-px: 0px;         /* New: Side padding for the (01 / 02) heading */
+    --sp-strength-name-size: 19px;      /* New: Mobile font size for strength name */
+
+    /* Download Card Configuration (Figma Sweet Spot!) */
+    --download-card-max-width: 1110px;
+    --download-card-bg: #F8FAFC;
+    --download-card-border: 2px solid rgba(0, 53, 143, 0.5);
+    --download-card-radius: 5px;
+    --download-card-shadow: 10px 10px 10px rgba(0, 53, 143, 0.3);
+}
+
+
 .features-page {
     position: relative;
     padding-top: 60px;
@@ -129,7 +149,7 @@
 .features-summary-text {
     text-align: center;
     margin-top: 100px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 1.8;
     color: #333;
@@ -219,18 +239,18 @@
 }
 
 .download-container {
-    max-width: 900px;
+    max-width: var(--download-card-max-width);
     margin: 0 auto;
 }
 
 .download-card {
     display: flex;
     align-items: center;
-    background: #fff;
-    border: 1px solid #c2d6f2; /* Light blue border */
-    border-radius: 4px;
+    background: var(--download-card-bg);
+    border: var(--download-card-border);
+    border-radius: var(--download-card-radius);
     padding: 40px;
-    box-shadow: 0 10px 40px rgba(10, 70, 166, 0.08); /* Soft blue shadow */
+    box-shadow: var(--download-card-shadow);
     gap: 50px;
 }
 
@@ -365,7 +385,7 @@
 
     .strength-text {
         align-items: center;
-        padding: 0;
+        padding: var(--sp-strength-padding);
     }
 
     .strength-image {
@@ -376,18 +396,22 @@
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        margin-bottom: 20px;
+        margin-bottom: var(--sp-strength-head-margin);
+        padding: 0 var(--sp-strength-head-px);
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .strength-number {
         font-size: 56px;
         margin-bottom: 0;
-        margin-right: 15px;
+        margin-right: var(--sp-strength-num-margin);
     }
 
     .strength-name {
-        font-size: 20px;
+        font-size: var(--sp-strength-name-size);
         text-align: left;
+        white-space: nowrap; /* Keep on one line */
     }
 
     .strength-desc {
@@ -430,5 +454,9 @@
         max-width: 310px;
         padding: 14px 20px;
         font-size: 16px;
+    }
+
+    .sp-br-hidden {
+        display: none;
     }
 }

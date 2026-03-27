@@ -58,6 +58,7 @@
     --sp-footer-padding-left: 30px; /* New: Tune the left padding for HOME and 会社情報 here! */
 
     /* Contact CTA Tuning (Sweet Spot Configuration) */
+    --contact-padding-top: 120px;      /* New: Space above the watermark */
     --contact-watermark-size: 100px;
     --contact-watermark-top: -28%;
     --contact-watermark-opacity: 1;
@@ -72,6 +73,7 @@
     --contact-panel-width: 1000px; /* brother, increase this to make the blue card wider! */
 
     /* Mobile Contact CTA Tuning */
+    --sp-contact-padding-top: 90px;   /* New: Mobile space above the watermark */
     --sp-contact-info-size: 16px;
     --sp-contact-btn-font-size: 16px;
     --sp-contact-btn-padding-y: 10px;
@@ -141,6 +143,8 @@ a {
 
 /* ========== SUBPAGE HERO ========== */
 .subpage-hero {
+    position: relative;
+    z-index: 10; /* Ensures breadcrumb stays above the background mask */
     min-height: 112px;
     background:
         radial-gradient(circle at 15% 30%, rgba(170, 208, 255, 0.6) 1px, transparent 2px),
@@ -825,7 +829,7 @@ a {
 
     .service-title,
     .vbx-title {
-        font-size: 34px;
+        font-size: 22px;
     }
 
     .ccs-title {
@@ -999,7 +1003,7 @@ a {
 /* ========== CONTACT CTA ========== */
 .contact-cta {
     background: #ffffff;
-    padding: 80px 16px;
+    padding: var(--contact-padding-top) 16px 80px;
     position: relative;
     overflow: hidden;
 }
@@ -1414,6 +1418,10 @@ a {
         flex-direction: column-reverse;
         gap: 30px;
         text-align: center;
+    }
+
+    .contact-cta {
+        padding-top: var(--sp-contact-padding-top);
     }
 
     .contact-btn {

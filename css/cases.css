@@ -1,8 +1,37 @@
 /* ========== CASES PAGE OVERRIDES ========== */
+:root {
+    --case-card-border: 2px solid #68A0FF;
+    --case-card-radius: 8px;
+    --case-card-shadow: 0 4px 20px rgba(104, 160, 255, 0.1);
+    --case-card-hover-shadow: 0 12px 32px rgba(104, 160, 255, 0.2);
+    --case-chip-bg: #00358F;
+    --case-chip-bottom: -7px;
+    --case-chip-size: 15px;
+    
+    /* Tunable Spacing BROTHER! */
+    --case-title-min-height: 2.2em;     /* Vertical area for title (keeps descriptions aligned) */
+    --case-title-margin-bottom: 8px;  /* Gap between title and description */
+    --case-title-size: clamp(12px, 1.5vw, 22px); /* Font size of the main title BROTHER! */
+    
+    /* Client Name Configuration BROTHER! */
+    --case-client-size: 18px;
+    --case-client-margin: 16px;
+    
+    /* Description Font Size BROTHER! */
+    --case-desc-size: 17px;
+}
+
 .cases-page {
-    background: #ffffff;
+    background: #F8FAFC; /* Match index.html background schema */
     color: #1f2a3c;
+    overflow: hidden;
+}
+
+/* Content wrapper matching features.html structure BROTHER! */
+.cases-page-content {
     position: relative;
+    overflow: hidden;
+    background: #F8FAFC; /* Consistent premium background */
 }
 
 /* ========== CASES INTRO (HERO) ========== */
@@ -10,7 +39,7 @@
     position: relative;
     text-align: center;
     padding: 80px 16px 70px;
-    background: #ffffff;
+    background: transparent; /* No longer needs its own background color as wrapper has it */
     overflow: hidden;
 }
 
@@ -27,18 +56,26 @@
 
 /* ========== CASES FILTER BAR ========== */
 .cases-filter-bar {
-    background: #013081; /* Dark blue matching design */
-    padding: 32px 0;
+    background: transparent; /* No longer full-width blue */
+    padding: 24px 0;
     position: relative;
     z-index: 2;
 }
 
 .cases-filter-inner {
-    width: fit-content;
+    width: min(1300px, 92vw); /* Contained width like the card grid */
     margin: 0 auto;
+    background: #00358F; /* NEW BRAND COLOR BROTHER! */
     display: flex;
     justify-content: center;
-    gap: 80px;
+    padding: 48px 24px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 53, 143, 0.15); /* Subtle shadow for depth */
+}
+
+.cases-filter-list {
+    display: flex;
+    gap: 80px; /* Desktop gap BROTHER! */
 }
 
 .cases-filter-item {
@@ -82,7 +119,7 @@
 /* ========== CASES GRID ========== */
 .cases-grid-section {
     padding: 80px 0 120px;
-    background: #ffffff;
+    background: transparent;
 }
 
 .cases-grid-inner {
@@ -99,18 +136,18 @@
 /* ========== CASES CARD ========== */
 .cases-card {
     background: #ffffff;
-    border: 1px solid #b6c5df;
-    border-radius: 6px;
-    overflow: hidden;
+    border: var(--case-card-border);
+    border-radius: var(--case-card-radius);
+    overflow: visible; /* CRITICAL: To allow overlapping tags */
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--case-card-shadow);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
 }
 
 .cases-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    box-shadow: var(--case-card-hover-shadow);
 }
 
 .cases-card-img-wrap {
@@ -120,47 +157,69 @@
     background-color: #d7e8ef;
     background-size: cover;
     background-position: center;
+    border-radius: 6px 6px 0 0; /* Match inner corner curve */
+    overflow: visible; /* CRITICAL: To allow overlapping tags */
+    box-shadow: 0 4px 16px rgba(0, 52, 138, 0.08); /* Internal shadow for premium feel */
+}
+
+/* Blue overlay for premium feel matching index.html */
+.cases-card-img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 53, 143, 0); 
+    border-radius: 6px 6px 0 0;
+    z-index: 5;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.cases-card:hover .cases-card-img-wrap::after {
+    background: rgba(0, 53, 143, 0.12); /* Branded tint on hover */
 }
 
 .cases-card-tag {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    background: #013081;
+    left: 12px;
+    bottom: var(--case-chip-bottom); /* HALF FLOATING BROTHER! */
+    background: var(--case-chip-bg);
     color: #ffffff;
     padding: 6px 16px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-size: var(--case-chip-size);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    border-radius: 4px;
 }
 
 .cases-card-content {
-    padding: 24px 28px 36px;
+    padding: 32px 28px 36px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .cases-card-client {
-    font-size: 16px;
+    font-size: var(--case-client-size);
     color: #44546a;
-    margin-bottom: 12px;
-    font-weight: 500;
+    margin-bottom: var(--case-client-margin);
+    font-weight: 700;
 }
 
 .cases-card-title {
-    font-size: clamp(20px, 1.5vw, 24px);
+    font-size: var(--case-title-size);
     font-weight: 800;
     line-height: 1.5;
     color: #1f2a3c;
-    margin-bottom: 24px;
+    margin-bottom: var(--case-title-margin-bottom);
+    min-height: var(--case-title-min-height); /* Keeps descriptions aligned BROTHER! */
 }
 
 .cases-card-desc {
-    font-size: 16px;
+    font-size: var(--case-desc-size);
     line-height: 1.6;
     color: #4a5665;
-    margin-top: auto;
+    font-weight: 500;
 }
 
 /* ========== MOBILE RESPONSIVENESS ========== */
@@ -174,10 +233,17 @@
     }
 
     .cases-filter-inner {
-        gap: 20px;
+        width: 100%; /* Go back to full-ish width on mobile for better touch area */
+        padding: 32px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centers the list block itself BROTHER! */
+    }
+
+    .cases-filter-list {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
+        gap: 20px;
+        align-items: flex-start; /* Keeps each checkbox starting at the same horizontal level! */
     }
 
     .cases-filter-item {
