@@ -77,8 +77,9 @@
 .card-image {
     border-radius: 4px;
     background-image: url('../images/gomikan-thumb.jpeg');
-    background-size: cover;
-    background-position: center;
+    background-size: var(--dt-card-img-zoom);
+    background-position: var(--dt-card-img-x) var(--dt-card-img-y);
+    background-repeat: no-repeat;
     transform: scaleX(-1);
     min-height: 130px;
 }
@@ -1070,8 +1071,8 @@ main .section-head h2 {
     .hero-right {
         min-height: 480px;
         /* Increased to allow space below the card */
-        width: 100%;
-        margin-left: 0;
+        width: var(--sp-hero-image-width);
+        margin-left: var(--sp-hero-image-offset);
         order: 2;
         /* Triangular slope: goes from lower on left to higher on right */
         clip-path: polygon(var(--sp-hero-slope-x1) var(--sp-hero-slope-y1), 100% 0, 100% 100%, 0 100%);
@@ -1105,8 +1106,10 @@ main .section-head h2 {
         min-height: 140px;
         height: 100%;
         background-image: url('../images/gomikan-thumb.jpeg');
-        background-size: cover;
-        background-position: center;
+        background-size: var(--sp-card-img-zoom);
+        background-position: var(--sp-card-img-x) var(--sp-card-img-y);
+        transform: scaleX(-1); /* Consistent with desktop */
+        background-repeat: no-repeat;
     }
 
     .card-content {

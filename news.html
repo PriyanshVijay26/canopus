@@ -27,17 +27,17 @@
                 <nav class="news-filter-section">
                     <ul class="news-filter-list">
                         <li class="news-filter-item">
-                            <a href="#" class="news-filter-link">
+                            <a href="#" class="news-filter-link active" data-category="all">
                                 <span class="news-filter-square"></span>すべて
                             </a>
                         </li>
                         <li class="news-filter-item">
-                            <a href="#" class="news-filter-link">
+                            <a href="#" class="news-filter-link" data-category="notice">
                                 <span class="news-filter-square"></span>お知らせ
                             </a>
                         </li>
                         <li class="news-filter-item">
-                            <a href="#" class="news-filter-link">
+                            <a href="#" class="news-filter-link" data-category="other">
                                 <span class="news-filter-square"></span>その他
                             </a>
                         </li>
@@ -48,7 +48,7 @@
                 <div class="news-listing-wrap">
                     <div class="news-listing">
                         <!-- News Row 1 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="notice">
                             <div class="news-meta">
                                 <span class="news-date">2025.02.14</span>
                                 <span class="news-badge">お知らせ</span>
@@ -58,7 +58,7 @@
                         </a>
 
                         <!-- News Row 2 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="notice">
                             <div class="news-meta">
                                 <span class="news-date">2025.02.14</span>
                                 <span class="news-badge">お知らせ</span>
@@ -68,7 +68,7 @@
                         </a>
 
                         <!-- News Row 3 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="notice">
                             <div class="news-meta">
                                 <span class="news-date">2022.12.17</span>
                                 <span class="news-badge">お知らせ</span>
@@ -78,7 +78,7 @@
                         </a>
 
                         <!-- News Row 4 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="other">
                             <div class="news-meta">
                                 <span class="news-date">2022.12.17</span>
                                 <span class="news-badge news-badge-other">その他</span>
@@ -88,7 +88,7 @@
                         </a>
 
                         <!-- News Row 5 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="other">
                             <div class="news-meta">
                                 <span class="news-date">2022.12.17</span>
                                 <span class="news-badge news-badge-other">その他</span>
@@ -98,7 +98,7 @@
                         </a>
 
                         <!-- News Row 6 -->
-                        <a class="news-row" href="#">
+                        <a class="news-row" href="#" data-category="other">
                             <div class="news-meta">
                                 <span class="news-date">2022.12.17</span>
                                 <span class="news-badge news-badge-other">その他</span>
@@ -117,5 +117,32 @@
     <!-- Scripts -->
     <script src="js/components.js"></script>
     <script src="js/subpage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterLinks = document.querySelectorAll('.news-filter-link');
+            const newsRows = document.querySelectorAll('.news-row');
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Toggle active state
+                    filterLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    const category = link.getAttribute('data-category');
+
+                    // Filter news rows
+                    newsRows.forEach(row => {
+                        if (category === 'all' || row.getAttribute('data-category') === category) {
+                            row.classList.remove('hidden');
+                        } else {
+                            row.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

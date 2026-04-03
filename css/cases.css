@@ -93,35 +93,72 @@
     color: #ffffff;
     font-size: var(--case-filter-font-size-pc);
     font-weight: 700;
-    cursor: pointer;
-    transition: opacity 0.2s;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 .cases-filter-item:hover {
-    opacity: 0.8;
+    opacity: 1;
+    color: #ffffff;
 }
 
-.cases-filter-item input {
-    display: none;
+.cases-filter-item.active {
+    font-weight: 800;
 }
 
 .cases-checkbox {
     width: var(--case-filter-square-size-pc);
     height: var(--case-filter-square-size-pc);
-    background: #ffffff;
+    background: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid #ffffff;
     border-radius: 2px;
+    position: relative;
+    transition: all 0.2s ease;
 }
 
-/* Checkmark logic if needed */
-.cases-filter-item input:checked + .cases-checkbox::after {
+.cases-filter-item.active .cases-checkbox {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+.cases-filter-item.active .cases-checkbox::after {
+    /* --- TICK ADJUSTMENT PANEL (Change these only!) --- */
+    --tick-width: 6px;
+    --tick-height: 16px;
+    --tick-top: -3px;
+    --tick-left: 6px;
+    /* -------------------------------------------------- */
+
     content: "";
-    width: calc(var(--case-filter-square-size-pc) * 0.5);
-    height: calc(var(--case-filter-square-size-pc) * 0.5);
-    background: #013081;
-    border-radius: 1px;
+    position: absolute;
+    left: var(--tick-left);
+    top: var(--tick-top);
+    width: var(--tick-width);
+    height: var(--tick-height);
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    animation: checkIn 0.3s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+@keyframes checkIn {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        height: var(--tick-height);
+        width: var(--tick-width);
+        opacity: 1;
+    }
+}
+
+.cases-card.hidden {
+    display: none !important;
 }
 
 /* ========== CASES GRID ========== */
@@ -264,9 +301,12 @@
         height: var(--case-filter-square-size-sp);
     }
 
-    .cases-filter-item input:checked + .cases-checkbox::after {
-        width: calc(var(--case-filter-square-size-sp) * 0.5);
-        height: calc(var(--case-filter-square-size-sp) * 0.5);
+    .cases-filter-item.active .cases-checkbox::after {
+        /* Mobile adjust */
+        --tick-width: 5px;
+        --tick-height: 14px;
+        --tick-top: -2px;
+        --tick-left: 5px;
     }
 
     .cases-grid-section {

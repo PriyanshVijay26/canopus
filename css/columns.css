@@ -132,14 +132,62 @@
 }
 
 .columns-filter-link:hover {
-    opacity: 0.8;
+    opacity: 1;
+}
+
+.columns-filter-link.active {
+    font-weight: 800;
 }
 
 .columns-filter-square {
-    display: block;
-    width: 14px;
-    height: 14px;
-    background-color: #ffffff;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.columns-filter-link.active .columns-filter-square {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+.columns-filter-link.active .columns-filter-square::after {
+    /* --- TICK ADJUSTMENT PANEL --- */
+    --tick-width: 6px;
+    --tick-height: 16px;
+    --tick-top: -3px;
+    --tick-left: 6px;
+    /* ----------------------------- */
+
+    content: "";
+    position: absolute;
+    left: var(--tick-left);
+    top: var(--tick-top);
+    width: var(--tick-width);
+    height: var(--tick-height);
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    animation: checkIn 0.3s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+@keyframes checkIn {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        height: var(--tick-height);
+        width: var(--tick-width);
+        opacity: 1;
+    }
 }
 
 /* ========== GRID SECTION ========== */
@@ -162,6 +210,10 @@
 /* ========== COLUMN CARD ========== */
 .column-card {
     display: block;
+}
+
+.column-card.hidden {
+    display: none !important;
 }
 
 .column-card-link {

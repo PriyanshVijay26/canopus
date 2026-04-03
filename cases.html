@@ -27,21 +27,18 @@
                 <section class="cases-filter-bar">
                     <div class="cases-filter-inner">
                         <div class="cases-filter-list">
-                            <label class="cases-filter-item">
-                                <input type="checkbox" name="category" value="廃棄物管理" aria-label="廃棄物管理">
+                            <a href="#" class="cases-filter-item" data-category="廃棄物管理">
                                 <span class="cases-checkbox"></span>
                                 <span class="cases-filter-text">廃棄物管理</span>
-                            </label>
-                            <label class="cases-filter-item">
-                                <input type="checkbox" name="category" value="循環事業" aria-label="循環事業">
+                            </a>
+                            <a href="#" class="cases-filter-item" data-category="循環事業">
                                 <span class="cases-checkbox"></span>
                                 <span class="cases-filter-text">循環事業</span>
-                            </label>
-                            <label class="cases-filter-item">
-                                <input type="checkbox" name="category" value="静脈事業" aria-label="静脈事業">
+                            </a>
+                            <a href="#" class="cases-filter-item" data-category="静脈事業">
                                 <span class="cases-checkbox"></span>
                                 <span class="cases-filter-text">静脈事業</span>
-                            </label>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -49,7 +46,7 @@
                 <section class="cases-grid-section">
                     <div class="cases-grid-inner">
                         <div class="cases-grid">
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="廃棄物管理">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-1.jpeg');">
                                     <span class="cases-card-tag">廃棄物管理</span>
                                 </div>
@@ -60,7 +57,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="廃棄物管理">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-2.jpeg');">
                                     <span class="cases-card-tag">廃棄物管理</span>
                                 </div>
@@ -71,7 +68,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="廃棄物管理">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-3.jpeg');">
                                     <span class="cases-card-tag">廃棄物管理</span>
                                 </div>
@@ -82,7 +79,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="循環事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-4.jpeg');">
                                     <span class="cases-card-tag">循環事業</span>
                                 </div>
@@ -93,7 +90,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="循環事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-5.jpeg');">
                                     <span class="cases-card-tag">循環事業</span>
                                 </div>
@@ -104,7 +101,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="循環事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-6.jpeg');">
                                     <span class="cases-card-tag">循環事業</span>
                                 </div>
@@ -115,7 +112,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="静脈事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-7.jpeg');">
                                     <span class="cases-card-tag">静脈事業</span>
                                 </div>
@@ -126,7 +123,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="静脈事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-8.jpeg');">
                                     <span class="cases-card-tag">静脈事業</span>
                                 </div>
@@ -137,7 +134,7 @@
                                 </div>
                             </article>
 
-                            <article class="cases-card">
+                            <article class="cases-card" data-category="静脈事業">
                                 <div class="cases-card-img-wrap" style="background-image: url('images/success-9.jpeg');">
                                     <span class="cases-card-tag">静脈事業</span>
                                 </div>
@@ -158,5 +155,41 @@
 
     <script src="js/components.js"></script>
     <script src="js/subpage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterLinks = document.querySelectorAll('.cases-filter-item');
+            const casesCards = document.querySelectorAll('.cases-card');
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const isAlreadyActive = link.classList.contains('active');
+                    const category = link.getAttribute('data-category');
+
+                    // Reset all links first
+                    filterLinks.forEach(l => l.classList.remove('active'));
+
+                    let targetCategory = 'all';
+
+                    if (!isAlreadyActive) {
+                        // If it wasn't active, activate it and set target category
+                        link.classList.add('active');
+                        targetCategory = category;
+                    } 
+                    // If it WAS active, targetCategory remains 'all' and no link gets 'active' class
+
+                    // Filter cards
+                    casesCards.forEach(card => {
+                        if (targetCategory === 'all' || card.getAttribute('data-category') === targetCategory) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
