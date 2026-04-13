@@ -8,72 +8,124 @@
     --card-bg: #d7e8ef;
 
     /* Spacing "Sweet Spot" Variables */
-    --dt-container-width: 94vw;   /* Desktop: Width allocated to content (Higher = smaller side margins) */
-    --dt-container-max: 1200px;  /* Desktop: Maximum content width */
-    --dt-card-padding: 16px;      /* Desktop: Internal padding for cards */
-    --dt-section-gap: 80px;       /* Desktop: Vertical spacing between sections */
-    --dt-hero-content-top: 64px;  /* Desktop: Distance of headline from top edge */
-    --dt-hero-card-bottom: 24px;  /* Desktop: Distance of card from bottom edge */
-    --hero-min-height: 872px;     /* Overall height of the hero section */
-    
+    --dt-container-width: 94vw;
+    /* Desktop: Width allocated to content (Higher = smaller side margins) */
+    --dt-container-max: 1200px;
+    /* Desktop: Maximum content width */
+    --dt-card-padding: 16px;
+    /* Desktop: Internal padding for cards */
+    --dt-section-gap: 80px;
+    /* Desktop: Vertical spacing between sections */
+    --dt-hero-content-top: 64px;
+    /* Desktop: Distance of headline from top edge */
+    --dt-hero-card-bottom: 24px;
+    /* Desktop: Distance of card from bottom edge */
+    --hero-min-height: 872px;
+    /* Overall height of the hero section */
+
     /* Hero Slope & Width Tuning (Sweet Spot Tuning) */
-    --dt-hero-slope-x1: 28%;        /* Desktop: Top-left x-coordinate of the slant (Decrease to shift left) */
-    --dt-hero-slope-x2: 0%;        /* Desktop: Bottom-left x-coordinate of the slant */
-    --dt-hero-image-width: 152%;  /* Desktop: Overall width of the image container */
-    --dt-hero-image-offset: -2%; /* Desktop: Negative margin to pull image left over blue area */
+    --dt-hero-slope-x1: 28%;
+    /* Desktop: Top-left x-coordinate of the slant (Decrease to shift left) */
+    --dt-hero-slope-x2: 0%;
+    /* Desktop: Bottom-left x-coordinate of the slant */
+    --dt-hero-image-width: 152%;
+    /* Desktop: Overall width of the image container */
+    --dt-hero-image-offset: -2%;
+    /* Desktop: Negative margin to pull image left over blue area */
 
     /* Gomikan Card Image Tuning (Sweet Spot Tuning) */
-    --dt-card-img-zoom: 160%;      /* Increase to zoom in on subject */
-    --dt-card-img-x: 100%;         /* Horizontal position (Decrease to shift left) */
-    --dt-card-img-y: 20%;         /* Vertical position (Decrease to shift up) */
-    
-    --sp-card-img-zoom: 180%;     /* Mobile zoom */
-    --sp-card-img-x: 100%;         /* Mobile Horizontal */
-    --sp-card-img-y: 20%;         /* Mobile Vertical */
+    --dt-card-img-zoom: 160%;
+    /* Increase to zoom in on subject */
+    --dt-card-img-x: 100%;
+    /* Horizontal position (Decrease to shift left) */
+    --dt-card-img-y: 0%;
+    /* Vertical position (Decrease to shift up) */
 
-    --sp-hero-slope-y1: 12%;      /* Mobile: Top-left y-coordinate (Decrease to make slant flatter) */
-    --sp-hero-slope-x1: 0%;       /* Mobile: Top-left x-coordinate */
+    --sp-card-img-zoom: 180%;
+    /* Mobile zoom */
+    --sp-card-img-x: 100%;
+    /* Mobile Horizontal */
+    --sp-card-img-y: 0%;
+    /* Mobile Vertical */
 
-    --sp-hero-card-pullup: -140px; /* Mobile: How much the card overlaps the image */
+    --sp-hero-slope-y1: 22%;
+    /* Mobile: Top-left y-coordinate (Decrease to make slant flatter) */
+    --sp-hero-slope-x1: 0%;
+    /* Mobile: Top-left x-coordinate */
+    --sp-hero-img-x: 10%;
+    /* Mobile: Horizontal position (Favoring the right side where the people are) */
+    --sp-hero-img-y: 100%;
+    /* Mobile: Vertical position (Centered) */
+
+    --sp-hero-card-pullup: -140px;
+    /* Mobile: How much the card overlaps the image */
 
     /* Mobile Hero Image Tuning (Sweet Spot Tuning) */
-    --sp-hero-image-width: 152%;  /* Mobile: Image width (Increase to zoom) */
-    --sp-hero-image-offset: -2%;   /* Mobile: Horizontal nudge */
+    --sp-hero-image-width: 110%;
+    /* Mobile: Image width (Reduced to prevent cropping) */
+    --sp-hero-image-offset: -2%;
+    /* Mobile: Horizontal nudge */
 
-    --sp-container-px: 20px;      /* Mobile: Standard side margins */
-    --sp-card-padding: 16px;      /* Mobile: Internal padding for the hero card */
+    --sp-container-px: 20px;
+    /* Mobile: Standard side margins */
+    --sp-card-padding: 16px;
+    /* Mobile: Internal padding for the hero card */
 
     /* Button "Sweet Spot" Variables */
-    --dt-btn-width: 300px;        /* Desktop: Width of the yellow hero button */
-    --sp-btn-width: 92%;         /* Mobile: Width of the yellow hero button */
+    --dt-btn-width: 300px;
+    /* Desktop: Width of the yellow hero button */
+    --sp-btn-width: 92%;
+    /* Mobile: Width of the yellow hero button */
 
     /* Footer Configuration (Sweet Spot Tuning) */
     --footer-bg-color: #00358F;
-    --footer-brand-size: 32px;      /* Brand name 'Canopus' */
-    --header-logo-height: 54px;      /* New: Header logo (Desktop) */
-    --header-padding-y: 6px;        /* New: Navbar height tuning (Desktop) */
-    --header-bg: #00358F;            /* New: Navbar color tuning */
-    --sp-header-logo-height: 62px;   /* New: Header logo (Mobile) */
-    --sp-header-padding-y: 10px;     /* New: Navbar height tuning (Mobile) */
-    --sp-header-logo-px: 6px;        /* New: Mobile logo horizontal offset (increase to shift right) */
-    --sp-hamburger-width: 52px;      /* New: Hamburger line length */
-    --sp-hamburger-height: 2.5px;    /* New: Hamburger line thickness */
-    --sp-hamburger-gap: 16px;         /* New: Separation between lines */
-    --sp-hamburger-pr: 0px;          /* New: Hamburger right padding/offset */
-    --logo-split-point: 83%;        /* New: Tune this to separate orb and text */
-    --header-logo-filter: none;     /* Deprecated for selective filtering */
-    --footer-address-size: 17px;    /* Desktop */
-    --footer-nav-title-size: 17px;  /* Desktop */
-    --footer-nav-link-size: 17px;   /* Desktop */
-    --footer-nav-sublink-size: 17px; /* Desktop */
-    --footer-logo-height: 120px;    /* Height of the image-based logo */
-    --breadcrumb-size: 18px;        /* Tunable breadcrumb text size */
+    --footer-brand-size: 32px;
+    /* Brand name 'Canopus' */
+    --header-logo-height: 54px;
+    /* New: Header logo (Desktop) */
+    --header-padding-y: 6px;
+    /* New: Navbar height tuning (Desktop) */
+    --header-bg: #00358F;
+    /* New: Navbar color tuning */
+    --sp-header-logo-height: 62px;
+    /* New: Header logo (Mobile) */
+    --sp-header-padding-y: 10px;
+    /* New: Navbar height tuning (Mobile) */
+    --sp-header-logo-px: 6px;
+    /* New: Mobile logo horizontal offset (increase to shift right) */
+    --sp-hamburger-width: 52px;
+    /* New: Hamburger line length */
+    --sp-hamburger-height: 2.5px;
+    /* New: Hamburger line thickness */
+    --sp-hamburger-gap: 16px;
+    /* New: Separation between lines */
+    --sp-hamburger-pr: 0px;
+    /* New: Hamburger right padding/offset */
+    --logo-split-point: 83%;
+    /* New: Tune this to separate orb and text */
+    --header-logo-filter: none;
+    /* Deprecated for selective filtering */
+    --footer-address-size: 17px;
+    /* Desktop */
+    --footer-nav-title-size: 17px;
+    /* Desktop */
+    --footer-nav-link-size: 17px;
+    /* Desktop */
+    --footer-nav-sublink-size: 17px;
+    /* Desktop */
+    --footer-logo-height: 120px;
+    /* Height of the image-based logo */
+    --breadcrumb-size: 18px;
+    /* Tunable breadcrumb text size */
     --sp-breadcrumb-size: 16px;
 
     /* Navbar "Sweet Spot" Configuration (Desktop) */
-    --nav-link-padding-y: 8px;      /* Vertical space inside the link (affects underline distance) */
-    --nav-underline-height: 4px;    /* Thickness of the hover underline */
-    --nav-underline-offset: 0px;    /* Extra distance from the bottom (0px = edge of padding) */
+    --nav-link-padding-y: 8px;
+    /* Vertical space inside the link (affects underline distance) */
+    --nav-underline-height: 4px;
+    /* Thickness of the hover underline */
+    --nav-underline-offset: 0px;
+    /* Extra distance from the bottom (0px = edge of padding) */
 
     /* Mobile Footer Tuning (Sweet Spot Tuning) */
     --sp-footer-address-size: 15px;
@@ -81,10 +133,12 @@
     --sp-footer-nav-link-size: 15px;
     --sp-footer-nav-sublink-size: 15px;
     --sp-footer-logo-height: 80px;
-    --sp-footer-padding-left: 30px; /* New: Tune the left padding for HOME and 会社情報 here! */
+    --sp-footer-padding-left: 30px;
+    /* New: Tune the left padding for HOME and 会社情報 here! */
 
     /* Contact CTA Tuning (Sweet Spot Configuration) */
-    --contact-padding-top: 120px;      /* New: Space above the watermark */
+    --contact-padding-top: 120px;
+    /* New: Space above the watermark */
     --contact-watermark-size: 100px;
     --contact-watermark-top: -28%;
     --contact-watermark-opacity: 1;
@@ -96,10 +150,12 @@
     --contact-btn-padding-x: 10px;
     --contact-btn-min-width: 180px;
     --contact-btn-radius: 7px;
-    --contact-panel-width: 1000px; /* Increase this to make the blue card wider if needed */
+    --contact-panel-width: 1000px;
+    /* Increase this to make the blue card wider if needed */
 
     /* Mobile Contact CTA Tuning */
-    --sp-contact-padding-top: 90px;   /* New: Mobile space above the watermark */
+    --sp-contact-padding-top: 90px;
+    /* New: Mobile space above the watermark */
     --sp-contact-info-size: 16px;
     --sp-contact-btn-font-size: 16px;
     --sp-contact-btn-padding-y: 10px;
@@ -108,13 +164,20 @@
     --sp-contact-panel-width: 82vw;
 
     /* ========== GLOBAL BACKGROUND MASK CONFIGURATION (Desktop) ========== */
-    --mask-bg-width: 113vw;           /* Width of the mask image */
-    --mask-bg-height: 76vw;          /* Height of the mask image */
-    --mask-bg-top: -64vw;            /* Y-position (negative = higher) */
-    --mask-bg-left: -34.8vw;         /* X-position (negative = more left) */
-    --mask-bg-rotate: -13deg;        /* Rotation angle */
-    --mask-bg-opacity: 0.85;         /* Transparency */
-    --mask-bg-container-height: 1000px; /* How tall the cropping container is */
+    --mask-bg-width: 113vw;
+    /* Width of the mask image */
+    --mask-bg-height: 76vw;
+    /* Height of the mask image */
+    --mask-bg-top: -64vw;
+    /* Y-position (negative = higher) */
+    --mask-bg-left: -34.8vw;
+    /* X-position (negative = more left) */
+    --mask-bg-rotate: -13deg;
+    /* Rotation angle */
+    --mask-bg-opacity: 0.85;
+    /* Transparency */
+    --mask-bg-container-height: 1000px;
+    /* How tall the cropping container is */
 
     /* ========== GLOBAL BACKGROUND MASK CONFIGURATION (Mobile SP) ========== */
     --sp-mask-bg-width: 163vw;
@@ -122,12 +185,16 @@
     --sp-mask-bg-top: -46vw;
     --sp-mask-bg-left: -44.8vw;
     --sp-mask-bg-rotate: -43deg;
-    --sp-mask-bg-opacity: 0.85;      /* Mobile Transparency */
-    --sp-mask-bg-container-height: 800px; /* Mobile Container Height */
+    --sp-mask-bg-opacity: 0.85;
+    /* Mobile Transparency */
+    --sp-mask-bg-container-height: 800px;
+    /* Mobile Container Height */
 
     /* ========== SUBPAGE HERO TUNING ========== */
-    --subpage-hero-bg-img: url('../images/subpage-hero-bg.png');    /* DESKTOP image name */
-    --sp-subpage-hero-bg-img: url('../images/subpage-hero-bg-sp.png'); /* MOBILE image name */
+    --subpage-hero-bg-img: url('../images/subpage-hero-bg.png');
+    /* DESKTOP image name */
+    --sp-subpage-hero-bg-img: url('../images/subpage-hero-bg-sp.png');
+    /* MOBILE image name */
     --subpage-hero-height: 162px;
     --subpage-hero-bg-size: cover;
     --subpage-hero-bg-pos: center;
@@ -142,6 +209,7 @@
 .sp-br {
     display: none;
 }
+
 @media (max-width: 900px) {
     .sp-br {
         display: block;
@@ -184,7 +252,8 @@ a {
 /* ========== SUBPAGE HERO ========== */
 .subpage-hero {
     position: relative;
-    z-index: 10; /* Ensures breadcrumb stays above the background mask */
+    z-index: 10;
+    /* Ensures breadcrumb stays above the background mask */
     min-height: var(--subpage-hero-height);
     background-image: var(--subpage-hero-bg-img);
     background-size: var(--subpage-hero-bg-size);
@@ -192,7 +261,8 @@ a {
     background-repeat: no-repeat;
     /* Gap fix: removed border-top */
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    margin-top: -1px; /* SUBTLE PULL UP TO REMOVE THE GAP */
+    margin-top: -1px;
+    /* SUBTLE PULL UP TO REMOVE THE GAP */
 }
 
 .subpage-hero::before {
@@ -240,7 +310,8 @@ a {
 .service-intro::before,
 .vbx-intro::before,
 .ccs-intro::before {
-    display: none !important; /* Replaced by bpo-mask-bg.png image mask */
+    display: none !important;
+    /* Replaced by bpo-mask-bg.png image mask */
 }
 
 /* ========== GLOBAL IMAGE-BASED BACKGROUND MASK ========== */
@@ -260,7 +331,8 @@ a {
     left: 0;
     z-index: 0;
     pointer-events: none;
-    overflow: hidden; /* Crucial: crops the rotated image */
+    overflow: hidden;
+    /* Crucial: crops the rotated image */
 }
 
 .global-header-mask::before,
@@ -281,6 +353,7 @@ a {
 
 /* Mobile overrides for the mask */
 @media (max-width: 900px) {
+
     .global-header-mask,
     .bpo-header-mask,
     .cocreate-header-mask,
@@ -679,7 +752,8 @@ a {
     .service-intro,
     .vbx-intro,
     .ccs-intro {
-        padding: 42px 14px 48px; /* More compact per Screenshot 2 */
+        padding: 42px 14px 48px;
+        /* More compact per Screenshot 2 */
     }
 
     .service-intro::before,
@@ -691,7 +765,8 @@ a {
 
     .service-title,
     .vbx-title {
-        font-size: clamp(28px, 6vw, 36px); /* Sane size for mobile/tablet */
+        font-size: clamp(28px, 6vw, 36px);
+        /* Sane size for mobile/tablet */
     }
 
     .ccs-title {
@@ -703,7 +778,8 @@ a {
     .ccs-lead {
         margin-top: 14px;
         width: min(90vw, 720px);
-        font-size: clamp(14px, 3.5vw, 18px); /* Sane size for lead text */
+        font-size: clamp(14px, 3.5vw, 18px);
+        /* Sane size for lead text */
         line-height: 1.45;
     }
 
@@ -894,6 +970,7 @@ a {
 }
 
 @media (max-width: 560px) {
+
     .service-intro,
     .vbx-intro,
     .ccs-intro {
@@ -1037,11 +1114,13 @@ a {
 }
 
 .brand-orb {
-    display: none; /* Deprecated in favor of images! */
+    display: none;
+    /* Deprecated in favor of images! */
 }
 
 .brand-name {
-    display: none; /* Deprecated in favor of images! */
+    display: none;
+    /* Deprecated in favor of images! */
 }
 
 .menu-toggle {
@@ -1121,7 +1200,8 @@ a {
 }
 
 .contact-panel {
-    background-color: #d8eff3; /* Matching the light cyan */
+    background-color: #d8eff3;
+    /* Matching the light cyan */
     max-width: var(--contact-panel-width);
     margin: 0 auto;
     padding: 50px 60px;
@@ -1137,7 +1217,8 @@ a {
 
 .contact-meta {
     display: grid;
-    grid-template-columns: minmax(4.5em, auto) min-content auto; /* Perfect key:value align */
+    grid-template-columns: minmax(4.5em, auto) min-content auto;
+    /* Perfect key:value align */
     column-gap: 10px;
     row-gap: 8px;
     align-items: center;
@@ -1153,7 +1234,8 @@ a {
 }
 
 .contact-label {
-    text-align: right; /* Keeps colons aligned without spreading the characters! */
+    text-align: right;
+    /* Keeps colons aligned without spreading the characters! */
 }
 
 .contact-btn {
@@ -1170,7 +1252,8 @@ a {
     letter-spacing: 0.01em;
     transition: all 0.3s ease;
     box-shadow: none;
-    min-width: var(--contact-btn-min-width); /* Tunable min-width */
+    min-width: var(--contact-btn-min-width);
+    /* Tunable min-width */
 }
 
 .contact-btn:hover {
@@ -1220,7 +1303,8 @@ a {
 }
 
 .footer-logo-sp {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
 
 .footer-brand-block p {
@@ -1317,7 +1401,8 @@ a {
 }
 
 .brand-name-overlay {
-    display: none; /* Deprecated in favor of images! */
+    display: none;
+    /* Deprecated in favor of images! */
 }
 
 .mobile-nav-links-area {
@@ -1412,7 +1497,7 @@ a {
     padding: 0;
 }
 
-.nav-item.has-dropdown > a {
+.nav-item.has-dropdown>a {
     display: inline-block;
 }
 
@@ -1456,7 +1541,8 @@ a {
 }
 
 .dropdown-menu a::after {
-    display: none !important; /* Remove the underline from dropdown items */
+    display: none !important;
+    /* Remove the underline from dropdown items */
 }
 
 .desktop-nav-links a.cta {
@@ -1547,7 +1633,8 @@ a {
     }
 
     .contact-panel {
-        width: var(--sp-contact-panel-width); /* Now tunable */
+        width: var(--sp-contact-panel-width);
+        /* Now tunable */
         margin: 0 auto;
         padding: 50px 20px 40px;
         flex-direction: column-reverse;
@@ -1560,22 +1647,25 @@ a {
     }
 
     .contact-btn {
-        width: auto; /* Allow min-width to take over */
+        width: auto;
+        /* Allow min-width to take over */
         min-width: var(--sp-contact-btn-min-width);
         max-width: none;
     }
 
     .section-watermark {
         font-size: 70px;
-         --contact-watermark-top: -10%;
+        --contact-watermark-top: -10%;
     }
 
     .contact-meta {
         display: grid;
-        justify-content: center; /* Centers the whole grid block! */
+        justify-content: center;
+        /* Centers the whole grid block! */
         gap: 8px;
         margin-bottom: 20px;
-        text-align: left; /* Keep internal labels/values aligned! */
+        text-align: left;
+        /* Keep internal labels/values aligned! */
     }
 }
 
@@ -1656,11 +1746,13 @@ a {
     }
 
     .footer-logo-dt {
-        display: none; /* Hide Desktop logo */
+        display: none;
+        /* Hide Desktop logo */
     }
 
     .footer-logo-sp {
-        display: block; /* Show Mobile logo */
+        display: block;
+        /* Show Mobile logo */
         height: var(--sp-footer-logo-height);
         width: auto;
         margin: 0 auto;

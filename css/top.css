@@ -235,7 +235,7 @@
     position: relative;
     background-image: url('../images/hero-main.jpeg');
     background-size: cover;
-    background-position: center;
+    background-position: var(--dt-hero-img-x) var(--dt-hero-img-y);
     min-height: 700px;
     clip-path: polygon(var(--dt-hero-slope-x1) 0, 100% 0, 100% 100%, var(--dt-hero-slope-x2) 100%);
     margin-left: var(--dt-hero-image-offset);
@@ -438,8 +438,8 @@ main .section-head h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 48px;
-    min-height: 260px;
+    padding: 32px 48px;
+    min-height: 200px;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -1055,7 +1055,7 @@ main .section-head h2 {
     }
 
     .hero h1 {
-        font-size: 28px;
+        font-size: 25px;
         line-height: 1.4;
         margin-bottom: 24px;
         text-shadow: none;
@@ -1075,6 +1075,8 @@ main .section-head h2 {
         margin-left: var(--sp-hero-image-offset);
         order: 2;
         /* Triangular slope: goes from lower on left to higher on right */
+        background-position: var(--sp-hero-img-x) var(--sp-hero-img-y);
+        background-size: cover; /* Cover is best, no unnatural zoom */
         clip-path: polygon(var(--sp-hero-slope-x1) var(--sp-hero-slope-y1), 100% 0, 100% 100%, 0 100%);
         margin-top: -30px;
         /* Overlap with blue area to hide gaps */

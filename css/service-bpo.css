@@ -8,7 +8,7 @@
 
 .service-services {
     position: relative;
-    padding: 100px 0;
+    padding: 40px 0; /* Squeezed from 100px */
     /* background color removed, inherited from .bpo-page-content */
 }
 
@@ -19,7 +19,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 30px; /* Squeezed from 80px */
 }
 
 .bpo-feature-item {
@@ -34,7 +34,7 @@
     
     display: flex;
     align-items: center;
-    gap: clamp(30px, 6vw, 100px);
+    gap: clamp(20px, 4vw, 60px); /* Squeezed from clamp(30px, 6vw, 100px) */
 }
 
 .bpo-feature-item--reverse {
@@ -44,7 +44,7 @@
 .bpo-feature-image {
     position: relative;
     flex: 1;
-    max-width: 500px;
+    max-width: 380px; /* Squeezed from 500px */
 }
 
 /* Image Blue Overlay */
@@ -75,7 +75,7 @@
 }
 
 .bpo-feature-number {
-    font-size: clamp(40px, 4vw, 56px);
+    font-size: clamp(32px, 3vw, 44px); /* Squeezed from clamp(40px, 4vw, 56px) */
     color: #0040a8;
     font-weight: 700;
     line-height: 1;
@@ -251,7 +251,7 @@
 
 /* Service Provision Diagram Section */
 .service-provision {
-    padding: 100px 0 40px; /* Reduced bottom padding */
+    padding: 120px 0 100px; /* Increased top gap as requested, kept healthy bottom gap */
     background: transparent; /* Show parent background and watermarks */
     position: relative;
     z-index: 2;
@@ -267,11 +267,11 @@
     font-size: clamp(28px, 3.5vw, 40px);
     color: #1f2a3c;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Squeezed from 30px */
 }
 
 .service-section-lead-wrap {
-    margin-bottom: 60px;
+    margin-bottom: 35px; /* Squeezed from 60px */
 }
 
 .service-section-lead {
@@ -286,7 +286,7 @@
     position: relative;
     width: 100%;
     max-width: var(--diagram-max-width, 1000px);
-    height: 700px;
+    height: 600px; /* Squeezed from 700px */
     margin: 0 auto;
     background: transparent;
     overflow: visible;
@@ -307,7 +307,7 @@
     /* Outward Shift Configuration - Use these to move the tables */
     --diagram-max-width: 1200px;    /* Increase this to spread the whole diagram wider */
     --table-outward-offset: 0px;    /* Use negative values like -20px to push tables outwards individually */
-    --side-table-top: 280px;        /* Vertical position of the side tables (Adjust this for fine-tuning) */
+    --side-table-top: 220px;        /* Squeezed from 280px */
 }
 
 
@@ -324,7 +324,7 @@
 }
 
 .node--gk {
-    top: 360px;
+    top: 300px; /* Squeezed from 360px */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -489,8 +489,8 @@
 }
 
 .arrow--gk-hq {
-    top: 215px;
-    height: 135px;
+    top: 205px; /* Squeezed from 215px */
+    height: 90px; /* Squeezed from 135px */
     left: calc(50% - 60px); /* Increased gap from 15px */
 }
 
@@ -514,8 +514,8 @@
 }
 
 .arrow--hq-gk {
-    top: 215px;
-    height: 135px;
+    top: 205px; /* Squeezed from 215px */
+    height: 90px; /* Squeezed from 135px */
     left: calc(50% + 60px); /* Increased gap from 15px */
 }
 
@@ -544,7 +544,7 @@
 /* Horizontal Arrows (Partners-GK & Bases-GK) */
 .arrow--left, .arrow--right {
     height: 2px;
-    top: 460px;
+    top: 400px; /* Adjusted to new GK center */
 }
 
 .arrow--right::before, .arrow--left::before {
@@ -557,7 +557,7 @@
 .arrow--partners-gk {
     left: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
     width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
-    top: calc(460px - var(--h-arrow-offset)); /* Centered around 460px */
+    top: calc(400px - var(--h-arrow-offset)); /* Centered around 400px */
 }
 
 .arrow--partners-gk::before {
@@ -580,7 +580,7 @@
 .arrow--gk-partners {
     left: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
     width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
-    top: calc(460px + var(--h-arrow-offset)); /* Centered around 460px */
+    top: calc(400px + var(--h-arrow-offset)); /* Centered around 400px */
 }
 
 .arrow--gk-partners::before {
@@ -607,7 +607,7 @@
 .arrow--bases-gk {
     right: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
     width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
-    top: calc(460px + var(--h-arrow-offset)); /* Centered around 460px */
+    top: calc(400px + var(--h-arrow-offset)); /* Centered around 400px */
 }
 
 .arrow--bases-gk::before {
@@ -630,7 +630,7 @@
 .arrow--gk-bases {
     right: calc(128px + var(--table-outward-offset, 0px) + var(--side-node-gap));
     width: calc(50% - 100px - var(--gk-node-gap) - (128px + var(--table-outward-offset, 0px) + var(--side-node-gap)));
-    top: calc(460px - var(--h-arrow-offset)); /* Centered around 460px */
+    top: calc(400px - var(--h-arrow-offset)); /* Centered around 400px */
 }
 
 .arrow--gk-bases::before {
@@ -1415,7 +1415,7 @@
     --cases-image-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     --cases-divider-color: #00358FCC;
 
-    padding: 100px 0;
+    padding: 40px 0; /* Squeezed from 100px */
     background: #F8FAFC;
     position: relative;
     z-index: 2;
@@ -1431,7 +1431,7 @@
     color: #1f2a3c;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px; /* Squeezed from 60px */
 }
 
 .cases-container {
@@ -1445,7 +1445,7 @@
 
 .case-item {
     flex: 1;
-    padding: 50px 40px;
+    padding: 30px 40px; /* Squeezed from 50px 40px */
     display: flex;
     flex-direction: column;
 }
@@ -1454,7 +1454,7 @@
 .case-divider {
     width: 2px;
     background: var(--cases-divider-color);
-    margin: 50px 0;
+    margin: 30px 0; /* Squeezed from 50px 0 */
     flex-shrink: 0;
 }
 
@@ -1462,7 +1462,7 @@
     font-size: var(--cases-client-size);
     color: #1f2a3c;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Squeezed from 20px */
 }
 
 .case-highlight {
@@ -1470,7 +1470,7 @@
     font-weight: 700;
     color: #1f2a3c;
     line-height: 1.5;
-    margin-bottom: 35px;
+    margin-bottom: 15px; /* Squeezed from 35px */
     height: 3.2em;
     display: flex;
     align-items: center;
@@ -1483,7 +1483,7 @@
     aspect-ratio: 16 / 10;
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 35px;
+    margin-bottom: 20px; /* Squeezed from 35px */
     box-shadow: var(--cases-image-shadow);
 }
 
@@ -1497,7 +1497,7 @@
 .case-details {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 12px; /* Squeezed from 25px */
 }
 
 .case-detail-row {
