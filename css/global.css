@@ -222,6 +222,34 @@
     }
 }
 
+/* ========== TABLET SPECIFIC TUNING (iPad Pro, iPad Air) ========== */
+@media (min-width: 901px) and (max-width: 1200px) {
+    :root {
+        /* === iPad Pro / Tablet Configuration === */
+        --dt-hero-px: 50px;
+        --dt-header-width: 112vw;
+        --dt-header-max: 1000px;
+        
+        /* === TABLET STACKED HERO TUNING (Isolated from Mobile) === */
+        /* Use these to control the hero image exactly on iPad Pro */
+        --tb-hero-slope-y1: 35%; /* Restored to perfect default */
+        --tb-hero-slope-x1: 0%;
+        --tb-hero-img-x: 10%;
+        --tb-hero-img-y: -20%;
+        --tb-hero-img-size: cover; 
+        --tb-hero-image-width: 160%; 
+        --tb-hero-image-height: 800px; /* Restored to your perfect tablet height */
+        --tb-hero-image-pullup: -100px; /* New: Move image UP on iPad (e.g., -80px) */
+        --tb-hero-image-offset: 0%; 
+        --tb-hero-card-width: 680px; 
+        
+        /* Card Image Zoom for iPad */
+        --tb-card-img-zoom: 160%;
+        --tb-card-img-x: 100%;
+        --tb-card-img-y: 0%;
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

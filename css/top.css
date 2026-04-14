@@ -39,6 +39,7 @@
     font-weight: 700;
     margin-bottom: 28px;
     text-shadow: 0 0 10px rgba(149, 180, 243, 0.4);
+    white-space: nowrap; /* Fixed: Keeps text on one line for desktop */
 }
 
 .hero h1 {
@@ -47,6 +48,7 @@
     font-weight: 700;
     margin-bottom: 24px;
     text-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Desktop only: keeps each line from breaking */
 }
 
 .hero-sub {
@@ -1010,6 +1012,179 @@ main .section-head h2 {
 }
 
 /* Consolidating and refining mobile responsiveness */
+@media (min-width: 901px) and (max-width: 1100px) {
+    /* Tablet (iPad Pro) Stacked Hero - Isolated from Mobile */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 0;
+        background: var(--primary);
+    }
+
+    .hero-left {
+        padding: 60px 24px 40px;
+        text-align: left;
+        order: 1;
+    }
+
+    .hero h1 {
+        font-size: 36px; /* Big and prominent on tablet */
+        line-height: 1.35;
+        margin-bottom: 16px;
+        text-shadow: none;
+        white-space: nowrap; /* Keeps each line from breaking on tablet */
+    }
+
+    .hero-sub {
+        font-size: 18px; /* Notably smaller than h1 on tablet */
+        line-height: 1.6;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .hero-right {
+        min-height: var(--tb-hero-image-height, 420px);
+        width: var(--tb-hero-image-width, 100%);
+        margin-left: var(--tb-hero-image-offset, 0%);
+        order: 2;
+        background-position: var(--tb-hero-img-x, 80%) var(--tb-hero-img-y, 100%);
+        background-size: var(--tb-hero-img-size, cover);
+        clip-path: polygon(var(--tb-hero-slope-x1, 0%) var(--tb-hero-slope-y1, 22%), 100% 0, 100% 100%, 0 100%);
+        margin-top: var(--tb-hero-image-pullup, -30px);
+    }
+
+    .hero-card {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: var(--tb-hero-card-width, 90%);
+        max-width: none;
+        margin: var(--sp-hero-card-pullup, -140px) auto 48px;
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        padding: var(--sp-card-padding);
+        background: #DFF2F8;
+        border-radius: 8px;
+        box-shadow: 0 16px 40px rgba(0, 52, 138, 0.12);
+        z-index: 50;
+        order: 3;
+        gap: var(--sp-card-padding);
+    }
+
+    .card-image {
+        display: block;
+        border-radius: 4px;
+        min-height: 140px;
+        height: 100%;
+        background-image: url('../images/gomikan-thumb.jpeg');
+        background-size: var(--tb-card-img-zoom, 160%);
+        background-position: var(--tb-card-img-x, 100%) var(--tb-card-img-y, 0%);
+        transform: scaleX(-1);
+        background-repeat: no-repeat;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .card-icon-gk {
+        width: 44px;
+        height: 44px;
+    }
+
+    .card-content h2 {
+        font-size: 24px;
+        margin-bottom: 4px;
+        letter-spacing: 0;
+        color: #1a2b44;
+        text-align: center;
+        width: 100%;
+    }
+
+    .card-content .card-sub-text {
+        font-size: 11px;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-weight: 700;
+        color: #1a2b44;
+        text-align: center;
+        width: 100%;
+    }
+
+    .card-sub-text .line {
+        display: block !important;
+        white-space: nowrap;
+    }
+
+    .card-btn {
+        width: var(--sp-btn-width);
+        margin: 0 auto;
+        height: 64px;
+        background: #FFD400 !important;
+        border-radius: 6px;
+        padding: 0 10px;
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #1a2b44;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 52, 138, 0.1);
+    }
+
+    .btn-text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        line-height: 1.1;
+    }
+
+    .btn-note {
+        font-size: 11px;
+        font-weight: 800;
+        color: #1a2b44;
+        margin-bottom: 2px;
+    }
+
+    .btn-main {
+        font-size: 18px;
+        font-weight: 900;
+        color: #1a2b44;
+    }
+
+    .btn-arrow {
+        width: 16px;
+        height: 16px;
+        border-width: 2.5px;
+    }
+
+    .btn-watermark {
+        position: absolute;
+        top: -12px;
+        right: 15px;
+        font-size: 14px;
+        font-weight: 800;
+        color: #2D3A3A;
+        transform: rotate(12deg);
+        white-space: nowrap;
+        opacity: 1;
+    }
+}
+
 @media (max-width: 900px) {
 
     /* --- MOBILE (SP) SPACING CONFIGURATION (Sweet Spot Tuning) --- */
@@ -1059,6 +1234,7 @@ main .section-head h2 {
         line-height: 1.4;
         margin-bottom: 24px;
         text-shadow: none;
+        white-space: normal; /* Reset: allow wrapping on mobile */
     }
 
     .hero-sub {
