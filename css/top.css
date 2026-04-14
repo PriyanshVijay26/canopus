@@ -23,7 +23,7 @@
 
 .hero-left {
     position: relative;
-    padding: var(--dt-hero-content-top, 64px) 52px 40px;
+    padding: var(--dt-hero-content-top, 64px) var(--dt-hero-px, 52px) 40px;
 }
 
 .hero-left::after {
@@ -58,7 +58,7 @@
 
 .hero-card {
     position: absolute;
-    left: 52px;
+    left: var(--dt-hero-px, 52px);
     bottom: var(--dt-hero-card-bottom, 24px);
     z-index: 10;
     width: 720px;
@@ -1055,7 +1055,7 @@ main .section-head h2 {
     }
 
     .hero h1 {
-        font-size: 25px;
+        font-size: 23px;
         line-height: 1.4;
         margin-bottom: 24px;
         text-shadow: none;
