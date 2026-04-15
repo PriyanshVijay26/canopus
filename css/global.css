@@ -222,6 +222,74 @@
     }
 }
 
+/* === Laptop (1440px) Specific Overrides === */
+@media (min-width: 1201px) and (max-width: 1440px) {
+    :root {
+        /* Hero Image Tuning */
+        --lp-hero-img-x: 60%;
+        --lp-hero-img-y: -90%;
+        --lp-hero-zoom: cover;
+        --lp-hero-slope-x1: 18%;       /* Reduced slope (flatter) */
+        --lp-hero-img-width: 152%;
+        --lp-hero-img-height: 872px;
+        --lp-hero-img-offset: -2%;
+        
+        /* Layout & Spacing */
+        --lp-container-px: 70px;       /* Reduced from 120px per request */
+        --lp-hero-content-top: 64px;
+        --lp-hero-h1-size: 38px;       /* Reduced font size */
+        --lp-hero-sub-size: 20px;      /* Reduced font size */
+        
+        /* New Layout Knobs */
+        --lp-hero-grid-cols: 0.75fr 1.25fr; /* Even more space for the image */
+        --lp-hero-card-width: 620px;      /* Even smaller card */
+        
+        /* Navbar */
+        --lp-header-logo-height: 54px;
+        --lp-header-padding-y: 6px;
+        --lp-header-width: 94vw;       /* New: Percentage control for width */
+        --lp-header-max: 1300px;       /* Squeezed Navbar to align with content */
+        
+        /* Hero Card Tuning */
+        --lp-card-img-zoom: 160%;
+        --lp-card-img-x: 100%;
+        --lp-card-img-y: 0%;
+        --lp-card-padding: 16px;
+    }
+
+    /* Apply Laptop Variables to ensure they win at this range */
+    .hero {
+        grid-template-columns: var(--lp-hero-grid-cols) !important;
+    }
+
+    .header-inner { 
+        max-width: var(--lp-header-max) !important; 
+        width: var(--lp-header-width) !important;
+    }
+
+    .hero-left { 
+        padding-top: var(--lp-hero-content-top) !important; 
+        padding-left: var(--lp-container-px) !important;
+    }
+
+    .hero h1 { font-size: var(--lp-hero-h1-size) !important; }
+    .hero-sub { font-size: var(--lp-hero-sub-size) !important; }
+    
+    .hero-card {
+        width: var(--lp-hero-card-width) !important;
+        left: var(--lp-container-px) !important;
+    }
+
+    .hero-right {
+        min-height: var(--lp-hero-img-height) !important;
+        width: var(--lp-hero-img-width) !important;
+        margin-left: var(--lp-hero-img-offset) !important;
+        background-position: var(--lp-hero-img-x) var(--lp-hero-img-y) !important;
+        background-size: var(--lp-hero-zoom) !important;
+        clip-path: polygon(var(--lp-hero-slope-x1) 0, 100% 0, 100% 100%, 0% 100%) !important;
+    }
+}
+
 /* ========== TABLET SPECIFIC TUNING (iPad Pro, iPad Air, iPad Mini) ========== */
 @media (min-width: 901px) and (max-width: 1200px) {
     :root {
