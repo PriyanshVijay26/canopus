@@ -1675,3 +1675,104 @@ main .section-head h2 {
         margin-top: var(--sp-btn-margin-top);
     }
 }
+/* === iPad Air (820px) specific tuning hooks === */
+/* At 820px, the mobile (max-width:900px) block is active. */
+/* These overrides use !important to take priority over the mobile styles. */
+@media (min-width: 800px) and (max-width: 899px) {
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: auto !important;
+    }
+
+    .hero-left {
+        padding: var(--air-hero-content-top, 60px) var(--air-container-px, 24px) 40px !important;
+        text-align: left !important;
+        order: 1 !important;
+    }
+
+    .hero h1 {
+        font-size: var(--air-hero-h1-size, 26px) !important;
+        white-space: normal !important;
+    }
+
+    .hero-sub {
+        font-size: var(--air-hero-sub-size, 16px) !important;
+    }
+
+    .hero-right {
+        min-height: var(--air-hero-img-height, 480px) !important;
+        background-position: var(--air-hero-img-x, 10%) var(--air-hero-img-y, 100%) !important;
+        background-size: var(--air-hero-zoom, cover) !important;
+        background-repeat: no-repeat !important;
+        background-color: var(--primary) !important;
+        clip-path: polygon(var(--air-hero-slope-x1, 0%) var(--air-hero-slope-y1, 22%), 100% 0, 100% 100%, 0 100%) !important;
+        width: var(--air-hero-img-width, 110%) !important;
+        margin-left: var(--air-hero-img-offset, -2%) !important;
+        margin-top: var(--air-hero-img-pullup, -30px) !important;
+        order: 2 !important;
+    }
+
+    .hero-card {
+        margin: var(--air-hero-card-pullup, -140px) auto 48px !important;
+        padding: var(--air-card-padding, 16px) !important;
+        order: 3 !important;
+    }
+
+    .card-image {
+        background-size: var(--air-card-img-zoom, 180%) !important;
+        background-position: var(--air-card-img-x, 100%) var(--air-card-img-y, 0%) !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
+/* === iPad Mini (768px) specific tuning hooks === */
+/* At 768px, the mobile (max-width:900px) block is active. */
+/* These overrides use !important to take priority over the mobile styles. */
+@media (min-width: 700px) and (max-width: 799px) {
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: auto !important;
+    }
+
+    .hero-left {
+        padding: var(--mini-hero-content-top, 60px) var(--mini-container-px, 20px) 40px !important;
+        text-align: left !important;
+        order: 1 !important;
+    }
+
+    .hero h1 {
+        font-size: var(--mini-hero-h1-size, 23px) !important;
+        white-space: normal !important;
+    }
+
+    .hero-sub {
+        font-size: var(--mini-hero-sub-size, 15px) !important;
+    }
+
+    .hero-right {
+        min-height: var(--mini-hero-img-height, 480px) !important;
+        background-position: var(--mini-hero-img-x, 10%) var(--mini-hero-img-y, 100%) !important;
+        background-size: var(--mini-hero-zoom, cover) !important;
+        background-repeat: no-repeat !important;
+        clip-path: polygon(var(--mini-hero-slope-x1, 0%) var(--mini-hero-slope-y1, 22%), 100% 0, 100% 100%, 0 100%) !important;
+        width: var(--mini-hero-img-width, 110%) !important;
+        margin-left: var(--mini-hero-img-offset, -2%) !important;
+        margin-top: var(--mini-hero-img-pullup, -30px) !important;
+        order: 2 !important;
+    }
+
+    .hero-card {
+        margin: var(--mini-hero-card-pullup, -140px) auto 48px !important;
+        padding: var(--mini-card-padding, 16px) !important;
+        order: 3 !important;
+    }
+
+    .card-image {
+        background-size: var(--mini-card-img-zoom, 180%) !important;
+        background-position: var(--mini-card-img-x, 100%) var(--mini-card-img-y, 0%) !important;
+        background-repeat: no-repeat !important;
+    }
+}
+

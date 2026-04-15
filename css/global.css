@@ -222,7 +222,7 @@
     }
 }
 
-/* ========== TABLET SPECIFIC TUNING (iPad Pro, iPad Air) ========== */
+/* ========== TABLET SPECIFIC TUNING (iPad Pro, iPad Air, iPad Mini) ========== */
 @media (min-width: 901px) and (max-width: 1200px) {
     :root {
         /* === iPad Pro / Tablet Configuration === */
@@ -247,6 +247,144 @@
         --tb-card-img-zoom: 160%;
         --tb-card-img-x: 100%;
         --tb-card-img-y: 0%;
+    }
+}
+
+/* === iPad Air (820px) Specific Overrides === */
+@media (min-width: 800px) and (max-width: 899px) {
+    :root {
+        /* Hero Image Tuning */
+        --air-hero-img-x: 70%;
+        --air-hero-img-y: -22%;
+        --air-hero-zoom: 120%;
+        --air-hero-slope-x1: 0%;
+        --air-hero-slope-y1: 18%;
+        --air-hero-img-width: 160%;
+        --air-hero-img-height: 800px;
+        --air-hero-img-offset: 0%;
+        --air-hero-img-pullup: -30px;
+        --air-hero-card-pullup: -140px;
+        
+        /* Layout & Spacing */
+        --air-container-px: 24px;
+        --air-hero-content-top: 60px;
+        --air-hero-h1-size: 26px;
+        --air-hero-sub-size: 16px;
+        
+        /* Navbar */
+        --air-header-logo-height: 62px;
+        --air-header-padding-y: 10px;
+        
+        /* Card Tuning */
+        --air-card-img-zoom: 180%;
+        --air-card-img-x: 100%;
+        --air-card-img-y: 0%;
+        --air-card-padding: 16px;
+    }
+
+    /* Apply Navbar Variables */
+    .main-header { padding: var(--air-header-padding-y) 0 !important; }
+    .header-logo-sp { height: var(--air-header-logo-height) !important; display: block !important; }
+    .header-logo-dt { display: none !important; }
+
+    /* Apply Hero Variables */
+    .hero-left { 
+        padding-top: var(--air-hero-content-top) !important; 
+        padding-left: var(--air-container-px) !important;
+        padding-right: var(--air-container-px) !important;
+    }
+    .hero h1 { font-size: var(--air-hero-h1-size) !important; }
+    .hero-sub { font-size: var(--air-hero-sub-size) !important; }
+    
+    .hero-right {
+        min-height: var(--air-hero-img-height) !important;
+        width: var(--air-hero-img-width) !important;
+        margin-left: var(--air-hero-img-offset) !important;
+        margin-top: var(--air-hero-img-pullup) !important;
+        background-position: var(--air-hero-img-x) var(--air-hero-img-y) !important;
+        background-size: var(--air-hero-zoom) !important;
+        clip-path: polygon(var(--air-hero-slope-x1) var(--air-hero-slope-y1), 100% 0, 100% 100%, 0 100%) !important;
+    }
+
+    .hero-card {
+        width: calc(100% - (var(--air-container-px) * 2)) !important;
+        margin-top: var(--air-hero-card-pullup) !important;
+        padding: var(--air-card-padding) !important;
+        gap: var(--air-card-padding) !important;
+    }
+
+    .card-image {
+        background-size: var(--air-card-img-zoom) !important;
+        background-position: var(--air-card-img-x) var(--air-card-img-y) !important;
+    }
+}
+
+/* === iPad Mini (768px) Specific Overrides === */
+@media (min-width: 700px) and (max-width: 799px) {
+    :root {
+        /* Hero Image Tuning */
+        --mini-hero-img-x: 70%;
+        --mini-hero-img-y: -20%;
+        --mini-hero-zoom: 120%;
+        --mini-hero-slope-x1: 0%;
+        --mini-hero-slope-y1: 22%;
+        --mini-hero-img-width: 160%;
+        --mini-hero-img-height: 700px;
+        --mini-hero-img-offset: 0%;
+        --mini-hero-img-pullup: -30px;
+        --mini-hero-card-pullup: -140px;
+        
+        /* Layout & Spacing */
+        --mini-container-px: 20px;
+        --mini-hero-content-top: 60px;
+        --mini-hero-h1-size: 23px;
+        --mini-hero-sub-size: 15px;
+        
+        /* Navbar */
+        --mini-header-logo-height: 52px; /* Slightly smaller for Mini */
+        --mini-header-padding-y: 8px;
+        
+        /* Card Tuning */
+        --mini-card-img-zoom: 180%;
+        --mini-card-img-x: 100%;
+        --mini-card-img-y: 0%;
+        --mini-card-padding: 16px;
+    }
+
+    /* Apply Navbar Variables */
+    .main-header { padding: var(--mini-header-padding-y) 0 !important; }
+    .header-logo-sp { height: var(--mini-header-logo-height) !important; display: block !important; }
+    .header-logo-dt { display: none !important; }
+
+    /* Apply Hero Variables */
+    .hero-left { 
+        padding-top: var(--mini-hero-content-top) !important; 
+        padding-left: var(--mini-container-px) !important;
+        padding-right: var(--mini-container-px) !important;
+    }
+    .hero h1 { font-size: var(--mini-hero-h1-size) !important; }
+    .hero-sub { font-size: var(--mini-hero-sub-size) !important; }
+    
+    .hero-right {
+        min-height: var(--mini-hero-img-height) !important;
+        width: var(--mini-hero-img-width) !important;
+        margin-left: var(--mini-hero-img-offset) !important;
+        margin-top: var(--mini-hero-img-pullup) !important;
+        background-position: var(--mini-hero-img-x) var(--mini-hero-img-y) !important;
+        background-size: var(--mini-hero-zoom) !important;
+        clip-path: polygon(var(--mini-hero-slope-x1) var(--mini-hero-slope-y1), 100% 0, 100% 100%, 0 100%) !important;
+    }
+
+    .hero-card {
+        width: calc(100% - (var(--mini-container-px) * 2)) !important;
+        margin-top: var(--mini-hero-card-pullup) !important;
+        padding: var(--mini-card-padding) !important;
+        gap: var(--mini-card-padding) !important;
+    }
+
+    .card-image {
+        background-size: var(--mini-card-img-zoom) !important;
+        background-position: var(--mini-card-img-x) var(--mini-card-img-y) !important;
     }
 }
 
