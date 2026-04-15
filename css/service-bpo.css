@@ -63,7 +63,8 @@
 
 .bpo-feature-image img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 15px 45px #ADADAD; /* User requested shadow color */
     display: block;
@@ -1298,16 +1299,16 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 40px;
-    gap: 40px;
+    padding: 24px 40px;  /* Squeezed vertical padding */
+    gap: 30px;           /* Squeezed gap */
     box-shadow: 4px 8px 4px 0 rgba(0, 0, 0, 0.25); /* Figma spec */
     border: none;
     border-radius: 4px;
 }
 
 .step-image {
-    flex: 0 0 240px;
-    height: 240px;
+    flex: 0 0 160px;     /* Squeezed image width */
+    height: 160px;       /* Squeezed image height */
     background: #fff;
     border-radius: 4px;
     overflow: hidden;
@@ -1352,22 +1353,27 @@
 
 /* Arrows between steps */
 .process-arrow-wrap {
-    --arrow-gap: 100px;      /* Line 1115: Adjust gap between cards here! */
+    /* Line 1355: Control the vertical gap (white space) between the cards! Increase this to make the gap larger */
+    --arrow-gap: 50px; 
     height: var(--arrow-gap);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1; 
 }
 
 .process-arrow {
-    --arrow-width: 248px;  /* Adjust width here */
-    --arrow-height: 63px;   /* Adjust height here */
+    /* Line 1364: Width of the arrow */
+    --arrow-width: 100px;   
+    /* Line 1366: Height (length) of the arrow pointing down */
+    --arrow-height: 25px;   
     width: 0;
     height: 0;
     border-left: calc(var(--arrow-width) / 2) solid transparent;
     border-right: calc(var(--arrow-width) / 2) solid transparent;
     border-top: var(--arrow-height) solid #BED6FD; /* Matching card color */
-    filter: drop-shadow(4px 8px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.15));
 }
 
 /* Mobile Adjustments */
@@ -1404,11 +1410,11 @@
     /* --- CONFIGURATION PANEL (Sweet Spot Tuning synchronized from Venous BX) --- */
     --cases-max-width: 1600px;
     --cases-title-size: clamp(28px, 3.5vw, 40px);
-    --cases-client-size: 19px;
-    --cases-highlight-size: clamp(18px, 2vw, 22px);
-    --cases-detail-label-size: 20px;
-    --cases-detail-text-size: 20px;
-    --cases-detail-indent: 1.5em;
+    --cases-client-size: 17px; /* Squeezed: reduced from 19px */
+    --cases-highlight-size: 17px; /* Squeezed: reduced from clamp */
+    --cases-detail-label-size: 16px; /* Squeezed: reduced from 20px */
+    --cases-detail-text-size: 15px; /* Squeezed: reduced from 20px */
+    --cases-detail-indent: 1em; /* Squeezed from 1.5em */
 
     /* Shadows & Dividers */
     --cases-container-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
@@ -1445,7 +1451,7 @@
 
 .case-item {
     flex: 1;
-    padding: 30px 40px; /* Squeezed from 50px 40px */
+    padding: 24px 30px; /* Squeezed: reduced padding significantly */
     display: flex;
     flex-direction: column;
 }
@@ -1454,7 +1460,7 @@
 .case-divider {
     width: 2px;
     background: var(--cases-divider-color);
-    margin: 30px 0; /* Squeezed from 50px 0 */
+    margin: 24px 0; /* Squeezed: reduced margin to match padding */
     flex-shrink: 0;
 }
 
@@ -1462,16 +1468,16 @@
     font-size: var(--cases-client-size);
     color: #1f2a3c;
     font-weight: 500;
-    margin-bottom: 10px; /* Squeezed from 20px */
+    margin-bottom: 8px; /* Squeezed */
 }
 
 .case-highlight {
     font-size: var(--cases-highlight-size);
     font-weight: 700;
     color: #1f2a3c;
-    line-height: 1.5;
-    margin-bottom: 15px; /* Squeezed from 35px */
-    height: 3.2em;
+    line-height: 1.4;
+    margin-bottom: 15px; /* Squeezed */
+    height: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1480,10 +1486,10 @@
 
 .case-image {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9; /* Flatter ratio to save vertical space */
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 20px; /* Squeezed from 35px */
+    margin-bottom: 20px; /* Squeezed */
     box-shadow: var(--cases-image-shadow);
 }
 
@@ -1497,13 +1503,13 @@
 .case-details {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Squeezed from 25px */
+    gap: 10px; /* Squeezed: minimal gap between rows */
 }
 
 .case-detail-row {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 2px; /* Squeezed: label and text very close */
 }
 
 .detail-label {
@@ -1514,7 +1520,7 @@
 
 .detail-text {
     font-size: var(--cases-detail-text-size);
-    line-height: 1.7;
+    line-height: 1.5; /* Squeezed: tighter line height */
     color: #1f2a3c;
     font-weight: 400;
     padding-left: var(--cases-detail-indent); /* Indentation from label */

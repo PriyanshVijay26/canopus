@@ -4,10 +4,10 @@
     /* --- Sweet Spot Tuning (Lines 4-10) --- */
     --cocreate-title-size: clamp(32px, 4vw, 42px);
     --cocreate-lead-size: 19px;
-    --cocreate-intro-bottom: 100px; /* Gap between lead text and first card */
-    --cocreate-card-gap: 50px;     /* Gap between each card */
-    --cocreate-card-padding-v: 20px; /* Vertical padding inside card (controls height) */
-    --cocreate-card-text-size: 19px;  /* Font size for the service description text */
+    --cocreate-intro-bottom: 40px; /* Squeezed: Gap between lead text and first card */
+    --cocreate-card-gap: 15px;     /* Squeezed: Gap between each card */
+    --cocreate-card-padding-v: 12px; /* Squeezed: Vertical padding inside card */
+    --cocreate-card-text-size: 16px;  /* Squeezed: Font size for the service description text */
 }
 
 .cocreate-page {
@@ -67,11 +67,11 @@
 
 .service-block-header {
     background: #00358F; /* Standardized to deep blue */
-    padding: 14px 60px;
+    padding: 8px 60px; /* Super-Squeezed */
     text-align: center;
     width: fit-content;
     min-width: 920px; /* User refined this value */
-    margin: -28px auto 40px; /* Precise float */
+    margin: -20px auto 12px; /* Super-Squeezed: Reduced margin */
     border-radius: 10px; /* Standardized radius */
     position: relative;
     z-index: 2;
@@ -88,14 +88,14 @@
 
 .service-block-main {
     display: flex;
-    gap: 50px; 
-    padding: 0 60px var(--cocreate-card-padding-v); /* Tunable on Line 9 */
+    gap: 20px; /* Super-Squeezed from 30px */
+    padding: 0 40px var(--cocreate-card-padding-v); /* Tunable on Line 9 */
     align-items: center; 
 }
 
 .service-block-image {
-    flex: 0 0 360px; 
-    aspect-ratio: 16 / 11;
+    flex: 0 0 160px; /* Super-Squeezed from 240px */
+    aspect-ratio: 16 / 9; /* Flatter image */
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -132,12 +132,12 @@
 .service-pill {
     background: #00358F; /* Standardized to deep blue */
     color: #FFFFFF;
-    padding: 14px 32px;
-    border-radius: 10px; /* Standardized radius */
-    font-size: 15px;
+    padding: 8px 20px; /* Super-Squeezed from 10px 24px */
+    border-radius: 8px; /* Standardized radius */
+    font-size: 13px; /* Super-Squeezed from 14px */
     font-weight: 700;
     text-align: center;
-    min-width: 180px; /* User refined this value */
+    min-width: 140px; /* Super-Squeezed from 160px */
     transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: default;
 }
@@ -170,7 +170,7 @@
 }
 
 .service-voices-inner {
-    width: min(1000px, 94vw);
+    width: min(1140px, 94vw);
     margin: 0 auto;
     position: relative;
     /* No z-index here to avoid creating a new stacking context */
@@ -191,7 +191,7 @@
     --voice-p-size: 20px;             /* Line 201: Increase this for larger quote text */
     --voice-number-size: 48px;        /* Line 202: Increase this for larger number circles */
     --voice-number-font-size: 26px;   /* Line 203: Adjust the size of the digits 1,2,3 */
-    --voice-content-gap: 80px;        /* Line 204: Space between person and text */
+    --voice-content-gap: 40px;        /* Line 204: Space between person and text */
     --voice-person-translateX: -120px;   /* Line 205: Change this to shift person left/right (e.g., -50px) */
     
     --voice-bg-width: 1000px;

@@ -216,9 +216,16 @@
     display: none;
 }
 
+.pc-br {
+    display: inline;
+}
+
 @media (max-width: 900px) {
     .sp-br {
         display: block;
+    }
+    .pc-br {
+        display: none;
     }
 }
 

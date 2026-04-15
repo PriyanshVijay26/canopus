@@ -4,10 +4,10 @@
     /* --- Sweet Spot Tuning (Lines 4-10) --- */
     --venous-title-size: clamp(32px, 4vw, 42px); 
     --venous-lead-size: 19px; 
-    --venous-intro-bottom: 100px; /* Gap between lead text and first card */
-    --venous-card-gap: 50px;     /* Gap between each card */
-    --venous-card-padding-v: 20px; /* Vertical padding inside card (controls height) */
-    --venous-card-text-size: 19px;  /* Font size for the service description text */
+    --venous-intro-bottom: 40px; /* Squeezed: Gap between lead text and first card */
+    --venous-card-gap: 15px;     /* Squeezed: Gap between each card */
+    --venous-card-padding-v: 12px; /* Squeezed: Vertical padding inside card */
+    --venous-card-text-size: 16px;  /* Squeezed: Font size for the service description text */
 }
 
 /* Venous Page Specific Background Mask (Responsive Figma Coordinate System) */
@@ -77,11 +77,11 @@
 
 .service-block-header {
     background: #00358F;
-    padding: 14px 60px;
+    padding: 8px 60px; /* Super-Squeezed */
     text-align: center;
     width: fit-content;
     min-width: 920px; /* Synced with Co-create */
-    margin: -28px auto 40px; /* The exact -28px negative margin */
+    margin: -20px auto 12px; /* Super-Squeezed */
     border-radius: 10px;
     position: relative;
     z-index: 2;
@@ -98,14 +98,14 @@
 
 .service-block-main {
     display: flex;
-    gap: 50px; 
-    padding: 0 60px var(--venous-card-padding-v); /* Tunable on Line 9 */
+    gap: 20px; /* Super-Squeezed */
+    padding: 0 40px var(--venous-card-padding-v); /* Tunable on Line 9 */
     align-items: center; 
 }
 
 .service-block-image {
-    flex: 0 0 360px; 
-    aspect-ratio: 16 / 11;
+    flex: 0 0 160px; /* Super-Squeezed */
+    aspect-ratio: 16 / 9; /* Super-Squeezed */
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -143,12 +143,12 @@
 .service-pill {
     background: #00358F;
     color: #FFFFFF;
-    padding: 14px 32px;
-    border-radius: 10px;
-    font-size: 15px;
+    padding: 8px 20px; /* Super-Squeezed */
+    border-radius: 8px; /* Super-Squeezed */
+    font-size: 13px; /* Super-Squeezed */
     font-weight: 700;
     text-align: center;
-    min-width: 180px;
+    min-width: 140px; /* Super-Squeezed */
 }
 
 /* Features Section - Premium Layout (Synced with Co-create) */
@@ -345,11 +345,11 @@
     /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
     --cases-max-width: 1600px;
     --cases-title-size: clamp(28px, 3.5vw, 40px);
-    --cases-client-size: 20px;
-    --cases-highlight-size: clamp(18px, 2vw, 22px);
-    --cases-detail-label-size: 20px;
-    --cases-detail-text-size: 20px;
-    --cases-detail-indent: 1.5em; /* Adjust this for Figma indentation */
+    --cases-client-size: 17px; /* Squeezed: reduced from 20px */
+    --cases-highlight-size: 17px; /* Squeezed: reduced from clamp */
+    --cases-detail-label-size: 16px; /* Squeezed: reduced from 20px */
+    --cases-detail-text-size: 15px; /* Squeezed: reduced from 20px */
+    --cases-detail-indent: 1em; /* Squeezed from 1.5em */
 
     /* Shadows & Dividers */
     --cases-container-shadow: 3px 6px 4.7px 0 rgba(0, 53, 143, 0.22);
@@ -386,7 +386,7 @@
 
 .case-item {
     flex: 1;
-    padding: 50px 40px;
+    padding: 24px 30px; /* Squeezed */
     display: flex;
     flex-direction: column;
 }
@@ -395,7 +395,7 @@
 .case-divider {
     width: 2px;
     background: var(--cases-divider-color);
-    margin: 50px 0;
+    margin: 24px 0; /* Squeezed */
     flex-shrink: 0;
 }
 
@@ -403,16 +403,16 @@
     font-size: var(--cases-client-size);
     color: #1f2a3c;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 8px; /* Squeezed */
 }
 
 .case-highlight {
     font-size: var(--cases-highlight-size);
     font-weight: 700;
     color: #1f2a3c;
-    line-height: 1.5;
-    margin-bottom: 35px;
-    height: 3.2em;
+    line-height: 1.4; /* Squeezed */
+    margin-bottom: 15px; /* Squeezed */
+    height: 3em; /* Squeezed */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,10 +421,10 @@
 
 .case-image {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9; /* Squeezed */
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 35px;
+    margin-bottom: 20px; /* Squeezed */
     box-shadow: var(--cases-image-shadow);
 }
 
@@ -438,13 +438,13 @@
 .case-details {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 10px; /* Squeezed */
 }
 
 .case-detail-row {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 2px; /* Squeezed */
 }
 
 .detail-label {
@@ -455,7 +455,7 @@
 
 .detail-text {
     font-size: var(--cases-detail-text-size);
-    line-height: 1.7;
+    line-height: 1.5; /* Squeezed */
     color: #1f2a3c;
     font-weight: 400;
     padding-left: var(--cases-detail-indent); /* Indentation from label */
