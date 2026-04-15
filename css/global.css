@@ -20,7 +20,7 @@
     /* Desktop: Distance of headline from top edge */
     --dt-hero-card-bottom: 24px;
     /* Desktop: Distance of card from bottom edge */
-    --dt-hero-px: 135px;
+    --dt-hero-px: 80px;
     /* Desktop: Horizontal padding for hero text and card alignment */
     --hero-min-height: 872px;
     /* Overall height of the hero section */
@@ -91,7 +91,7 @@
     /* New: Navbar color tuning */
     --dt-header-width: 98vw;
     /* Desktop: Navbar horizontal span (Higher = closer to edges) */
-    --dt-header-max: 1600px;
+    --dt-header-max: 1720px;
     /* Desktop: Maximum width of the navbar content */
     --sp-header-logo-height: 62px;
     /* New: Header logo (Mobile) */

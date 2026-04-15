@@ -1124,8 +1124,13 @@ main .section-head h2 {
     }
 
     .card-sub-text .line {
-        display: block !important;
+        display: inline; /* Group spans together into 2 lines */
         white-space: nowrap;
+    }
+
+    .card-sub-text .line:nth-child(2)::after {
+        content: "\A"; /* Force line break after span 2 */
+        white-space: pre;
     }
 
     .card-btn {
