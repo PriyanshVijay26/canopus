@@ -156,6 +156,15 @@
         --sp-case-divider-width: 90%;    /* How much of the card width it spans */
         --sp-process-card-width: 84vw;   /* Width of process cards on mobile */
         --sp-cases-card-width: 84vw;     /* Width of case studies cards on mobile */
+
+        /* SQUEEZED: Introduction Process Variables */
+        --sp-process-padding: 16px; 
+        --sp-process-gap: 15px;
+        --sp-process-img-height: 160px;
+        --sp-process-step-font: 20px;
+        --sp-process-title-font: 20px;
+        --sp-process-text-font: 15px;
+        --sp-process-header-gap: 8px;
     }
 
     .service-services {
@@ -1377,26 +1386,36 @@
 }
 
 /* Mobile Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .service-process-inner {
         width: var(--sp-process-card-width);
     }
 
     .step-card {
         flex-direction: column;
-        padding: 20px;
-        gap: 20px;
+        padding: var(--sp-process-padding);
+        gap: var(--sp-process-gap);
         text-align: center;
     }
 
     .step-image {
-        flex: 0 0 200px;
+        flex: 0 0 var(--sp-process-img-height);
         width: 100%;
     }
 
     .step-header {
         flex-direction: column;
-        gap: 10px;
+        gap: var(--sp-process-header-gap);
+        margin-bottom: var(--sp-process-header-gap);
+    }
+
+    .step-number, .step-title {
+        font-size: var(--sp-process-step-font);
+    }
+
+    .step-text {
+        font-size: var(--sp-process-text-font);
+        line-height: 1.6;
     }
 
     /* Mobile Spacing Override */

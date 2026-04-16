@@ -99,7 +99,7 @@
 .service-block-main {
     display: flex;
     gap: 20px; /* Super-Squeezed */
-    padding: 0 40px var(--venous-card-padding-v); /* Tunable on Line 9 */
+    padding: 0 30px var(--venous-card-padding-v); /* Tunable on Line 9 */
     align-items: center; 
 }
 
@@ -127,6 +127,7 @@
     line-height: 1.9;
     color: #1f2a3c;
     font-weight: 500;
+    letter-spacing: -0.01em; /* Prevent orphan punctuation */
 }
 
 .service-block-footer {
@@ -488,12 +489,12 @@
 }
 
 .service-voices-inner {
-    width: min(1000px, 94vw);
+    width: min(1200px, 94vw);
     margin: 0 auto;
     position: relative;
 }
 
-.venous-page .service-voices-title {
+.venous-page .service-section-title {
     text-align: center;
     font-size: clamp(28px, 3.5vw, 36px);
     font-weight: 800;
@@ -508,8 +509,9 @@
     --voice-p-size: 20px;
     --voice-number-size: 48px;
     --voice-number-font-size: 26px;
-    --voice-content-gap: 80px;
-    --voice-person-translateX: -40px;
+    --voice-content-gap: 40px;
+    --voice-person-translateX: 0px; /* Adjusted to 0 for combined centering */
+    --voice-list-max-width: 830px; /* FIXED WIDTH to synchronize combined center and gap */
     
     --voice-bg-width: 1000px;
     --voice-bg-height: 1000px;
@@ -521,6 +523,7 @@
     display: flex;
     align-items: center;
     gap: var(--voice-content-gap);
+    justify-content: center; /* Centering the combined man + text unit */
     position: relative;
     z-index: 5;
 }
@@ -557,7 +560,8 @@
 }
 
 .service-voice-list {
-    flex: 1;
+    flex: 0 1 auto; /* Prevents stretching to allow combined centering */
+    max-width: var(--voice-list-max-width); /* Synchronizes the visual "unit" across pages */
     list-style: none;
     padding: 0;
     margin: 0;

@@ -170,7 +170,7 @@
 }
 
 .service-voices-inner {
-    width: min(1140px, 94vw);
+    width: min(1200px, 94vw);
     margin: 0 auto;
     position: relative;
     /* No z-index here to avoid creating a new stacking context */
@@ -187,12 +187,13 @@
 .cocreate-page .service-voice-grid {
     /* --- CONFIGURATION PANEL (Sweet Spot Tuning) --- */
     --voice-person-width: 200px;      /* Line 199: Decrease this to make the person smaller */
-    --voice-h3-size: 24px;            /* Line 200: Increase this for larger item titles */
-    --voice-p-size: 20px;             /* Line 201: Increase this for larger quote text */
-    --voice-number-size: 48px;        /* Line 202: Increase this for larger number circles */
-    --voice-number-font-size: 26px;   /* Line 203: Adjust the size of the digits 1,2,3 */
-    --voice-content-gap: 40px;        /* Line 204: Space between person and text */
-    --voice-person-translateX: -120px;   /* Line 205: Change this to shift person left/right (e.g., -50px) */
+    --voice-h3-size: 24px;            /* Item Title Font Size */
+    --voice-p-size: 20px;             /* Quote Text Font Size */
+    --voice-number-size: 48px;        /* Number Circle Size */
+    --voice-number-font-size: 26px;   /* Number Digit Size */
+    --voice-content-gap: 40px;        /* Space between person and text unit */
+    --voice-person-translateX: 0px;   /* Combined centering offset */
+    --voice-list-max-width: 960px;    /* FIXED WIDTH to synchronize combined center and gap */
     
     --voice-bg-width: 1000px;
     --voice-bg-height: 1000px;
@@ -204,6 +205,7 @@
     display: flex;
     align-items: center;
     gap: var(--voice-content-gap);    /* Line 215: Applied gap */
+    justify-content: center; /* Centering the combined man + text unit */
     position: relative;
     z-index: 5; /* Keep content ABOVE the background circle */
 }
@@ -241,7 +243,8 @@
 }
 
 .service-voice-list {
-    flex: 1;
+    flex: 0 1 auto; /* Prevents stretching to allow combined centering */
+    max-width: var(--voice-list-max-width); /* Synchronizes the visual "unit" across pages */
     list-style: none;
     padding: 0;
     margin: 0;
