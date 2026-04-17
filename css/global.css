@@ -1849,6 +1849,10 @@ a {
         flex: none;
     }
 
+    .header-logo-sp {
+        height: var(--sp-header-logo-height);
+    }
+
     .menu-toggle {
         display: flex;
         z-index: 10;

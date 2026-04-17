@@ -1177,7 +1177,7 @@
     width: 240px;
     background: #fcfdfe;
     justify-content: flex-start;
-    padding: 40px 30px 40px 60px;
+    padding: 40px 30px 40px 40px;
     display: flex;
     align-items: center;
     font-size: var(--details-label-size);
@@ -1186,6 +1186,7 @@
     text-align: left;
     border-right: none;
     flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .service-table-content {
