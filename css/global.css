@@ -500,9 +500,11 @@ a {
     width: 100%;
     margin: 0;
     border-radius: 0;
-    overflow: hidden;
+    overflow: visible;
+    overflow-x: clip;
     box-shadow: none;
     background: var(--primary);
+    padding-top: 76px; /* Compensate for fixed header height (54px + 6px*2) */
 }
 
 /* ========== SUBPAGE HERO ========== */
@@ -639,6 +641,10 @@ a {
 
     .subpage-hero-inner {
         min-height: var(--sp-subpage-hero-height);
+    }
+
+    .site-shell {
+        padding-top: 100px; /* Compensate for taller mobile header (62px + 10px*2) */
     }
 }
 
@@ -1311,12 +1317,19 @@ a {
 }
 
 /* ========== HEADER ========== */
+#global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
 .main-header {
     position: relative;
-    z-index: 900;
     background: var(--header-bg);
     padding: var(--header-padding-y) 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header-inner {
